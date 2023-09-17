@@ -36,13 +36,17 @@ class ProductController extends Controller
         ]);
     }
 
-    public function saveProduct( Request $request){
+    public function saveProduct( Request $request)
+    {
 
        $this->product = Product::storeProduct($request);
         OtherImage::storeOtherImage($request->other_image, $this->product->id);
         return back()->with('message','successfully add product');
     }
-    public function editProduct($product_id){
+
+
+    public function editProduct($product_id)
+     {
         return view('admin.product.edit-product',[
             'categories'    =>Category::all(),
             'subcategories' =>SubCategory::all(),
@@ -50,21 +54,44 @@ class ProductController extends Controller
             'units'         =>Unit::all(),
             'product'=>Product::find($product_id)
         ]);
-    }
+     }
 
-    public function updateProduct (Request $request){
-        Product::storeProduct ($request);
-        return redirect('/product/manage')->with('message','update subcategory successfully');
+      public function detailProduct($product_id)
+       {
+           return view('admin.product.detail-product',[
+               'categories'    =>Category::all(),
+               'subcategories' =>SubCategory::all(),
+               'brands'        =>Brand::all(),
+               'units'         =>Unit::all(),
+               'product'=>Product::find($product_id)
+           ]);
 
-    }
-    public function deleteProduct (Request $request){
+       }
 
-        Product::deleteProduct ($request);
-        return redirect('/product/manage')->with('message','delete subcategory successfully');
-    }
+       public function updateProduct (Request $request)
+        {
+             Product::storeProduct ($request);
 
-    public function statusProduct($product_id){
+                if($request->other_image){
+                 OtherImage::updateOtherImage($request->other_image,$request->product_id);
+             }
+
+           return redirect('/product/manage')->with('message','update product successfully');
+
+        }
+
+
+        public function deleteProduct (Request $request)
+        {
+             OtherImage::deleteOtherImage($request);
+             Product::deleteProduct ($request);
+          return redirect('/product/manage')->with('message','delete product successfully');
+        }
+
+
+     public function statusProduct($product_id)
+     {
         Product::updateStatus($product_id);
         return redirect('/product/manage')->with('message','status update successfully');
-    }
+     }
 }

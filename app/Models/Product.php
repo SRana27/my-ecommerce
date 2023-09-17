@@ -55,17 +55,19 @@ class Product extends Model
 
     }
 
-    public static function deleteSubcategory($request)
+    public static function deleteProduct($request)
     {
         self::$product = Product::find($request->product_id);
         if (self::$product->image) {
             if (file_exists(self::$product->image)) {
                 unlink(self::$product->image);
             }
-
         }
         self::$product->delete();
     }
+
+
+
 
     public static function updateStatus($product_id)
     {
@@ -83,4 +85,22 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function subcategory()
+    {
+        return $this->belongsTo(SubCategory::class);
+    }
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
+
+    public function otherImage()
+    {
+        return $this->hasMany(OtherImage::class);
+    }
+
 }

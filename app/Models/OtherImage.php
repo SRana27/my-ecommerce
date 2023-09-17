@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OtherImage extends Model
 {
     use HasFactory;
-    private static $otherImage, $image, $imageName, $imageUrl, $directory,$imageExtension;
+    private static $otherImage,$otherImages, $image, $imageName, $imageUrl, $directory,$imageExtension;
 
 
 
@@ -35,5 +35,37 @@ class OtherImage extends Model
 
 
     }
+    public static function updateOtherImage($images,$id)
+    {
+        self::$otherImages =OtherImage::where('product_id',$id)->get();
+        foreach (self::$otherImages as $image)
+        {
+            if (file_exists($image->image ))
+            {
+                unlink($image->image);
+            }
+            $image->delete();
+            }
+        self::storeOtherImage($images,$id);
+
+    }
+
+
+
+
+    public static function deleteOtherImage($request)
+    {
+        self::$otherImages = OtherImage::where('product_id',$request->product_id)->get();
+        foreach (self::$otherImages as $image){
+            if (file_exists($image->image)) {
+                unlink($image->image);
+            }
+            $image->delete();
+        }
+
+
+    }
+
+
 
 }
