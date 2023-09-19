@@ -33,8 +33,8 @@ class OtherImage extends Model
 
         }
 
-
     }
+
     public static function updateOtherImage($images,$id)
     {
         self::$otherImages =OtherImage::where('product_id',$id)->get();
@@ -49,8 +49,6 @@ class OtherImage extends Model
         self::storeOtherImage($images,$id);
 
     }
-
-
 
 
     public static function deleteOtherImage($request)

@@ -145,7 +145,7 @@
                                 <div class="shopping-item">
                                     <div class="dropdown-cart-header">
                                         <span>2 Items</span>
-                                        <a href="cart.html">View Cart</a>
+                                        <a href="">View Cart</a>
                                     </div>
                                     <ul class="shopping-list">
                                         <li>
@@ -195,35 +195,26 @@
             <div class="col-lg-8 col-md-6 col-12">
                 <div class="nav-inner">
 
+
                     <div class="mega-category-menu">
                         <span class="cat-button"><i class="lni lni-menu"></i>All Categories</span>
+
                         <ul class="sub-category">
-                            <li><a href="{{route('product-category')}}">Electronics <i class="lni lni-chevron-right"></i></a>
+                            @foreach($categories as $category)
+                            <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}}
+                                    @if(count($category->subcategories)>0)
+                                       <i class="lni lni-chevron-right"></i>
+                                    @endif
+                                </a>
                                 <ul class="inner-sub-category">
-                                    <li><a href="{{route('product-category')}}">Digital Cameras</a></li>
-                                    <li><a href="{{route('product-category')}}">Camcorders</a></li>
-                                    <li><a href="{{route('product-category')}}">Camera Drones</a></li>
-                                    <li><a href="{{route('product-category')}}">Smart Watches</a></li>
-                                    <li><a href="{{route('product-category')}}">Headphones</a></li>
-                                    <li><a href="{{route('product-category')}}">MP3 Players</a></li>
-                                    <li><a href="{{route('product-category')}}">Microphones</a></li>
-                                    <li><a href="{{route('product-category')}}">Chargers</a></li>
-                                    <li><a href="{{route('product-category')}}">Batteries</a></li>
-                                    <li><a href="{{route('product-category')}}">Cables & Adapters</a></li>
+                                    @foreach($category->subcategories as $subcategory)
+                                    <li><a href="">{{$subcategory->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
-                            <li><a href="{{route('product-category')}}">accessories</a></li>
-                            <li><a href="{{route('product-category')}}">Televisions</a></li>
-                            <li><a href="{{route('product-category')}}">best selling</a></li>
-                            <li><a href="{{route('product-category')}}">top 100 offer</a></li>
-                            <li><a href="{{route('product-category')}}">sunglass</a></li>
-                            <li><a href="{{route('product-category')}}">watch</a></li>
-                            <li><a href="{{route('product-category')}}">man’s product</a></li>
-                            <li><a href="{{route('product-category')}}">Home Audio & Theater</a></li>
-                            <li><a href="{{route('product-category')}}">Computers & Tablets </a></li>
-                            <li><a href="{{route('product-category')}}">Video Games </a></li>
-                            <li><a href="{{route('product-category')}}">Home Appliances </a></li>
+                            @endforeach
                         </ul>
+
                     </div>
 
 
@@ -252,7 +243,7 @@
                                 <li class="nav-item">
                                     <a class="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-3" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Shop</a>
                                     <ul class="sub-menu collapse" id="submenu-1-3">
-                                        <li class="nav-item"><a href="{{route('product-category')}}">Shop Grid</a></li>
+                                        <li class="nav-item"><a href="">Shop Grid</a></li>
                                         <li class="nav-item"><a href="product-list.html">Shop List</a></li>
                                         <li class="nav-item"><a href="{{route('product-detail')}}">shop Single</a></li>
                                         <li class="nav-item"><a href="cart.html">Cart</a></li>

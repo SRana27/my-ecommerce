@@ -21,13 +21,13 @@
                     <div class="form-group row">
                         <label for="exampleInputuname3" class="col-sm-3 control-label">Category Name <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="exampleInputuname3" name="name" placeholder="category name">
+                            <input type="text" class="form-control" id="exampleInputuname3" name="name" placeholder="category name" required>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleInputEmail3" class="col-sm-3 control-label">Category Description<span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" id="exampleInputEmail3" name="description" placeholder=" Category description" cols="10" rows="5"></textarea>
+                            <textarea class="form-control" id="exampleInputEmail3" name="description" placeholder=" Category description" cols="10" rows="5" required></textarea>
                         </div>
                     </div>
                     <div class="form-group row">

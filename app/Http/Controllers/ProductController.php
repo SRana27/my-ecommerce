@@ -70,11 +70,12 @@ class ProductController extends Controller
 
        public function updateProduct (Request $request)
         {
-             Product::storeProduct ($request);
+                Product::storeProduct ($request);
 
-                if($request->other_image){
-                 OtherImage::updateOtherImage($request->other_image,$request->product_id);
-             }
+                if($request->other_image)
+                {
+                  OtherImage::updateOtherImage($request->other_image,$request->product_id);
+                 }
 
            return redirect('/product/manage')->with('message','update product successfully');
 

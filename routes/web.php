@@ -26,7 +26,7 @@ use App\Http\Controllers\ProductController;
 //});
 Route::get('/',[MyCommerceController::class,'index'])->name('home');
 Route::get('/contact-us',[MyCommerceController::class,'contact'])->name('contact-us');
-Route::get('/product-category',[MyCommerceController::class,'category'])->name('product-category');
+Route::get('/product-category/{category_id}',[MyCommerceController::class,'category'])->name('product-category');
 Route::get('/product-detail',[MyCommerceController::class,'detail'])->name('product-detail');
 Route::get('/cart',[CartController::class,'index'])->name('shop-cart');
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');

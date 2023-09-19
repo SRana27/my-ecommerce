@@ -35,7 +35,7 @@ manage Category
                                   <td class="pt-5">{{$i++}}</td>
                                   <td class="pt-5">{{$category->name}}</td>
                                   <td class="pt-5">{{$category->description}}</td>
-                                   <td><img src="{{asset($category->image)}}" alt="{{$category->name}}" height="80px"></td>
+                                   <td><img src="{{asset($category->image)}}" alt="" height="80px"></td>
                                      <td class="pt-5">{{$category->status ==1 ?'Published': 'Unpublished'}}</td>
                                    <td class="d-flex ">
                                       <a href="{{route('edit.category',['category_id'=>$category->id])}}" class=" btn btn-success mx-2 my-4 ">

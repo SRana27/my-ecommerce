@@ -38,7 +38,7 @@
                                      <td class="pt-5">{{$subcategory->category->name}}</td>
                                      <td class="pt-5">{{$subcategory->name}}</td>
                                      <td class="pt-5">{{$subcategory->description}}</td>
-                                     <td><img src="{{asset($subcategory->image)}}" alt="{{$subcategory->name}}" height="80px"></td>
+                                     <td><img src="{{asset($subcategory->image)}}" alt="" height="80px"></td>
                                      <td class="pt-5">{{$subcategory->status==1?'Published':'Upublished'}}</td>
                                      <td class="d-flex ">
                                         <a href="{{route('edit.subcategory',['subcategory_id'=>$subcategory->id])}}" class=" btn btn-success mx-2 my-4 ">

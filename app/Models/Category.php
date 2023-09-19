@@ -68,4 +68,8 @@ class Category extends Model
         }
         self::$status->save();
     }
+
+    public function subcategories(){
+        return $this->hasMany(SubCategory::class);
+    }
 }

@@ -20,7 +20,7 @@ Online Super Store
                                     labore dolore magna aliqua.</p>
                                 <h3><span>Now Only</span> $320.99</h3>
                                 <div class="button">
-                                    <a href="{{route('product-category')}}" class="btn">Shop Now</a>
+                                    <a href="" class="btn">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@ Online Super Store
                                     labore dolore magna aliqua.</p>
                                 <h3><span>Combo Only:</span> $590.00</h3>
                                 <div class="button">
-                                    <a href="{{route('product-category')}}" class="btn">Shop Now</a>
+                                    <a href="" class="btn">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ Online Super Store
                                 <h2>Weekly Sale!</h2>
                                 <p>Saving up to 50% off all online store items this week.</p>
                                 <div class="button">
-                                    <a class="btn" href="{{route('product-category')}}">Shop Now</a>
+                                    <a class="btn" href="">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -90,17 +90,34 @@ Online Super Store
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" >
+{{--            @foreach($categories as $category)--}}
+{{--            <div class="col-lg-4 col-md-6 col-12 "  >--}}
+
+{{--                <div class="single-category">--}}
+{{--                    <h3 class="heading">{{$category->name}}</h3>--}}
+{{--                    <ul>--}}
+{{--                        @foreach($category->subcategories as $subcategory)--}}
+{{--                        <li><a href="">{{$subcategory->name}}</a></li>--}}
+{{--                        @endforeach--}}
+{{--                    </ul>--}}
+{{--                    <div class="images">--}}
+{{--                        <img src="{{asset($category->image)}}" alt="" height="100" width="100">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+{{--            </div>--}}
+{{--            @endforeach--}}
             <div class="col-lg-4 col-md-6 col-12">
 
                 <div class="single-category">
-                    <h3 class="heading">TV & Audios</h3>
+                    <h3 class="heading">Audios</h3>
                     <ul>
-                        <li><a href="{{route('product-category')}}">Smart Television</a></li>
-                        <li><a href="{{route('product-category')}}">QLED TV</a></li>
-                        <li><a href="{{route('product-category')}}">Audios</a></li>
-                        <li><a href="{{route('product-category')}}">Headphones</a></li>
-                        <li><a href="{{route('product-category')}}">View All</a></li>
+                        <li><a href="">Smart Television</a></li>
+                        <li><a href="">QLED TV</a></li>
+                        <li><a href="">Audios</a></li>
+                        <li><a href="">Headphones</a></li>
+                        <li><a href="">View All</a></li>
                     </ul>
                     <div class="images">
                         <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-1.png" alt="#">
@@ -113,11 +130,11 @@ Online Super Store
                 <div class="single-category">
                     <h3 class="heading">Desktop & Laptop</h3>
                     <ul>
-                        <li><a href="{{route('product-category')}}">Smart Television</a></li>
-                        <li><a href="{{route('product-category')}}">QLED TV</a></li>
-                        <li><a href="{{route('product-category')}}">Audios</a></li>
-                        <li><a href="{{route('product-category')}}">Headphones</a></li>
-                        <li><a href="{{route('product-category')}}">View All</a></li>
+                        <li><a href="">Smart Television</a></li>
+                        <li><a href="">QLED TV</a></li>
+                        <li><a href="">Audios</a></li>
+                        <li><a href="">Headphones</a></li>
+                        <li><a href="">View All</a></li>
                     </ul>
                     <div class="images">
                         <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-2.png" alt="#">
@@ -130,11 +147,11 @@ Online Super Store
                 <div class="single-category">
                     <h3 class="heading">Cctv Camera</h3>
                     <ul>
-                        <li><a href="{{route('product-category')}}">Smart Television</a></li>
-                        <li><a href="{{route('product-category')}}">QLED TV</a></li>
-                        <li><a href="{{route('product-category')}}">Audios</a></li>
-                        <li><a href="{{route('product-category')}}">Headphones</a></li>
-                        <li><a href="{{route('product-category')}}">View All</a></li>
+                        <li><a href="">Smart Television</a></li>
+                        <li><a href="">QLED TV</a></li>
+                        <li><a href="">Audios</a></li>
+                        <li><a href="">Headphones</a></li>
+                        <li><a href="">View All</a></li>
                     </ul>
                     <div class="images">
                         <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-3.png" alt="#">
@@ -147,11 +164,11 @@ Online Super Store
                 <div class="single-category">
                     <h3 class="heading">Dslr Camera</h3>
                     <ul>
-                        <li><a href="{{route('product-category')}}">Smart Television</a></li>
-                        <li><a href="{{route('product-category')}}">QLED TV</a></li>
-                        <li><a href="{{route('product-category')}}">Audios</a></li>
-                        <li><a href="{{route('product-category')}}">Headphones</a></li>
-                        <li><a href="{{route('product-category')}}">View All</a></li>
+                        <li><a href="">Smart Television</a></li>
+                        <li><a href="">QLED TV</a></li>
+                        <li><a href="">Audios</a></li>
+                        <li><a href="">Headphones</a></li>
+                        <li><a href="">View All</a></li>
                     </ul>
                     <div class="images">
                         <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-4.png" alt="#">
@@ -164,11 +181,11 @@ Online Super Store
                 <div class="single-category">
                     <h3 class="heading">Smart Phones</h3>
                     <ul>
-                        <li><a href="{{route('product-category')}}">Smart Television</a></li>
-                        <li><a href="{{route('product-category')}}">QLED TV</a></li>
-                        <li><a href="{{route('product-category')}}">Audios</a></li>
-                        <li><a href="{{route('product-category')}}">Headphones</a></li>
-                        <li><a href="{{route('product-category')}}">View All</a></li>
+                        <li><a href="">Smart Television</a></li>
+                        <li><a href="">QLED TV</a></li>
+                        <li><a href="">Audios</a></li>
+                        <li><a href="">Headphones</a></li>
+                        <li><a href="">View All</a></li>
                     </ul>
                     <div class="images">
                         <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-5.png" alt="#">
@@ -181,11 +198,11 @@ Online Super Store
                 <div class="single-category">
                     <h3 class="heading">Game Console</h3>
                     <ul>
-                        <li><a href="{{route('product-category')}}">Smart Television</a></li>
-                        <li><a href="{{route('product-category')}}">QLED TV</a></li>
-                        <li><a href="{{route('product-category')}}">Audios</a></li>
-                        <li><a href="{{route('product-category')}}">Headphones</a></li>
-                        <li><a href="{{route('product-category')}}">View All</a></li>
+                        <li><a href="">Smart Television</a></li>
+                        <li><a href="">QLED TV</a></li>
+                        <li><a href="">Audios</a></li>
+                        <li><a href="">Headphones</a></li>
+                        <li><a href="">View All</a></li>
                     </ul>
                     <div class="images">
                         <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-6.png" alt="#">
@@ -210,19 +227,19 @@ Online Super Store
             </div>
         </div>
         <div class="row">
+                  @foreach($products as $product)
             <div class="col-lg-3 col-md-6 col-12">
-
                 <div class="single-product">
                     <div class="product-image">
-                        <img src="{{asset('/')}}website/assets/images/products/product-1.jpg" alt="#">
+                        <img src="{{asset($product->image)}}" alt="" height="250" width="180" >
                         <div class="button">
-                            <a href="{{route('product-detail')}}" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
+                            <a href="" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
                         </div>
                     </div>
                     <div class="product-info">
-                        <span class="category">Watches</span>
+                        <span class="category">{{$product->category->name}}</span>
                         <h4 class="title">
-                            <a href="{{route('product-category')}}">Xiaomi Mi Band 5</a>
+                            <a href="">{{$product->name}}</a>
                         </h4>
                         <ul class="review">
                             <li><i class="lni lni-star-filled"></i></li>
@@ -233,220 +250,12 @@ Online Super Store
                             <li><span>4.0 Review(s)</span></li>
                         </ul>
                         <div class="price">
-                            <span>$199.00</span>
+                            <span>BDT. {{$product->selling_price}}</span>
                         </div>
                     </div>
                 </div>
-
             </div>
-            <div class="col-lg-3 col-md-6 col-12">
-
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="{{asset('/')}}website/assets/images/products/product-2.jpg" alt="#">
-                        <span class="sale-tag">-25%</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Speaker</span>
-                        <h4 class="title">
-                            <a href="{{route('product-category')}}">Big Power Sound Speaker</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$275.00</span>
-                            <span class="discount-price">$300.00</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="{{asset('/')}}website/assets/images/products/product-3.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Camera</span>
-                        <h4 class="title">
-                            <a href="{{route('product-category')}}">WiFi Security Camera</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$399.00</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="{{asset('/')}}website/assets/images/products/product-4.jpg" alt="#">
-                        <span class="new-tag">New</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Phones</span>
-                        <h4 class="title">
-                            <a href="{{route('product-category')}}">iphone 6x plus</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$400.00</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="{{asset('/')}}website/assets/images/products/product-5.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Headphones</span>
-                        <h4 class="title">
-                            <a href="{{route('product-category')}}">Wireless Headphones</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$350.00</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="{{asset('/')}}website/assets/images/products/product-6.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Speaker</span>
-                        <h4 class="title">
-                            <a href="{{route('product-category')}}">Mini Bluetooth Speaker</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$70.00</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="{{asset('/')}}website/assets/images/products/product-7.jpg" alt="#">
-                        <span class="sale-tag">-50%</span>
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Headphones</span>
-                        <h4 class="title">
-                            <a href="{{route('product-category')}}">PX7 Wireless Headphones</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$100.00</span>
-                            <span class="discount-price">$200.00</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="{{asset('/')}}website/assets/images/products/product-8.jpg" alt="#">
-                        <div class="button">
-                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">Laptop</span>
-                        <h4 class="title">
-                            <a href="{{route('product-category')}}">Apple MacBook Air</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><span>5.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>$899.00</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -461,7 +270,7 @@ Online Super Store
                         <h2>Smart Watch 2.0</h2>
                         <p>Space Gray Aluminum Case with <br>Black/Volt Real Sport Band </p>
                         <div class="button">
-                            <a href="{{route('product-category')}}" class="btn">View Details</a>
+                            <a href="" class="btn">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -473,7 +282,7 @@ Online Super Store
                         <p>Lorem ipsum dolor sit amet, <br>eiusmod tempor
                             incididunt ut labore.</p>
                         <div class="button">
-                            <a href="{{route('product-category')}}" class="btn">Shop Now</a>
+                            <a href="" class="btn">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -510,7 +319,7 @@ Online Super Store
                             <div class="product-info">
                                 <span class="category">Camera</span>
                                 <h4 class="title">
-                                    <a href="{{route('product-category')}}">WiFi Security Camera</a>
+                                    <a href="">WiFi Security Camera</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -540,7 +349,7 @@ Online Super Store
                             <div class="product-info">
                                 <span class="category">Laptop</span>
                                 <h4 class="title">
-                                    <a href="{{route('product-category')}}">Apple MacBook Air</a>
+                                    <a href="">Apple MacBook Air</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -570,7 +379,7 @@ Online Super Store
                             <div class="product-info">
                                 <span class="category">Speaker</span>
                                 <h4 class="title">
-                                    <a href="{{route('product-category')}}">Bluetooth Speaker</a>
+                                    <a href="">Bluetooth Speaker</a>
                                 </h4>
                                 <ul class="review">
                                     <li><i class="lni lni-star-filled"></i></li>
@@ -598,7 +407,7 @@ Online Super Store
                             <span>$590.00</span>
                         </div>
                         <div class="button">
-                            <a href="{{route('product-category')}}" class="btn">Shop Now</a>
+                            <a href="" class="btn">Shop Now</a>
                         </div>
                     </div>
                 </div>
@@ -611,7 +420,7 @@ Online Super Store
                         <span class="sale-tag">-50%</span>
                     </div>
                     <div class="text">
-                        <h2><a href="{{route('product-category')}}">Bluetooth Headphone</a></h2>
+                        <h2><a href="">Bluetooth Headphone</a></h2>
                         <ul class="review">
                             <li><i class="lni lni-star-filled"></i></li>
                             <li><i class="lni lni-star-filled"></i></li>
@@ -663,11 +472,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/01.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/01.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">GoPro Hero4 Silver</a>
+                            <a href="">GoPro Hero4 Silver</a>
                         </h3>
                         <span>$287.99</span>
                     </div>
@@ -676,11 +485,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/02.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/02.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">Puro Sound Labs BT2200</a>
+                            <a href="">Puro Sound Labs BT2200</a>
                         </h3>
                         <span>$95.00</span>
                     </div>
@@ -689,11 +498,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/03.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/03.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">HP OfficeJet Pro 8710</a>
+                            <a href="">HP OfficeJet Pro 8710</a>
                         </h3>
                         <span>$120.00</span>
                     </div>
@@ -705,11 +514,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/04.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/04.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">iPhone X 256 GB Space Gray</a>
+                            <a href="">iPhone X 256 GB Space Gray</a>
                         </h3>
                         <span>$1150.00</span>
                     </div>
@@ -718,11 +527,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/05.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/05.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">Canon EOS M50 Mirrorless Camera</a>
+                            <a href="">Canon EOS M50 Mirrorless Camera</a>
                         </h3>
                         <span>$950.00</span>
                     </div>
@@ -731,11 +540,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/06.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/06.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">Microsoft Xbox One S</a>
+                            <a href="">Microsoft Xbox One S</a>
                         </h3>
                         <span>$298.00</span>
                     </div>
@@ -747,11 +556,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/07.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/07.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">Samsung Gear 360 VR Camera</a>
+                            <a href="">Samsung Gear 360 VR Camera</a>
                         </h3>
                         <span>$68.00</span>
                     </div>
@@ -760,11 +569,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/08.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/08.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">Samsung Galaxy S9+ 64 GB</a>
+                            <a href="">Samsung Galaxy S9+ 64 GB</a>
                         </h3>
                         <span>$840.00</span>
                     </div>
@@ -773,11 +582,11 @@ Online Super Store
 
                 <div class="single-list">
                     <div class="list-image">
-                        <a href="{{route('product-category')}}"><img src="{{asset('/')}}website/assets/images/home-product-list/09.jpg" alt="#"></a>
+                        <a href=""><img src="{{asset('/')}}website/assets/images/home-product-list/09.jpg" alt="#"></a>
                     </div>
                     <div class="list-info">
                         <h3>
-                            <a href="{{route('product-category')}}">Zeus Bluetooth Headphones</a>
+                            <a href="">Zeus Bluetooth Headphones</a>
                         </h3>
                         <span>$28.00</span>
                     </div>
