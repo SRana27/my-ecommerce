@@ -39,30 +39,29 @@
                             </form>
                         </div>
 
-
                         <div class="single-widget">
                             <h3>All Categories</h3>
                             <ul class="list">
                                 <li>
-                                    <a href="{{route('product-detail')}}">Computers & Accessories </a><span>(1138)</span>
+                                    <a href="">Computers & Accessories </a><span>(1138)</span>
                                 </li>
                                 <li>
-                                    <a href="{{route('product-detail')}}">Smartphones & Tablets</a><span>(2356)</span>
+                                    <a href="">Smartphones & Tablets</a><span>(2356)</span>
                                 </li>
                                 <li>
-                                    <a href="{{route('product-detail')}}">TV, Video & Audio</a><span>(420)</span>
+                                    <a href="">TV, Video & Audio</a><span>(420)</span>
                                 </li>
                                 <li>
-                                    <a href="{{route('product-detail')}}">Cameras, Photo & Video</a><span>(874)</span>
+                                    <a href="">Cameras, Photo & Video</a><span>(874)</span>
                                 </li>
                                 <li>
-                                    <a href="{{route('product-detail')}}">Headphones</a><span>(1239)</span>
+                                    <a href="">Headphones</a><span>(1239)</span>
                                 </li>
                                 <li>
-                                    <a href="{{route('product-detail')}}">Wearable Electronics</a><span>(340)</span>
+                                    <a href="">Wearable Electronics</a><span>(340)</span>
                                 </li>
                                 <li>
-                                    <a href="{{route('product-detail')}}">Printers & Ink</a><span>(512)</span>
+                                    <a href="">Printers & Ink</a><span>(512)</span>
                                 </li>
                             </ul>
                         </div>
@@ -70,10 +69,11 @@
 
                         <div class="single-widget range">
                             <h3>Price Range</h3>
-                            <input type="range" class="form-range" name="range" step="1" min="100" max="10000" value="10" onchange="rangePrimary.value=value">
+                            <input type="range" class="form-range" name="range" step="1" min="100" max="10000"
+                                   value="10" onchange="rangePrimary.value=value">
                             <div class="range-inner">
                                 <label>$</label>
-                                <input type="text" id="rangePrimary" placeholder="100" />
+                                <input type="text" id="rangePrimary" placeholder="100"/>
                             </div>
                         </div>
 
@@ -105,7 +105,6 @@
                                 </label>
                             </div>
                         </div>
-
 
                         <div class="single-widget condition">
                             <h3>Filter by Brand</h3>
@@ -158,9 +157,7 @@
                                 </label>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 <div class="col-lg-9 col-12">
                     <div class="product-grids-head">
@@ -183,57 +180,65 @@
                                 <div class="col-lg-5 col-md-4 col-12">
                                     <nav>
                                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                            <button class="nav-link active" id="nav-grid-tab" data-bs-toggle="tab" data-bs-target="#nav-grid" type="button" role="tab" aria-controls="nav-grid" aria-selected="true"><i class="lni lni-grid-alt"></i></button>
-                                            <button class="nav-link" id="nav-list-tab" data-bs-toggle="tab" data-bs-target="#nav-list" type="button" role="tab" aria-controls="nav-list" aria-selected="false"><i class="lni lni-list"></i></button>
+                                            <button class="nav-link active" id="nav-grid-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#nav-grid" type="button" role="tab"
+                                                    aria-controls="nav-grid" aria-selected="true"><i
+                                                    class="lni lni-grid-alt"></i></button>
+                                            <button class="nav-link" id="nav-list-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#nav-list" type="button" role="tab"
+                                                    aria-controls="nav-list" aria-selected="false"><i
+                                                    class="lni lni-list"></i></button>
                                         </div>
                                     </nav>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="nav-grid" role="tabpanel" aria-labelledby="nav-grid-tab">
+                            <div class="tab-pane fade show active" id="nav-grid" role="tabpanel"
+                                 aria-labelledby="nav-grid-tab">
                                 <div class="row">
                                     @foreach($products as $product)
-                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="col-lg-4 col-md-6 col-12">
 
-                                        <div class="single-product">
-                                            <div class="product-image">
-                                                <img src="{{asset($product->image)}}" alt="" height="180" width="150">
-                                                <div class="button">
-                                                    <a href="" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
+                                            <div class="single-product">
+                                                <div class="product-image">
+                                                    <img src="{{asset($product->image)}}" alt="" height="180"
+                                                         width="150">
+                                                    <div class="button">
+                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="product-info">
-                                                <span class="category">{{$product->category->name}}</span>
-                                                <h4 class="title">
-                                                    <a href="{{route('product-detail')}}">{{$product->name}}</a>
-                                                </h4>
-                                                <ul class="review">
-                                                    <li><i class="lni lni-star-filled"></i></li>
-                                                    <li><i class="lni lni-star-filled"></i></li>
-                                                    <li><i class="lni lni-star-filled"></i></li>
-                                                    <li><i class="lni lni-star-filled"></i></li>
-                                                    <li><i class="lni lni-star"></i></li>
-                                                    <li><span>4.0 Review(s)</span></li>
-                                                </ul>
-                                                <div class="price">
-                                                    <span>BDT. {{$product->selling_price}}</span>
+                                                <div class="product-info">
+                                                    <span class="category">{{$product->category->name}}</span>
+                                                    <h4 class="title">
+                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
+                                                    </h4>
+                                                    <ul class="review">
+                                                        <li><i class="lni lni-star-filled"></i></li>
+                                                        <li><i class="lni lni-star-filled"></i></li>
+                                                        <li><i class="lni lni-star-filled"></i></li>
+                                                        <li><i class="lni lni-star-filled"></i></li>
+                                                        <li><i class="lni lni-star"></i></li>
+                                                        <li><span>4.0 Review(s)</span></li>
+                                                    </ul>
+                                                    <div class="price">
+                                                        <span>BDT. {{$product->selling_price}}</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     @endforeach
                                 </div>
-
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="pagination left">
                                             <ul class="pagination-list">
                                                 <li class="active"><a href="javascript:void(0)">1</a></li>
-                                                <li ><a href="javascript:void(0)">2</a></li>
+                                                <li><a href="javascript:void(0)">2</a></li>
                                                 <li><a href="javascript:void(0)">3</a></li>
                                                 <li><a href="javascript:void(0)">4</a></li>
-                                                <li><a href="javascript:void(0)"><i class="lni lni-chevron-right"></i></a></li>
+                                                <li><a href="javascript:void(0)"><i
+                                                            class="lni lni-chevron-right"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -243,38 +248,40 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-12">
                                         @foreach($products as $product)
-                                        <div class="single-product">
-                                            <div class="row align-items-center">
-                                                <div class="col-lg-4 col-md-4 col-12">
-                                                    <div class="product-image">
-                                                        <img src="{{asset($product->image)}}" alt="" height="180" width="150">
-                                                        <div class="button">
-                                                            <a href="product-details.html" class="btn"><i class="lni lni-cart"></i> Add to
-                                                                Cart</a>
+                                            <div class="single-product">
+                                                <div class="row align-items-center">
+                                                    <div class="col-lg-4 col-md-4 col-12">
+                                                        <div class="product-image">
+                                                            <img src="{{asset($product->image)}}" alt="" height="180"
+                                                                 width="150">
+                                                            <div class="button">
+                                                                <a href="product-details.html" class="btn"><i
+                                                                        class="lni lni-cart"></i> Add to
+                                                                    Cart</a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-lg-8 col-md-8 col-12">
-                                                    <div class="product-info">
-                                                        <span class="category">{{$product->category->name}}</span>
-                                                        <h4 class="title">
-                                                            <a href="{{route('product-detail')}}">{{$product->name}}</a>
-                                                        </h4>
-                                                        <ul class="review">
-                                                            <li><i class="lni lni-star-filled"></i></li>
-                                                            <li><i class="lni lni-star-filled"></i></li>
-                                                            <li><i class="lni lni-star-filled"></i></li>
-                                                            <li><i class="lni lni-star-filled"></i></li>
-                                                            <li><i class="lni lni-star"></i></li>
-                                                            <li><span>4.0 Review(s)</span></li>
-                                                        </ul>
-                                                        <div class="price">
-                                                            <span>BDT. {{$product->selling_price}}</span>
+                                                    <div class="col-lg-8 col-md-8 col-12">
+                                                        <div class="product-info">
+                                                            <span class="category">{{$product->category->name}}</span>
+                                                            <h4 class="title">
+                                                                <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
+                                                            </h4>
+                                                            <ul class="review">
+                                                                <li><i class="lni lni-star-filled"></i></li>
+                                                                <li><i class="lni lni-star-filled"></i></li>
+                                                                <li><i class="lni lni-star-filled"></i></li>
+                                                                <li><i class="lni lni-star-filled"></i></li>
+                                                                <li><i class="lni lni-star"></i></li>
+                                                                <li><span>4.0 Review(s)</span></li>
+                                                            </ul>
+                                                            <div class="price">
+                                                                <span>BDT. {{$product->selling_price}}</span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         @endforeach
                                     </div>
 
@@ -288,7 +295,8 @@
                                                 <li><a href="javascript:void(0)">2</a></li>
                                                 <li><a href="javascript:void(0)">3</a></li>
                                                 <li><a href="javascript:void(0)">4</a></li>
-                                                <li><a href="javascript:void(0)"><i class="lni lni-chevron-right"></i></a></li>
+                                                <li><a href="javascript:void(0)"><i
+                                                            class="lni lni-chevron-right"></i></a></li>
                                             </ul>
                                         </div>
 

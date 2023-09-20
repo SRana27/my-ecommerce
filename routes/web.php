@@ -27,9 +27,21 @@ use App\Http\Controllers\ProductController;
 Route::get('/',[MyCommerceController::class,'index'])->name('home');
 Route::get('/contact-us',[MyCommerceController::class,'contact'])->name('contact-us');
 Route::get('/product-category/{category_id}',[MyCommerceController::class,'category'])->name('product-category');
-Route::get('/product-detail',[MyCommerceController::class,'detail'])->name('product-detail');
-Route::get('/cart',[CartController::class,'index'])->name('shop-cart');
+Route::get('/product-detail/{product_id}',[MyCommerceController::class,'detail'])->name('product-detail');
+Route::get('/show-cart',[CartController::class,'show'])->name('show-cart');
+Route::post('/add-to-cart/{product_id}',[CartController::class,'index'])->name('add-to-cart');
+Route::post('/update-cart-qty/{rowId}',[CartController::class,'update'])->name('update-cart-qty');
+Route::get('/remove-to-cart/{rowId}',[CartController::class,'remove'])->name('remove-to-cart');
+Route::get('/remove-to-cart-header/{rowId}',[CartController::class,'remove_from_header'])->name('remove-to-cart-header');
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
+
+
+
+
+
+
+
+
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');

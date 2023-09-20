@@ -24,8 +24,10 @@ class MyCommerceController extends Controller
         ]);
     }
 
-    public  function detail(){
-        return view('website.detail.index');
+    public  function detail($product_id){
+        return view('website.detail.index',[
+            'product'=>Product::find($product_id)
+        ]);
     }
     public  function contact(){
         return view('website.contact.contact_us');

@@ -82,7 +82,6 @@
         </div>
     </div>
 
-
     <div class="header-middle">
         <div class="container">
             <div class="row align-items-center">
@@ -136,52 +135,49 @@
                                     <span class="total-items">0</span>
                                 </a>
                             </div>
+
                             <div class="cart-items">
+
                                 <a href="javascript:void(0)" class="main-btn">
                                     <i class="lni lni-cart"></i>
-                                    <span class="total-items">2</span>
+                                    <span class="total-items">{{count(ShoppingCart::all())}}</span>
                                 </a>
 
                                 <div class="shopping-item">
                                     <div class="dropdown-cart-header">
-                                        <span>2 Items</span>
-                                        <a href="">View Cart</a>
+                                        <span>{{count(ShoppingCart::all())}} Items</span>
+                                        <a href="{{route('show-cart')}}">View Cart</a>
                                     </div>
                                     <ul class="shopping-list">
+                                        @php($result=0)
+                                        @foreach(ShoppingCart::all() as $item)
                                         <li>
-                                            <a href="javascript:void(0)" class="remove" title="Remove this item"><i class="lni lni-close"></i></a>
+                                            <a href="{{route('remove-to-cart-header',['rowId'=>$item->__raw_id])}}" class="remove" title="Remove this item"><i class="lni lni-close"></i></a>
                                             <div class="cart-img-head">
-                                                <a class="cart-img" href="{{route('product-detail')}}"><img src="{{asset('/')}}website/assets/images/header/cart-items/item1.jpg" alt="#"></a>
+                                                <a class="cart-img" href=""><img src="{{asset($item->image)}}" alt=""></a>
                                             </div>
                                             <div class="content">
-                                                <h4> <a href="{{route('product-detail')}}">
-                                                        Apple Watch Series 6</a></h4>
-                                                <p class="quantity">1x - <span class="amount">$99.00</span></p>
+                                                <h4> <a href="">
+                                                        {{$item->name}}</a></h4>
+                                                <p class="quantity">{{$item->qty}} x <span class="amount">{{$item->price}}</span></p>
                                             </div>
                                         </li>
-                                        <li>
-                                            <a href="javascript:void(0)" class="remove" title="Remove this item"><i class="lni lni-close"></i></a>
-                                            <div class="cart-img-head">
-                                                <a class="cart-img" href="{{route('product-detail')}}"><img src="{{asset('/')}}website/assets/images/header/cart-items/item2.jpg" alt="#"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h4><a href="{{route('product-detail')}}">Wi-Fi Smart Camera</a></h4>
-                                                <p class="quantity">1x - <span class="amount">$35.00</span></p>
-                                            </div>
-                                        </li>
+                                            @php($result=$result+($item->qty*$item->price))
+                                        @endforeach
                                     </ul>
                                     <div class="bottom">
                                         <div class="total">
-                                            <span>Total</span>
-                                            <span class="total-amount">$134.00</span>
+                                            <span>Total:</span>
+                                            <span class="total-amount">{{$result}}</span>
                                         </div>
                                         <div class="button">
-                                            <a href="checkout.html" class="btn animate">Checkout</a>
+                                            <a href="{{'checkout'}}" class="btn animate">Checkout</a>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -245,7 +241,7 @@
                                     <ul class="sub-menu collapse" id="submenu-1-3">
                                         <li class="nav-item"><a href="">Shop Grid</a></li>
                                         <li class="nav-item"><a href="product-list.html">Shop List</a></li>
-                                        <li class="nav-item"><a href="{{route('product-detail')}}">shop Single</a></li>
+                                        <li class="nav-item"><a href="">shop Single</a></li>
                                         <li class="nav-item"><a href="cart.html">Cart</a></li>
                                         <li class="nav-item"><a href="checkout.html">Checkout</a></li>
                                     </ul>
