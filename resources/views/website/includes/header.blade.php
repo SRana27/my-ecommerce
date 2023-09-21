@@ -168,7 +168,7 @@
                                     <div class="bottom">
                                         <div class="total">
                                             <span>Total:</span>
-                                            <span class="total-amount">{{$result}}</span>
+                                            <span class="total-amount">{{$result}} tk.</span>
                                         </div>
                                         <div class="button">
                                             <a href="{{'checkout'}}" class="btn animate">Checkout</a>

@@ -63,6 +63,7 @@ cart
                 </div>
                 @php($sum=0)
                 @foreach($cart_products as $cart_product)
+
                 <div class="cart-single-list">
                     <div class="row align-items-center">
                         <div class="col-lg-1 col-md-1 col-12">
@@ -78,23 +79,23 @@ cart
                         </div>
                         <div class="col-lg-2 col-md-2 col-12">
                             <div class="text-center">
-                                {{$cart_product->price}}
+                                {{$cart_product->price}} tk.
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-12">
                             <form action="{{route('update-cart-qty',['rowId'=>$cart_product->__raw_id])}}" method="post">
                                 @csrf
                                 <div class="input-group ">
-                                    <input class="input-group form-control" min="1" value="{{$cart_product->qty}}" name="qty" required placeholder="quantity">
+                                    <input class="input-group form-control" type="number" min="1" value="{{$cart_product->qty}}" name="qty" required placeholder="quantity">
                                     <input class="btn btn-success" type="submit" value="update">
                                 </div>
                             </form>
                         </div>
                         <div class="col-lg-2 col-md-2 col-12">
-                            <p class="text-center">{{$cart_product->price * $cart_product->qty}}</p>
+                            <p class="text-center">{{$cart_product->price * $cart_product->qty}} tk.</p>
                         </div>
                         <div class="col-lg-1 col-md-2 col-12">
-                            <p class="text-center">{{($cart_product->price*5* $cart_product->qty)/100}}</p>
+                            <p class="text-center">{{($cart_product->price*5* $cart_product->qty)/100}} tk.</p>
                         </div>
                         <div class="col-lg-1 col-md-2 col-12 ">
                             <a class= "remove-item" onclick=" return confirm('are you sure remove this product')" href="{{route('remove-to-cart',['rowId'=>$cart_product->__raw_id])}}"><i class="lni lni-close"></i></a>
@@ -121,14 +122,25 @@ cart
                                     </div>
                                 </div>
                             </div>
+                            @php($shiping=0)
                             <div class="col-lg-4 col-md-6 col-12">
                                 <div class="right">
                                     <ul>
-                                        <li>Cart Subtotal<span>{{$sum}}</span></li>
-                                        <li>Tax(5%)<span>{{$tax=($sum*5)/100}}</span></li>
-                                        <li>Shipping<span>{{$shiping=100}}</span></li>
-{{--                                        <li>You Save<span>$29.00</span></li>--}}
-                                        <li class="last">Total Payable<span>{{$total=$sum+$tax+$shiping}}</span></li>
+                                        <li>Cart Subtotal :<span>{{$sum}} tk.</span></li>
+                                        <li>Tax(5%) :<span>{{$tax=round(($sum*5)/100)}} tk.</span></li>
+                                        <li>Shipping Fee :<span>
+                                                @if(count($cart_products)>0)
+                                                   {{$shiping=100}} tk.
+
+                                                  @else
+                                                    {{$shiping=0}} tk.
+
+                                                  </span>
+                                              @endif
+                                        </li>
+
+                                        <hr>
+                                        <li class="last">Total Payable<span>{{$total=$sum+$tax+$shiping}} tk.</span></li>
                                     </ul>
                                     <div class="button">
                                         <a href="{{route('checkout')}}" class="btn ">Checkout</a>
