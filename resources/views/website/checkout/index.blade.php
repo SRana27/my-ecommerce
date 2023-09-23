@@ -29,10 +29,10 @@
                 <div class="col-lg-7">
                     <div class="checkout-steps-form-style-1">
                         <ul class="nav nav-pills">
-                            <li><a class="nav-link active" href="" data-bs-target="#cash" data-bs-toggle="pill">Cash On
+                              <li><a class="nav-link active" href="" data-bs-target="#cash" data-bs-toggle="pill">Cash On
                                     delivery</a></li>
-                            <li><a class="nav-link" href="" data-bs-target="#online" data-bs-toggle="pill">Online </a>
-                            </li>
+                              <li><a class="nav-link" href="" data-bs-target="#online" data-bs-toggle="pill">Online </a>
+                               </li>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="cash">
                                     <div class="row">
@@ -120,10 +120,10 @@
                                     <p class="value">Tax(5%):</p>
                                     <p class="price">{{$tax}} tk.</p>
                                 </div>
-                                @php($shipping=100)
+                                @php($shipping=0)
                                 <div class="payable-price">
                                     <p class="value">Shipping Fee:</p>
-                                    <p class="price">
+                                    <p class="price"><span>
                                         @if(count(ShoppingCart::all())>0)
                                             {{$shiping=100}} tk.
 
@@ -134,8 +134,8 @@
                                         @endif
                                         </p>
                                 </div>
-                                <hr>
 
+                                <hr>
                                 @php($total=($subtotal+$shipping+$tax))
                                 <div class="payable-price">
                                     <p class="value">Total payable:</p>

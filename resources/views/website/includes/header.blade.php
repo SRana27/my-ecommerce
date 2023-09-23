@@ -81,7 +81,6 @@
             </div>
         </div>
     </div>
-
     <div class="header-middle">
         <div class="container">
             <div class="row align-items-center">
@@ -157,7 +156,7 @@
                                                 <a class="cart-img" href=""><img src="{{asset($item->image)}}" alt=""></a>
                                             </div>
                                             <div class="content">
-                                                <h4> <a href="">
+                                                <h4> <a href="{{route('product-detail',['product_id'=>$item->id])}}">
                                                         {{$item->name}}</a></h4>
                                                 <p class="quantity">{{$item->qty}} x <span class="amount">{{$item->price}}</span></p>
                                             </div>
@@ -175,9 +174,7 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>

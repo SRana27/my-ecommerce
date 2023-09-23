@@ -27,20 +27,29 @@
             <div class="top-area">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12 col-12">
-                        <div class="product-images">
-                            <main id="gallery">
-                                <div class="main-img">
-                                    <img src="{{asset($product->image)}}" id="current" alt="" height="450" width="180">
-                                </div>
-                                <div class="images">
-                                    @foreach($product->otherImage as $otherImage)
-                                        <img src="{{asset($otherImage->image)}}" class="img" alt="" height="100"
-                                             width="100">
-                                    @endforeach
-                                </div>
-                            </main>
+                        <div class="xzoom-container">
+                            <img class="xzoom" id="xzoom-default" src="{{asset($product->image)}}" xoriginal="{{asset($product->image)}}"/>
+                            <div class="xzoom-thumbs pt-2">
+                                @foreach($product->otherImage as $otherImage)
+                                    <a href="{{asset($otherImage->image)}}"><img class="xzoom-gallery" width="80" src="{{asset($otherImage->image)}}" xpreview="{{asset($otherImage->image)}}" ></a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
+                    {{--                        <div class="product-images">--}}
+                    {{--                            <main id="gallery">--}}
+                    {{--                                <div class="main-img">--}}
+                    {{--                                    <img src="{{asset($product->image)}}" id="current" alt="" height="450" width="180">--}}
+                    {{--                                </div>--}}
+                    {{--                                <div class="images">--}}
+                    {{--                                    @foreach($product->otherImage as $otherImage)--}}
+                    {{--                                        <img src="{{asset($otherImage->image)}}" class="img" alt="" height="100"--}}
+                    {{--                                             width="100">--}}
+                    {{--                                    @endforeach--}}
+                    {{--                                </div>--}}
+                    {{--                            </main>--}}
+                    {{--                        </div>--}}
+
                     <div class="col-lg-6 col-md-12 col-12">
                         <div class="product-info">
                             <h2 class="title">{{$product->name}}</h2>
@@ -69,11 +78,10 @@
                                 <div class="bottom-content">
                                     <div class="row align-items-end">
                                         <div class="col-lg-4 col-md-4 col-12">
-                                            <div class="button">
                                                 <button
-                                                    class="btn btn-primary" type="submit" style="width: 100%;">Add to Cart
+                                                    class="btn btn-primary " type="submit" style="width: 100%;">Add to
+                                                    Cart
                                                 </button>
-                                            </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-12">
                                             <div class="wish-button">
