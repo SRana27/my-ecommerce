@@ -64,18 +64,29 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-12">
                     <div class="top-end">
+                        @if(Session::get('customer_id'))
                         <div class="user">
                             <i class="lni lni-user"></i>
-                            Hello
+                            Hello {{Session::get('customer_name')}}
+                            <ul class="user-login">
+                            <li>
+                                <a href="login.html">dashbord</a>
+                            </li>
+                            <li>
+                                <a href="{{route('customer.logout')}}">logout</a>
+                            </li>
+                            </ul>
                         </div>
+                        @else
                         <ul class="user-login">
                             <li>
-                                <a href="login.html">Sign In</a>
+                                <a href="{{route('customer.login')}}">Sign In</a>
                             </li>
                             <li>
-                                <a href="register.html">Register</a>
+                                <a href="{{route('customer.login')}}">Register</a>
                             </li>
                         </ul>
+                        @endif
                     </div>
                 </div>
             </div>

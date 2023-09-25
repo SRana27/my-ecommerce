@@ -35,59 +35,71 @@
                                </li>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="cash">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="single-form form-default">
-                                                <label>User Name</label>
-                                                <div class="row">
-                                                    <div class="col-md-12 form-input form">
-                                                        <input type="text" placeholder="Full Name">
-                                                    </div>
+                                    <form action="{{route('new-cash-order')}}" method="post">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="single-form form-default">
+                                                    <label for="Fullname"> Full Name</label>
+                                                    <div class="row">
+                                                        <div class="col-md-12 form-input form">
+                                                            <input type="text" placeholder="Full Name" id="Fullname" name="name">
+                                                        </div>
 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="single-form form-default">
+                                                    <label for="useremail">Email Address</label>
+                                                    <div class="form-input form" >
+                                                        <input type="email" placeholder="Email Address" id="useremail" name="email">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="single-form form-default">
+                                                    <label for="phnumber">Phone Number</label>
+                                                    <div class="form-input form">
+                                                        <input type="number" placeholder="Phone Number" id="phnumber" name="mobile">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="single-form form-default">
+                                                    <label for="deAddress">Delivery Address</label>
+                                                    <div class="form-input form">
+                                                        <textarea type="text" placeholder="delivery address" style="padding-top: 10px;height: 100px" id="deAddress" name="delivery_address"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="single-form form-default">
+                                                    <label>Payment Type </label>
+                                                    <div class="">
+                                                        <label><input type="radio" checked name="payment_type" value="1"> Cash On delivery</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="single-checkbox checkbox-style-3 ">
+                                                    <input type="checkbox" id="checkbox-3" checked>
+                                                    <label for="checkbox-3"><span></span></label>
+                                                    <p>I accept all terms & condition.</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="single-form button">
+                                                    <button class="btn" data-bs-toggle="collapse"
+                                                            data-bs-target="#collapseFour" aria-expanded="false"
+                                                            aria-controls="collapseFour"> Confrim Order
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="single-form form-default">
-                                                <label>Email Address</label>
-                                                <div class="form-input form">
-                                                    <input type="email" placeholder="Email Address">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="single-form form-default">
-                                                <label>Phone Number</label>
-                                                <div class="form-input form">
-                                                    <input type="number" placeholder="Phone Number">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-form form-default">
-                                                <label>Mailing Address</label>
-                                                <div class="form-input form">
-                                                    <textarea type="text" placeholder="Delivery Address"> </textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-checkbox checkbox-style-3 ">
-                                                <input type="checkbox" id="checkbox-3" checked>
-                                                <label for="checkbox-3"><span></span></label>
-                                                <p>I accept all terms & condition.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="single-form button">
-                                                <button class="btn" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapseFour" aria-expanded="false"
-                                                        aria-controls="collapseFour">next
-                                                    step
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </form>
+
                                 </div>
                                 <div class="tab-pane fade show" id="online"></div>
                             </div>
@@ -141,6 +153,10 @@
                                     <p class="value">Total payable:</p>
                                     <p class="price">{{$total}} tk.</p>
                                 </div>
+                                <?php Session::put('order_total',$total);
+                                      Session::put('tax_total',$tax);
+                                      Session::put('shipping_total',$shiping);
+                                ?>
                             </div>
                             <div class="price-table-btn button">
                                 <a href="javascript:void(0)" class="btn btn-alt">Checkout</a>

@@ -10,6 +10,7 @@ use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerAuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +35,14 @@ Route::post('/update-cart-qty/{rowId}',[CartController::class,'update'])->name('
 Route::get('/remove-to-cart/{rowId}',[CartController::class,'remove'])->name('remove-to-cart');
 Route::get('/remove-to-cart-header/{rowId}',[CartController::class,'remove_from_header'])->name('remove-to-cart-header');
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
+Route::post('/new-cash-order',[CheckoutController::class,'newCashOrder'])->name('new-cash-order');
+Route::get('/complete-order',[CheckoutController::class,'completeOrder'])->name('complete-order');
 
-
+Route::get('/customer-login',[CustomerAuthController::class,'index'])->name('customer.login');
+Route::post('/customer-login',[CustomerAuthController::class,'login'])->name('customer.login');
+Route::post('/customer-register',[CustomerAuthController::class,'register'])->name('customer.register');
+Route::get('/customer-dashboard',[CustomerAuthController::class,'dashboard'])->name('customer.dashboard');
+Route::get('/customer-logout',[CustomerAuthController::class,'logout'])->name('customer.logout');
 
 
 
