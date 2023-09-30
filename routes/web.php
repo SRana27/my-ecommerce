@@ -11,6 +11,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\CustomerOrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,13 @@ Route::post('/customer-login',[CustomerAuthController::class,'login'])->name('cu
 Route::post('/customer-register',[CustomerAuthController::class,'register'])->name('customer.register');
 Route::get('/customer-dashboard',[CustomerAuthController::class,'dashboard'])->name('customer.dashboard');
 Route::get('/customer-logout',[CustomerAuthController::class,'logout'])->name('customer.logout');
+
+
+Route::get('/customer-all-order',[CustomerOrderController::class,'allOrder'])->name('customer.all-order');
+
+
+
+
 
 
 

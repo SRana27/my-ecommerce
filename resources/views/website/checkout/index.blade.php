@@ -43,9 +43,14 @@
                                                     <label for="Fullname"> Full Name</label>
                                                     <div class="row">
                                                         <div class="col-md-12 form-input form">
-                                                            <input type="text" placeholder="Full Name" id="Fullname" name="name">
-                                                        </div>
+                                                             @if(isset($customer->id))
+                                                                <input type="text" placeholder="Full Name" id="Fullname" value="{{$customer->name}}" readonly name="name">
+                                                             @else
+                                                                <input type="text" placeholder="Full Name" id="Fullname" name="name" required>
+{{--                                                                <span class="text-danger">{{$errors->has('name') ? $errors->first('name'): ' '}}</span>--}}
 
+                                                            @endif
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -53,7 +58,12 @@
                                                 <div class="single-form form-default">
                                                     <label for="useremail">Email Address</label>
                                                     <div class="form-input form" >
-                                                        <input type="email" placeholder="Email Address" id="useremail" name="email">
+                                                         @if(isset($customer->id))
+                                                           <input type="email" placeholder="Email Address" id="useremail" value="{{$customer->email}}"readonly name="email">
+                                                         @else
+                                                            <input type="email" placeholder="Email Address" id="useremail" name="email" required>
+                                                            <span class="text-danger">{{$errors->has('email') ? $errors->first('email'): ' '}}</span>
+                                                         @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -61,7 +71,12 @@
                                                 <div class="single-form form-default">
                                                     <label for="phnumber">Phone Number</label>
                                                     <div class="form-input form">
-                                                        <input type="number" placeholder="Phone Number" id="phnumber" name="mobile">
+                                                        @if(isset($customer->id))
+                                                          <input type="number" placeholder="Phone Number" id="phnumber" value="{{$customer->mobile}}" readonly name="mobile">
+                                                        @else
+                                                            <input type="number" placeholder="Phone Number" id="phnumber"  name="mobile" required>
+                                                            <span class="text-danger">{{$errors->has('mobile') ? $errors->first('mobile'): ' '}}</span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -69,7 +84,8 @@
                                                 <div class="single-form form-default">
                                                     <label for="deAddress">Delivery Address</label>
                                                     <div class="form-input form">
-                                                        <textarea type="text" placeholder="delivery address" style="padding-top: 10px;height: 100px" id="deAddress" name="delivery_address"></textarea>
+                                                        <textarea type="text" placeholder="delivery address" style="padding-top: 10px;height: 100px" id="deAddress" name="delivery_address" required></textarea>
+{{--                                                        <span class="text-danger" > {{$errors->has('delivery_address') ? $errors->first('delivery_address'): ' '}}</span>--}}
                                                     </div>
                                                 </div>
                                             </div>

@@ -34,7 +34,7 @@ class CartController extends Controller
     public function update(Request $request, $rowId){
 //      return $request;
         ShoppingCart::update($rowId,$request->qty);
-        return redirect('/show-cart')->with('message','Cart update quantity');
+        return redirect('/show-cart')->with('message','update quantity in cart');
     }
 }
 
