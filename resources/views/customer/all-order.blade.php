@@ -33,6 +33,7 @@
                         <a href="{{route('customer.all-order')}}" class="list-group-item list-group-item-action">all Order</a>
                         <a href="#" class="list-group-item list-group-item-action">Account</a>
                         <a href="#" class="list-group-item list-group-item-action disabled">Change Password</a>
+                        <a href="{{route('customer.logout')}}" class="list-group-item list-group-item-action disabled">log out</a>
                     </div>
                 </div>
                 <div class="col-md-9">

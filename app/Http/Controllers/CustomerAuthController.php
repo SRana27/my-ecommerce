@@ -18,8 +18,9 @@ class CustomerAuthController extends Controller
     public function login(Request $request)
     {
         $this->customer = Customer::where('email', $request->email)->first();
+
         if ($this->customer) {
-            if (password_verify($request->password, $this->customer->password))
+            if (password_verify($request->password,$this->customer->password))
             {
                 Session::put('customer_id', $this->customer->id);
                 Session::put('customer_name', $this->customer->name);
@@ -35,10 +36,18 @@ class CustomerAuthController extends Controller
 
     }
 
-    public function register()
+    public function register(Request $request)
     {
 
+        $this->validate ($request,[
+            'email'=>'unique:customers,email',
+            'mobile'=>'unique:customers,mobile',
+        ]);
+        Customer::newCustomer($request);
+      return redirect('/customer-login')->with('message-1','registration successful you can login now');
+
     }
+
 
     public function dashboard()
     {
