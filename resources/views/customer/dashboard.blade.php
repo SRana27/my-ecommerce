@@ -27,7 +27,7 @@
               <div class="col-md-3">
                   <div class="list-group">
                       <a href="{{route('customer.dashboard')}}" class="list-group-item list-group-item-action">dashboard</a>
-                      <a href="#" class="list-group-item list-group-item-action">profile</a>
+                      <a href="{{route('customer.profile')}}" class="list-group-item list-group-item-action">profile</a>
                       <a href="{{route('customer.all-order')}}" class="list-group-item list-group-item-action">all Order</a>
                       <a href="#" class="list-group-item list-group-item-action">Account</a>
                       <a href="#" class="list-group-item list-group-item-action disabled">Change Password</a>

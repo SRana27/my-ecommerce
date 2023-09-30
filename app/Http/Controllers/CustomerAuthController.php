@@ -51,4 +51,10 @@ class CustomerAuthController extends Controller
         Session::forget('customer_name');
         return redirect('/');
     }
+
+
+    public function profile()
+    {
+        return view('customer.profile');
+    }
 }
