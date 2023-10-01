@@ -12,6 +12,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CustomerOrderController;
+use App\Http\Controllers\SslCommerzPaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,18 +44,31 @@ Route::get('/customer-login',[CustomerAuthController::class,'index'])->name('cus
 Route::post('/customer-login',[CustomerAuthController::class,'login'])->name('customer.login');
 Route::post('/customer-register',[CustomerAuthController::class,'register'])->name('customer.register');
 
-Route::middleware(['customer'])->group(function ()
+  Route::middleware(['customer'])->group(function ()
   {
     Route::get('/customer-dashboard',[CustomerAuthController::class,'dashboard'])->name('customer.dashboard');
     Route::get('/customer-profile',[CustomerAuthController::class,'profile'])->name('customer.profile');
     Route::get('/customer-logout',[CustomerAuthController::class,'logout'])->name('customer.logout');
+    Route::get('/customer-all-order',[CustomerOrderController::class,'allOrder'])->name('customer.all-order');
   });
 
 
 
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
 
 
-Route::get('/customer-all-order',[CustomerOrderController::class,'allOrder'])->name('customer.all-order');
 
 
 
@@ -65,9 +79,8 @@ Route::get('/customer-all-order',[CustomerOrderController::class,'allOrder'])->n
 
 
 
-
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function ()
+ {  Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
     Route::get('/category/add',[CategoryController::class,'addCategory'])->name('add.category');
     Route::get('/category/manage',[CategoryController::class,'manageCategory'])->name('manage.category');
@@ -111,5 +124,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/product/detail/{product_id}',[ProductController::class,'detailProduct'])->name('detail.product');
     Route::post('/product/delete',[ProductController::class,'deleteProduct'])->name('delete.product');
     Route::get('/product/status/{product_id}',[ProductController::class,'statusProduct'])->name('status.product');
-});
+ });
 

@@ -40,7 +40,7 @@ class CustomerAuthController extends Controller
     {
 
         $this->validate ($request,[
-            'email'=>'unique:customers,email',
+            'email'=>'email|regex:/(.+)@(.+)\.(.+)/i|unique:customers,email',
             'mobile'=>'unique:customers,mobile',
         ]);
         Customer::newCustomer($request);

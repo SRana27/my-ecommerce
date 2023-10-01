@@ -19,11 +19,11 @@ return new class extends Migration
             $table->float('order_total', 10,2);
             $table->float('tax_total',10,2);
             $table->float('shipping_total',10,2);
-            $table->string('order_status')->default('pending');
+            $table->string('order_status')->default('Pending');
             $table->text('delivery_address');
-            $table->string('delivery_status')->default('pending');
+            $table->string('delivery_status')->default('Pending');
             $table->string('payment_type');
-            $table->string('payment_status')->default('pending');
+            $table->string('payment_status')->default('Pending');
             $table->string('currency')->default('BDT');
             $table->string('transaction_id')->nullable();
             $table->timestamps();
