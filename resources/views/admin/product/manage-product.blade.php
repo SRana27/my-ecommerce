@@ -32,9 +32,10 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                @php $i=1; @endphp
-                                @foreach($products as $product)
+                            @foreach($products as $product)
+                                <tr>
+                                    @php $i=1; @endphp
+
                                     <td class="pt-5">{{$i++}}</td>
                                     <td class="pt-5">{{$product->name}}</td>
                                     <td class="pt-5">{{$product->category->name}}</td>

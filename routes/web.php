@@ -13,6 +13,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CustomerOrderController;
 use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\AdminOrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,13 +73,6 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 
 
-
-
-
-
-
-
-
  Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function ()
  {  Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
 
@@ -124,5 +118,13 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
     Route::get('/product/detail/{product_id}',[ProductController::class,'detailProduct'])->name('detail.product');
     Route::post('/product/delete',[ProductController::class,'deleteProduct'])->name('delete.product');
     Route::get('/product/status/{product_id}',[ProductController::class,'statusProduct'])->name('status.product');
+
+    Route::get('/admin/order',[AdminOrderController::class,'adminOrder'])->name('admin.order');
+     Route::get('/admin/order/detail/{order_id}',[AdminOrderController::class,'detail'])->name('detail.admin.order');
+     Route::get('/admin/order/edit/{order_id}',[AdminOrderController::class,'edit'])->name('edit.admin.order');
+     Route::get('/admin/order/view-invoice/{order_id}',[AdminOrderController::class,'viewInvoice'])->name('viewInvoice.admin.order');
+     Route::get('/admin/order/print-invoice/{order_id}',[AdminOrderController::class,'printInvoice'])->name('printInvoice.admin.order');
+     Route::post('/admin/order/delete',[AdminOrderController::class,'delete'])->name('delete.admin.order');
+
  });
 

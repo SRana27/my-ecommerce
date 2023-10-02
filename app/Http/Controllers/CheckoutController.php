@@ -46,7 +46,7 @@ class CheckoutController extends Controller
         }
 
         $this->order=Order::newOrder($request,$this->customer->id );
-        OrderDetail::newOrderDetail( $this->order->id);
+          OrderDetail::newOrderDetail( $this->order->id);
         return redirect('/complete-order')->with('message','Congratulation ........ your order placed');
 
     }

@@ -12,7 +12,7 @@ use Session;
 
 class SslCommerzPaymentController extends Controller
 {
-
+     public $customer;
 //    public function exampleEasyCheckout()
 //    {
 //        return view('website.checkout.exampleEasycheckout');
@@ -192,6 +192,9 @@ class SslCommerzPaymentController extends Controller
         $amount = $request->input('amount');
         $currency = $request->input('currency');
 
+        $this->customer= Customer::orderBy('id','desc')->first();
+        Session::put('customer_id', $this->customer->id);
+        Session::put('customer_name', $this->customer->name);
         $sslc = new SslCommerzNotification();
 
         #Check order status in order tabel against the transaction id or order id.

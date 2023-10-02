@@ -54,7 +54,7 @@
                     <span class="hide-menu">Order Module</span></a>
                 <ul aria-expanded="false" class="collapse">
 
-                    <li> <a href="app-email-detail.html">Manage Order</a></li>
+                    <li> <a href="{{route('admin.order')}}">Manage Order</a></li>
 
                 </ul>
             </li>

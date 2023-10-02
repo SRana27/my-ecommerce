@@ -68,7 +68,6 @@ class Product extends Model
 
 
 
-
     public static function updateStatus($product_id)
     {
         self::$status = Product::find($product_id);
