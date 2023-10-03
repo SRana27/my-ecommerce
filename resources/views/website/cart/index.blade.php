@@ -64,45 +64,52 @@ cart
                 @php($sum=0)
                 @foreach($cart_products as $cart_product)
 
-                <div class="cart-single-list">
-                    <div class="row align-items-center">
-                        <div class="col-lg-1 col-md-1 col-12">
-                            <a href="{{route('product-detail',['product_id'=>$cart_product->id])}}"><img src="{{asset($cart_product->image)}}" alt="#"></a>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-12">
-                            <h5 class="product-name"><a href="{{route('product-detail',['product_id'=>$cart_product->id])}}">
-                           {{$cart_product->name}}</a></h5>
-                            <p class="product-des">
-                                <span><em>Sub-category:</em> {{$cart_product->sub_category}}</span>
-                                <span><em>brand:</em>{{$cart_product->brand}}</span>
-                            </p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <div class="text-center">
-                                {{$cart_product->price}} tk.
+                    <div class="cart-single-list">
+                        <div class="row align-items-center">
+                            <div class="col-lg-1 col-md-1 col-12">
+                                <a href="{{route('product-detail',['product_id'=>$cart_product->id])}}"><img
+                                        src="{{asset($cart_product->image)}}" alt="#"></a>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-12">
+                                <h5 class="product-name"><a
+                                        href="{{route('product-detail',['product_id'=>$cart_product->id])}}">
+                                        {{$cart_product->name}}</a></h5>
+                                <p class="product-des">
+                                    <span><em>Sub-category:</em> {{$cart_product->sub_category}}</span>
+                                    <span><em>brand:</em>{{$cart_product->brand}}</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-12">
+                                <div class="text-center">
+                                    {{$cart_product->price}} tk.
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-12">
+                                <form action="{{route('update-cart-qty',['rowId'=>$cart_product->__raw_id])}}"
+                                      method="post">
+                                    @csrf
+                                    <div class="input-group ">
+                                        <input class="input-group form-control" type="number" min="1"
+                                               value="{{$cart_product->qty}}" name="qty" required
+                                               placeholder="quantity">
+                                        <input class="btn btn-success" type="submit" value="update">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-12">
+                                <p class="text-center">{{$cart_product->price * $cart_product->qty}} tk.</p>
+                            </div>
+                            <div class="col-lg-1 col-md-2 col-12">
+                                <p class="text-center">{{($cart_product->price*5* $cart_product->qty)/100}} tk.</p>
+                            </div>
+                            <div class="col-lg-1 col-md-2 col-12 ">
+                                <a class="remove-item" onclick=" return confirm('are you sure remove this product')"
+                                   href="{{route('remove-to-cart',['rowId'=>$cart_product->__raw_id])}}"><i
+                                        class="lni lni-close"></i></a>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <form action="{{route('update-cart-qty',['rowId'=>$cart_product->__raw_id])}}" method="post">
-                                @csrf
-                                <div class="input-group ">
-                                    <input class="input-group form-control" type="number" min="1" value="{{$cart_product->qty}}" name="qty" required placeholder="quantity">
-                                    <input class="btn btn-success" type="submit" value="update">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <p class="text-center">{{$cart_product->price * $cart_product->qty}} tk.</p>
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-12">
-                            <p class="text-center">{{($cart_product->price*5* $cart_product->qty)/100}} tk.</p>
-                        </div>
-                        <div class="col-lg-1 col-md-2 col-12 ">
-                            <a class= "remove-item" onclick=" return confirm('are you sure remove this product')" href="{{route('remove-to-cart',['rowId'=>$cart_product->__raw_id])}}"><i class="lni lni-close"></i></a>
-                        </div>
                     </div>
-                </div>
-                    @php($sum= $sum + ($cart_product->price * $cart_product->qty));
+                    @php($sum= $sum + ($cart_product->price * $cart_product->qty))
                 @endforeach
             </div>
             <div class="row">
@@ -150,7 +157,6 @@ cart
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

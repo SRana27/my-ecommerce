@@ -59,11 +59,10 @@
                                     <td>{{$order->order_total}} tk.</td>
                                     <td>{{$order->order_status}}</td>
                                     <td>{{$order->delivery_address}}</td>
-                                    <td><a href="" class="btn btn-success">
+                                    <td><a href="{{route('customer.all-order-detail',['order_id'=>$order->id])}}" class="btn btn-success">
                                           detail
                                       </a>
                                   </td>
-
                               </tr>
                           @endforeach
                       </table>

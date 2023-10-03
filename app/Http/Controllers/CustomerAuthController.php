@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Session;
 use function Illuminate\Validation\passes;
@@ -66,4 +67,11 @@ class CustomerAuthController extends Controller
     {
         return view('customer.profile');
     }
+
+    public function productInfo($product_id)
+    {
+        return view('website.detail.index',[
+            'product'=>Product::find($product_id)]);
+    }
+
 }

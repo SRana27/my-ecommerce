@@ -51,6 +51,8 @@ Route::post('/customer-register',[CustomerAuthController::class,'register'])->na
     Route::get('/customer-profile',[CustomerAuthController::class,'profile'])->name('customer.profile');
     Route::get('/customer-logout',[CustomerAuthController::class,'logout'])->name('customer.logout');
     Route::get('/customer-all-order',[CustomerOrderController::class,'allOrder'])->name('customer.all-order');
+    Route::get('/customer-all-order-detail/{order_id}',[CustomerOrderController::class,'allOrderDetail'])->name('customer.all-order-detail');
+      Route::get('/customer-product-info/{product_id}',[CustomerAuthController::class,'productInfo'])->name('product.info');
   });
 
 

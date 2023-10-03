@@ -134,14 +134,15 @@
                                     <input type="hidden" value="{{ csrf_token() }}" name="_token"/>
                                     <div class="row">
                                         <div class="col-md-12 mb-3">
-                                            <label for="firstName">Full name</label>
-                                            <input type="text" name="name" class="form-control" id="customer_name" placeholder="Your name"
-                                                   value="" required>
-                                            <div class="invalid-feedback">
-                                                Valid customer name is required.
-                                            </div>
+                                            @if(isset($customer->id))
+                                              <label for="firstName">Full name</label>
+                                              <input type="text" name="name" class="form-control" id="customer_name" placeholder="Your name" value="{{$customer->name}}" required>
+                                            @else
+                                                <input type="text" name="name" class="form-control" id="customer_name" placeholder="Your name"  required>
+                                            @endif
                                         </div>
                                     </div>
+
 
                                     <div class="mb-3">
                                         <label for="mobile">Mobile</label>
@@ -149,8 +150,11 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">+88</span>
                                             </div>
-                                            <input type="text" name="mobile" class="form-control" id="mobile"
-                                                   placeholder="Mobile" required>
+                                            @if(isset($customer->id))
+                                             <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile" value="{{$customer->mobile}}" required>
+                                            @else
+                                                <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile" required>
+                                            @endif
                                             <div class="invalid-feedback" style="width: 100%;">
                                                 Your Mobile number is required.
                                             </div>
@@ -159,8 +163,11 @@
 
                                     <div class="mb-3">
                                         <label for="email">Email </label>
-                                        <input type="email" name="email" class="form-control" id="email"
-                                               placeholder="you@example.com" value="" required>
+                                        @if(isset($customer->id))
+                                            <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com" value="{{$customer->email}}" required>
+                                        @else
+                                            <input type="email" name="email" class="form-control" id="email" placeholder="you@example.com" value="" required>
+                                        @endif
                                         <div class="invalid-feedback">
                                             Please enter a valid email address for shipping updates.
                                         </div>
