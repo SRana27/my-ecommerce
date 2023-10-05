@@ -51,9 +51,9 @@
                                         </a>
                                         <a href="{{route('viewInvoice.admin.order',['order_id'=>$order->id])}}"
                                            class=" btn btn-success my-4" title="View Order Invoice">
-                                            <i class="ti-view-list-alt"></i>
+                                            <i class="ti-write"></i>
                                         </a>
-                                        <a href="{{route('printInvoice.admin.order',['order_id'=>$order->id])}}"
+                                        <a href="{{route('printInvoice.admin.order',['order_id'=>$order->id])}}" target="_blank"
                                            class=" btn btn-success mx-2 my-4" title="Print Order Invoice">
                                             <i class="ti-printer"></i>
                                         </a>

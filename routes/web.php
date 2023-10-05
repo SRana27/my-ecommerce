@@ -124,6 +124,7 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
     Route::get('/admin/order',[AdminOrderController::class,'adminOrder'])->name('admin.order');
      Route::get('/admin/order/detail/{order_id}',[AdminOrderController::class,'detail'])->name('detail.admin.order');
      Route::get('/admin/order/edit/{order_id}',[AdminOrderController::class,'edit'])->name('edit.admin.order');
+     Route::post('/admin/order/update',[AdminOrderController::class,'update'])->name('update.admin.order');
      Route::get('/admin/order/view-invoice/{order_id}',[AdminOrderController::class,'viewInvoice'])->name('viewInvoice.admin.order');
      Route::get('/admin/order/print-invoice/{order_id}',[AdminOrderController::class,'printInvoice'])->name('printInvoice.admin.order');
      Route::post('/admin/order/delete',[AdminOrderController::class,'delete'])->name('delete.admin.order');

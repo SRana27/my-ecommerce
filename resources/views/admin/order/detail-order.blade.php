@@ -37,6 +37,10 @@
                                 <td class="col-7" >{{$order->delivery_address}}</td>
                             </tr>
                             <tr>
+                                <th class="col-5">Delivery Status :</th>
+                                <td class="col-7" >{{$order->delivery_status}}</td>
+                            </tr>
+                            <tr>
                                 <th class="col-5">Order Status :</th>
                                 <td class="col-7" >{{$order->order_status}}</td>
                             </tr>
