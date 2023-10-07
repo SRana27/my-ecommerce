@@ -31,6 +31,8 @@ use App\Http\Controllers\AdminOrderController;
 Route::get('/',[MyCommerceController::class,'index'])->name('home');
 Route::get('/contact-us',[MyCommerceController::class,'contact'])->name('contact-us');
 Route::get('/product-category/{category_id}',[MyCommerceController::class,'category'])->name('product-category');
+Route::get('/product-subcategory/{subcategory_id}',[MyCommerceController::class,'sub_category'])->name('product-subcategory');
+Route::get('/product-brand/{brand_id}',[MyCommerceController::class,'brand'])->name('product-brand');
 Route::get('/product-detail/{product_id}',[MyCommerceController::class,'detail'])->name('product-detail');
 Route::get('/show-cart',[CartController::class,'show'])->name('show-cart');
 Route::post('/add-to-cart/{product_id}',[CartController::class,'index'])->name('add-to-cart');

@@ -250,6 +250,9 @@ Online Super Store
                         <div class="price">
                             <span>BDT. {{$product->selling_price}}</span>
                         </div>
+                        <div class="pt-2" >
+                            <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn btn-info col-md-12 hover">Buy now </a>
+                        </div>
                     </div>
                 </div>
             </div>

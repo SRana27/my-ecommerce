@@ -45,12 +45,12 @@
 
 
                             @foreach($categories as $category)
-                               <ul class="list">
+                                <ul class="list">
 
-                                   <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}}</a>
+                                    <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}}</a>
 
-                                   </li>
-                               </ul>
+                                    </li>
+                                </ul>
 
                             @endforeach
                         </div>
@@ -98,17 +98,17 @@
                         <div class="single-widget condition">
                             <h3>Filter by Brand</h3>
                             @foreach($brands as $brand)
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
-                                <label class="form-check-label" for="flexCheckDefault11">
-                                    <ul class="list">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
+                                    <label class="form-check-label" for="flexCheckDefault11">
+                                        <ul class="list">
 
-                                        <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a>
+                                            <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a>
 
-                                        </li>
-                                    </ul>
-                                </label>
-                            </div>
+                                            </li>
+                                        </ul>
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
-                                                    <span class="category">{{$product->category->name}}</span>
+                                                    <span class="brand"> Brand :{{$product->brand->name}}</span>
                                                     <h4 class="title">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                     </h4>
@@ -220,7 +220,7 @@
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-12">
                                                         <div class="product-info">
-                                                            <span class="category">{{$product->category->name}}</span>
+                                                            <span class="category"> Brand :{{$product->brand->name}}</span>
                                                             <h4 class="title">
                                                                 <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                             </h4>

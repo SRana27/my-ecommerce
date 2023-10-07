@@ -41,18 +41,29 @@
 
                         <div class="single-widget">
                             <h3>All Categories</h3>
-
-
-
-                            @foreach($categories as $category)
-                               <ul class="list">
-
-                                   <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}}</a>
-
-                                   </li>
-                               </ul>
-
-                            @endforeach
+                            <ul class="list">
+                                <li>
+                                    <a href="">Computers & Accessories </a><span>(1138)</span>
+                                </li>
+                                <li>
+                                    <a href="">Smartphones & Tablets</a><span>(2356)</span>
+                                </li>
+                                <li>
+                                    <a href="">TV, Video & Audio</a><span>(420)</span>
+                                </li>
+                                <li>
+                                    <a href="">Cameras, Photo & Video</a><span>(874)</span>
+                                </li>
+                                <li>
+                                    <a href="">Headphones</a><span>(1239)</span>
+                                </li>
+                                <li>
+                                    <a href="">Wearable Electronics</a><span>(340)</span>
+                                </li>
+                                <li>
+                                    <a href="">Printers & Ink</a><span>(512)</span>
+                                </li>
+                            </ul>
                         </div>
 
 
@@ -98,17 +109,18 @@
                         <div class="single-widget condition">
                             <h3>Filter by Brand</h3>
                             @foreach($brands as $brand)
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
-                                <label class="form-check-label" for="flexCheckDefault11">
-                                    <ul class="list">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
+                                    <label class="form-check-label" for="flexCheckDefault11">
+                                        <ul class="list">
 
-                                        <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a>
+                                            <li>
+                                                <a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a>
 
-                                        </li>
-                                    </ul>
-                                </label>
-                            </div>
+                                            </li>
+                                        </ul>
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -153,7 +165,6 @@
                                 <div class="row">
                                     @foreach($products as $product)
                                         <div class="col-lg-4 col-md-6 col-12">
-
                                             <div class="single-product">
                                                 <div class="product-image">
                                                     <img src="{{asset($product->image)}}" alt="" height="180"
@@ -163,7 +174,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
-                                                    <span class="category">{{$product->category->name}}</span>
+                                                    <span class="subcategory">{{$product->subcategory->name}}</span>
                                                     <h4 class="title">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                     </h4>
@@ -205,6 +216,7 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-12">
                                         @foreach($products as $product)
+
                                             <div class="single-product">
                                                 <div class="row align-items-center">
                                                     <div class="col-lg-4 col-md-4 col-12">
@@ -220,7 +232,7 @@
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-12">
                                                         <div class="product-info">
-                                                            <span class="category">{{$product->category->name}}</span>
+                                                            <span class="category">{{$product->subcategory->name}}</span>
                                                             <h4 class="title">
                                                                 <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                             </h4>
@@ -244,6 +256,7 @@
                                             </div>
                                         @endforeach
                                     </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-12">

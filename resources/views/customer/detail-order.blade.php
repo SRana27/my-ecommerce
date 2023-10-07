@@ -111,7 +111,7 @@
                             <td class="text-center">{{$order->shipping_total}} .Tk </td>
                         </tr>
                         <tr>
-                            <td class="text-right" Colspan="4">Total Cost</td>
+                            <td class="text-center" Colspan="4">Total Cost</td>
                             <td class="text-center">{{$order->order_total}} .Tk </td>
                         </tr>
 
