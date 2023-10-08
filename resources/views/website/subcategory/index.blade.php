@@ -15,7 +15,7 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
-                        <li><a href="javascript:void(0)">Shop</a></li>
+                        <li><a href="">Shop</a></li>
                         <li>Shop Grid</li>
                     </ul>
                 </div>
@@ -41,29 +41,15 @@
 
                         <div class="single-widget">
                             <h3>All Categories</h3>
+
+                            @foreach($categories as $category)
                             <ul class="list">
                                 <li>
-                                    <a href="">Computers & Accessories </a><span>(1138)</span>
+                                    <a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}} </a>
                                 </li>
-                                <li>
-                                    <a href="">Smartphones & Tablets</a><span>(2356)</span>
-                                </li>
-                                <li>
-                                    <a href="">TV, Video & Audio</a><span>(420)</span>
-                                </li>
-                                <li>
-                                    <a href="">Cameras, Photo & Video</a><span>(874)</span>
-                                </li>
-                                <li>
-                                    <a href="">Headphones</a><span>(1239)</span>
-                                </li>
-                                <li>
-                                    <a href="">Wearable Electronics</a><span>(340)</span>
-                                </li>
-                                <li>
-                                    <a href="">Printers & Ink</a><span>(512)</span>
-                                </li>
+
                             </ul>
+                            @endforeach
                         </div>
 
 

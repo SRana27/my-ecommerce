@@ -209,6 +209,8 @@
                                     @if(count($category->subcategories)>0)
                                        <i class="lni lni-chevron-right"></i>
                                     @endif
+                                    <?php Session::put('$category->name');
+                                    ?>
                                 </a>
                                 <ul class="inner-sub-category">
                                     @foreach($category->subcategories as $subcategory)

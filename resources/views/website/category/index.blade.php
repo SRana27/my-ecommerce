@@ -15,8 +15,8 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
-                        <li><a href="javascript:void(0)">Shop</a></li>
-                        <li>Shop Grid</li>
+                        <li><a href="javascript:void(0)">categories</a></li>
+                        <li></li>
                     </ul>
                 </div>
             </div>
@@ -204,7 +204,9 @@
                             <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-12">
+                                        @php($count=0)
                                         @foreach($products as $product)
+                                               {{$count++}}
                                             <div class="single-product">
                                                 <div class="row align-items-center">
                                                     <div class="col-lg-4 col-md-4 col-12">

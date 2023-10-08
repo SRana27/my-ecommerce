@@ -11,10 +11,11 @@ use Illuminate\Http\Request;
 
 class MyCommerceController extends Controller
 {
+    private $catCount;
     public function index()
     {
         return view('website.home.index', [
-            'categories' => Category::all(),
+//            'categories' => Category::all(),
 //        'subcategories'=>SubCategory::orderBy('id','desc')->take('6')->get(['id','subcategory_id']),
             'products' => Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price', 'image'])
         ]);
@@ -28,7 +29,9 @@ class MyCommerceController extends Controller
             'brands'=>Brand::all(),
             'products' => Product::where('category_id', $category_id)->orderBy('id', 'desc')->get()
         ]);
+
     }
+
 
     public function sub_category($subcategory_id)
     {

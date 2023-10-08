@@ -42,8 +42,6 @@
                         <div class="single-widget">
                             <h3>All Categories</h3>
 
-
-
                             @foreach($categories as $category)
                                 <ul class="list">
 

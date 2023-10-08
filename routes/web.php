@@ -47,6 +47,8 @@ Route::get('/customer-login',[CustomerAuthController::class,'index'])->name('cus
 Route::post('/customer-login',[CustomerAuthController::class,'login'])->name('customer.login');
 Route::post('/customer-register',[CustomerAuthController::class,'register'])->name('customer.register');
 
+
+
   Route::middleware(['customer'])->group(function ()
   {
     Route::get('/customer-dashboard',[CustomerAuthController::class,'dashboard'])->name('customer.dashboard');
