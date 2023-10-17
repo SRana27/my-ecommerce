@@ -113,6 +113,7 @@
                         <tr>
                             <td class="text-center" Colspan="4">Total Cost</td>
                             <td class="text-end">{{$order->order_total}} .Tk </td>
+
                         </tr>
 
                     </table>

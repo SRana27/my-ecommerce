@@ -15,8 +15,8 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
-                        <li><a href="javascript:void(0)">categories</a></li>
-                        <li></li>
+                        <li><a href="javascript:void(0)">Shop</a></li>
+                        <li>Shop Grid</li>
                     </ul>
                 </div>
             </div>
@@ -42,15 +42,13 @@
                         <div class="single-widget">
                             <h3>All Categories</h3>
 
-
-
                             @foreach($categories as $category)
-                               <ul class="list">
+                                <ul class="list">
 
-                                   <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}}</a>
+                                    <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}}</a>
 
-                                   </li>
-                               </ul>
+                                    </li>
+                                </ul>
 
                             @endforeach
                         </div>
@@ -98,17 +96,17 @@
                         <div class="single-widget condition">
                             <h3>Filter by Brand</h3>
                             @foreach($brands as $brand)
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
-                                <label class="form-check-label" for="flexCheckDefault11">
-                                    <ul class="list">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
+                                    <label class="form-check-label" for="flexCheckDefault11">
+                                        <ul class="list">
 
-                                        <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a>
+                                            <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a>
 
-                                        </li>
-                                    </ul>
-                                </label>
-                            </div>
+                                            </li>
+                                        </ul>
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -163,7 +161,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
-                                                    <span class="category">{{$product->category->name}}</span>
+                                                    <span class="brand"> Brand :{{$product->brand->name}}</span>
                                                     <h4 class="title">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                     </h4>
@@ -204,9 +202,7 @@
                             <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-12">
-                                        @php($count=0)
                                         @foreach($products as $product)
-                                               {{$count++}}
                                             <div class="single-product">
                                                 <div class="row align-items-center">
                                                     <div class="col-lg-4 col-md-4 col-12">
@@ -222,7 +218,7 @@
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-12">
                                                         <div class="product-info">
-                                                            <span class="category">{{$product->category->name}}</span>
+                                                            <span class="category"> Brand :{{$product->brand->name}}</span>
                                                             <h4 class="title">
                                                                 <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                             </h4>

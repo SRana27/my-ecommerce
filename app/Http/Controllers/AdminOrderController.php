@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use PDF;
 class AdminOrderController extends Controller
 {
-     private $order;
+     private $order,$orderDetail;
     public function adminOrder()
     {
         return view('admin.order.manage',['orders' =>Order::orderBy('id','desc')->get()]);
@@ -72,4 +72,17 @@ class AdminOrderController extends Controller
         $pdf= PDF::loadview('admin.order.print-invoice',['order'=>Order::find($order_id)]);
         return $pdf->stream($order_id.'-order.pdf');
     }
+
+      public function delete(Request $request)
+      {   $this->order =Order::find($request->order_id);
+
+      if($this->order->order_status=='Cancel')
+        {
+          $this->order=Order::find($request->order_id);
+          $this->order->delete();
+          OrderDetail::deleteOrder($request);
+          return back()->with('message','order delete successfully');
+        }
+        return back()->with('message','Sorry order can not be delete ');
+      }
 }

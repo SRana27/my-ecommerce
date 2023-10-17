@@ -10,6 +10,7 @@ class Product extends Model
 {
     use HasFactory;
 
+
     private static $product, $image, $imageName, $imageUrl, $directory, $status;
 
     public static function storeProduct($request)
@@ -101,5 +102,6 @@ class Product extends Model
     {
         return $this->hasMany(OtherImage::class);
     }
+
 
 }

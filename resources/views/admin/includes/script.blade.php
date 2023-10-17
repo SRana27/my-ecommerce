@@ -139,7 +139,7 @@
                 type:"GET",
                 url:" {{route('get-subcategory-by-category.product')}}",
                 data: {id:categoryId},
-                dataType:"JSON",
+                dataType:"JSON",  
                 success:function (response) {
                     var option='';
                     option +='<option value=" "disabled selected>-- Select Sub Category--</option>';

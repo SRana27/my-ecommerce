@@ -46,7 +46,7 @@
                                             <i class="ti-eye"></i>
                                         </a>
                                         <a href="{{route('edit.admin.order',['order_id'=>$order->id])}}"
-                                           class=" btn btn-primary  mx-2 my-4" title="Edit Order">
+                                           class=" btn btn-primary  {{$order->order_status=='Complete'?'disabled':''}} mx-2 my-4" title="Edit Order">
                                             <i class="ti-pencil-alt"></i>
                                         </a>
                                         <a href="{{route('viewInvoice.admin.order',['order_id'=>$order->id])}}"
@@ -60,8 +60,8 @@
                                         <form action="{{route('delete.admin.order')}}" method="post">
                                             @csrf
                                             <input type="hidden" name="order_id" value="{{$order->id}}">
-                                            <button onclick="return confirm('are you sure for delete this category')"
-                                                    class=" btn btn-danger my-4" title="Delete Order">
+                                            <button onclick="return confirm('are you sure for delete this order')"
+                                                    class="{{$order->order_status=='Cancel'?'btn btn-danger':'btn btn-danger disabled'}} my-4" title="Delete Order">
                                                 <i class="ti-trash"></i>
                                             </button>
                                         </form>

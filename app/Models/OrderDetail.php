@@ -9,7 +9,7 @@ use ShoppingCart;
 class OrderDetail extends Model
 {
     use HasFactory;
-    private static $orderDetail;
+    private static $orderDetail,$orderDetails;
 
     public static function newOrderDetail($orderId )
     {
@@ -27,6 +27,16 @@ class OrderDetail extends Model
             ShoppingCart::remove($item->__raw_id);
 
         }
+
+    }
+    public static function deleteOrder($request)
+    {
+      self::$orderDetails=OrderDetail::where('order_id',$request->order_id)->get();
+      foreach (self::$orderDetails as $item)
+      {
+          $item->delete();
+      }
+
 
     }
 }
