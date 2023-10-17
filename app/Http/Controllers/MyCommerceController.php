@@ -8,17 +8,27 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use GuzzleHttp;
+
 
 class MyCommerceController extends Controller
 {
     private $catCount;
     public function index()
     {
-        return view('website.home.index', [
+        $client = new \GuzzleHttp\Client();
+        $url ='https://fakestoreapi.com/products?limit=6';
+        $products_request = $client->get($url);
+        $product_response=json_decode( $products_request->getBody(),true);
+        $api_products= $product_response;
+        $categories = Category::all();
+        $products =Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price', 'image']);
+        return view('website.home.index',compact('api_products','categories','products'));
+//            ,[
 //            'categories' => Category::all(),
 //        'subcategories'=>SubCategory::orderBy('id','desc')->take('6')->get(['id','subcategory_id']),
-            'products' => Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price', 'image'])
-        ]);
+//            'products' => Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price', 'image'])
+//       ]);
 
     }
 
