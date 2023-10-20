@@ -13,10 +13,10 @@ use GuzzleHttp;
 
 class MyCommerceController extends Controller
 {
-    private $catCount;
+
     public function index()
     {
-        $client = new \GuzzleHttp\Client();
+        $client = new GuzzleHttp\Client();
         $url ='https://fakestoreapi.com/products?limit=6';
         $products_request = $client->get($url);
         $product_response=json_decode( $products_request->getBody(),true);
