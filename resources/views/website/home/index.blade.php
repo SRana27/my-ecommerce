@@ -113,7 +113,7 @@ Online Super Store
                         <div class="text-center mb-3 hover">
                             <img src="{{$api_product['image']}}" alt="#" height="250px" width="200px">
                         </div>
-                        <div >
+                        <div style="height:50px;" >
                             <strong>Title: </strong>{{$api_product['title']}}
                         </div>
 

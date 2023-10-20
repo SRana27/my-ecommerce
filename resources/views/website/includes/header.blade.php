@@ -57,7 +57,7 @@
                     <div class="top-middle">
                         <ul class="useful-links">
                             <li><a href="{{route('home')}}">Home</a></li>
-                            <li><a href="about-us.html">About Us</a></li>
+                            <li><a href="#">About Us</a></li>
                             <li><a href="{{route('contact-us')}}">Contact Us</a></li>
                         </ul>
                     </div>
