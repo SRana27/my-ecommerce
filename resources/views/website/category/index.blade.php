@@ -171,17 +171,19 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <span class="category">{{$product->category->name}}</span>
-                                                    <h4 class="title">
+                                                    <div class="title" style="height: 70px;">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
-                                                    </h4>
-                                                    <ul class="review">
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star"></i></li>
-                                                        <li><span>4.0 Review(s)</span></li>
-                                                    </ul>
+                                                    </div>
+                                                    <div class="" style="height: 20px;">
+                                                       <ul class="review">
+                                                          <li><i class="lni lni-star-filled"></i></li>
+                                                          <li><i class="lni lni-star-filled"></i></li>
+                                                          <li><i class="lni lni-star-filled"></i></li>
+                                                          <li><i class="lni lni-star-filled"></i></li>
+                                                         <li><i class="lni lni-star"></i></li>
+                                                         <li><span>4.0 Review(s)</span></li>
+                                                       </ul>
+                                                   </div>
                                                     <div class="price">
                                                         <span>BDT. {{$product->selling_price}}</span>
                                                     </div>

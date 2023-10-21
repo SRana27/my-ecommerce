@@ -16,7 +16,7 @@
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
                         <li><a href="javascript:void(0)">Brand</a></li>
-                        <li><a href="javascript:void(0)">{{$brand->name}}</a></li>
+                        <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -156,7 +156,7 @@
                                     @foreach($products as $product)
                                         <div class="col-lg-4 col-md-6 col-12">
 
-                                            <div class="single-product">
+                                        <div class="single-product">
                                                 <div class="product-image">
                                                     <img src="{{asset($product->image)}}" alt="" height="180"
                                                          width="150">
@@ -165,18 +165,20 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
-                                                    <span class="brand"> Brand :{{$product->brand->name}}</span>
-                                                    <h4 class="title">
+                                                    <span class="category">{{$product->brand->name}}</span>
+                                                    <div class="title" style="height: 70px;">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
-                                                    </h4>
-                                                    <ul class="review">
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star-filled"></i></li>
-                                                        <li><i class="lni lni-star"></i></li>
-                                                        <li><span>4.0 Review(s)</span></li>
-                                                    </ul>
+                                                    </div>
+                                                    <div class="" style="height: 20px;">
+                                                       <ul class="review">
+                                                          <li><i class="lni lni-star-filled"></i></li>
+                                                          <li><i class="lni lni-star-filled"></i></li>
+                                                          <li><i class="lni lni-star-filled"></i></li>
+                                                          <li><i class="lni lni-star-filled"></i></li>
+                                                         <li><i class="lni lni-star"></i></li>
+                                                         <li><span>4.0 Review(s)</span></li>
+                                                       </ul>
+                                                   </div>
                                                     <div class="price">
                                                         <span>BDT. {{$product->selling_price}}</span>
                                                     </div>
