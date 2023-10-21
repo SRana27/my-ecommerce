@@ -21,8 +21,9 @@ class MyCommerceController extends Controller
         $product_response=json_decode( $products_request->getBody(),true);
         $api_products= $product_response;
         $categories = Category::all();
+        $brands= Brand::all();
         $products =Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price', 'image']);
-        return view('website.home.index',compact('api_products','categories','products'));
+        return view('website.home.index',compact('api_products','categories','products','brands'));
 //            ,[
 //            'categories' => Category::all(),
 //        'subcategories'=>SubCategory::orderBy('id','desc')->take('6')->get(['id','subcategory_id']),

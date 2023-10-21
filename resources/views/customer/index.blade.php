@@ -14,7 +14,7 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
-                        <li><a href="{{route('home')}}">Shop</a></li>
+                        <li><a href="">Customer</a></li>
                         <li>Login & Register</li>
                     </ul>
                 </div>
@@ -66,8 +66,6 @@
                 </div>
 
 
-
-
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
@@ -78,40 +76,40 @@
                             <form action="{{route('customer.register')}}" method="post">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label class="col-md-3">Full Name :</label>
-                                    <div class="col-md-9">
+                                    <label class="col-md-4">Full Name :</label>
+                                    <div class="col-md-8">
                                         <input type="text" class="form-control" name="name" required>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-md-3">Email Address :</label>
-                                    <div class="col-md-9">
+                                    <label class="col-md-4">Email Address :</label>
+                                    <div class="col-md-8">
                                         <input type="email" class="form-control" name="email" required>
                                         <span class="text-danger">{{$errors->has('email') ? $errors->first('email'): ' '}}</span>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-md-3">Password :</label>
-                                    <div class="col-md-9">
+                                    <label class="col-md-4">Password :</label>
+                                    <div class="col-md-8">
                                         <input type="password" class="form-control" name="password" required>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-md-3">Phone Number :</label>
-                                    <div class="col-md-9">
+                                    <label class="col-md-4">Phone Number :</label>
+                                    <div class="col-md-8">
                                         <input type="text" class="form-control" name="mobile" required>
                                         <span class="text-danger">{{$errors->has('mobile') ? $errors->first('mobile'): ' '}}</span>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label class="col-md-3">Address : </label>
-                                    <div class="col-md-9">
+                                <div class="row mb-4">
+                                    <label class="col-md-4">Address : </label>
+                                    <div class="col-md-8">
                                         <textarea type="text" class="form-control" name="address"></textarea>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-md-3"></label>
-                                    <div class="col-md-9">
+                                    <label class="col-md-4"></label>
+                                    <div class="col-md-8">
                                         <input type="submit" class="btn btn-success" value="register" >
                                     </div>
                                 </div>

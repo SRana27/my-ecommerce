@@ -89,7 +89,7 @@ Online Super Store
         </div>
         <div class="row">
                   @foreach($products as $product)
-            <div class="col-lg-3 col-md-6 col-12">
+            <div class="col-lg-3 col-md-6 col-12 ">
                 <div class="single-product">
                     <div class="product-image">
                         <img src="{{asset($product->image)}}" alt="" height="250" width="180" >
@@ -607,30 +607,11 @@ Online Super Store
         </div>
         <div class="brands-logo-wrapper">
             <div class="brands-logo-carousel d-flex align-items-center justify-content-between">
-                <div class="brand-logo">
-                    <img src="{{asset('/')}}website/assets/images/brands/01.png" alt="#">
-                </div>
-                <div class="brand-logo">
-                    <img src="{{asset('/')}}website/assets/images/brands/02.png" alt="#">
-                </div>
-                <div class="brand-logo">
-                    <img src="{{asset('/')}}website/assets/images/brands/03.png" alt="#">
-                </div>
-                <div class="brand-logo">
-                    <img src="{{asset('/')}}website/assets/images/brands/04.png" alt="#">
-                </div>
-                <div class="brand-logo">
-                    <img src="{{asset('/')}}website/assets/images/brands/05.png" alt="#">
-                </div>
-                <div class="brand-logo">
-                    <img src="{{asset('/')}}website/assets/images/brands/06.png" alt="#">
-                </div>
-                <div class="brand-logo">
-                    <img src="{{asset('/')}}website/assets/images/brands/03.png" alt="#">
-                </div>
-                <div class="brand-logo">
-                    <img src="{{asset('/')}}website/assets/images/brands/04.png" alt="#">
-                </div>
+                @foreach($brands as $brand)
+                    <div class="brand-logo">
+                      <a href="{{route('product-brand',['brand_id'=>$brand->id])}}"> <img src="{{asset($brand->image)}}" alt="#"></a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
