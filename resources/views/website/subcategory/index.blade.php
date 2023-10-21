@@ -1,6 +1,6 @@
 @extends('website.master')
 @section('title')
-    Product category
+    Product Subcategory
 @endsection
 @section('body')
 
@@ -183,20 +183,7 @@
                                         </div>
                                     @endforeach
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="pagination left">
-                                            <ul class="pagination-list">
-                                                <li class="active"><a href="javascript:void(0)">1</a></li>
-                                                <li><a href="javascript:void(0)">2</a></li>
-                                                <li><a href="javascript:void(0)">3</a></li>
-                                                <li><a href="javascript:void(0)">4</a></li>
-                                                <li><a href="javascript:void(0)"><i
-                                                            class="lni lni-chevron-right"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{$products->links()}}
                             </div>
                             <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
                                 <div class="row">
@@ -244,21 +231,7 @@
                                     </div>
 
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-
-                                        <div class="pagination left">
-                                            <ul class="pagination-list">
-                                                <li class="active"><a href="javascript:void(0)">1</a></li>
-                                                <li><a href="javascript:void(0)">2</a></li>
-                                                <li><a href="javascript:void(0)">3</a></li>
-                                                <li><a href="javascript:void(0)">4</a></li>
-                                                <li><a href="javascript:void(0)"><i
-                                                            class="lni lni-chevron-right"></i></a></li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
+                                {{$products->links()}}
                                 </div>
                             </div>
                         </div>

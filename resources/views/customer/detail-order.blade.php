@@ -99,20 +99,21 @@
                                 <td> <a href="{{route('product.info',['product_id'=>$orderDetail->product_id])}}"> {{$orderDetail->product_name}}</a></td>
                                 <td>{{$orderDetail->product_price}} tk.</td>
                                 <td>{{$orderDetail->product_qty}}</td>
-                                <td>{{$orderDetail->product_price*$orderDetail->product_qty}} .Tk</td>
+                                <td class="text-end">{{$orderDetail->product_price*$orderDetail->product_qty}} .Tk</td>
                             </tr>
                         @endforeach
                         <tr>
                             <td class="text-center" Colspan="4">Tax (5%)</td>
-                            <td class="text-center">{{$order->tax_total}} .Tk </td>
+                            <td class="text-end">{{$order->tax_total}} .Tk </td>
                         </tr>
                         <tr>
                             <td class="text-center" Colspan="4">Shipping Cost</td>
-                            <td class="text-center">{{$order->shipping_total}} .Tk </td>
+                            <td class="text-end">{{$order->shipping_total}} .Tk </td>
                         </tr>
                         <tr>
                             <td class="text-center" Colspan="4">Total Cost</td>
-                            <td class="text-center">{{$order->order_total}} .Tk </td>
+                            <td class="text-end">{{$order->order_total}} .Tk </td>
+
                         </tr>
 
                     </table>

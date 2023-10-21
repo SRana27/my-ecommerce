@@ -10,10 +10,10 @@ use App\Models\Product;
 
 class MyCommerceController extends Controller
 {
-    private $catCount;
+
     public function index()
     {
-        $client = new \GuzzleHttp\Client();
+        $client = new GuzzleHttp\Client();
         $url ='https://fakestoreapi.com/products?limit=6';
         $products_request = $client->get($url);
         $product_response=json_decode( $products_request->getBody(),true);
@@ -34,7 +34,7 @@ class MyCommerceController extends Controller
         return view('website.category.index', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),
-            'products' => Product::where('category_id', $category_id)->orderBy('id', 'desc')->get()
+            'products' => Product::where('category_id', $category_id)->orderBy('id', 'desc')->paginate(3),
         ]);
 
     }
@@ -46,7 +46,7 @@ class MyCommerceController extends Controller
         return view('website.subcategory.index', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),
-            'products' => Product::where('subcategory_id', $subcategory_id)->orderBy('id', 'desc')->get()
+            'products' => Product::where('subcategory_id', $subcategory_id)->orderBy('id', 'desc')->paginate(1),
         ]);
     }
     public function brand($brand_id)
@@ -55,7 +55,7 @@ class MyCommerceController extends Controller
         return view('website.brand.index', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),
-            'products' => Product::where('brand_id',$brand_id)->orderBy('id', 'desc')->get()
+            'products' => Product::where('brand_id',$brand_id)->orderBy('id', 'desc')->paginate(1)
         ]);
     }
 

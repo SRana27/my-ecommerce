@@ -38,7 +38,6 @@ class ProductController extends Controller
 
     public function saveProduct( Request $request)
     {
-
        $this->product = Product::storeProduct($request);
         OtherImage::storeOtherImage($request->other_image, $this->product->id);
         return back()->with('message','successfully add product');
