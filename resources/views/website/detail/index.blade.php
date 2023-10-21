@@ -8,14 +8,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="breadcrumbs-content">
-                        <h1 class="page-title"></h1>
+                        <h1 class="page-title">Product details</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
-                        <li><a herf="#" >{{$product->category->name}}</a></li>
-                        <li>{{$product->subcategory->name}}</li>
+                        <li><a href="{{route('product-category',['category_id'=>$product->category->id])}}">{{$product->category->name}}</a></li>
+                        <li><a href="{{route('product-subcategory',['subcategory_id'=>$product->subcategory->id])}}">{{$product->subcategory->name}}</a></li>
+                        <li><a href="{{route('product-brand',['brand_id'=>$product->brand->id])}}">{{$product->brand->name}}</a></li>
                         <li>{{$product->name}}</li>
                     </ul>
                 </div>
@@ -231,22 +232,22 @@
         </div>
     </section>
 
-    {{--<section>--}}
-    {{--    <div class="modal fade review-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
-    {{--        <div class="modal-dialog">--}}
-    {{--            <div class="modal-content">--}}
-    {{--                <div class="modal-header">--}}
-    {{--                    <h5 class="modal-title" id="exampleModalLabel">Leave a Review</h5>--}}
-    {{--                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--}}
-    {{--                </div>--}}
-    {{--                <div class="modal-body">--}}
-    {{--                    <div class="row">--}}
-    {{--                        <div class="col-sm-6">--}}
-    {{--                            <div class="form-group">--}}
-    {{--                                <label for="review-name">Your Name</label>--}}
-    {{--                                <input class="form-control" type="text" id="review-name" required>--}}
-    {{--                            </div>--}}
-    {{--                        </div>--}}
+    {{-- <section>
+       <div class="modal fade review-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+               <div class="modal-content">
+                   <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Leave a Review</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                   </div>
+                  <div class="modal-body">
+                       <div class="row">
+                           <div class="col-sm-6">
+                               <div class="form-group">
+                                <label for="review-name">Your Name</label>
+                               <input class="form-control" type="text" id="review-name" required>
+                          </div> 
+                           </div> --}}
     {{--                        <div class="col-sm-6">--}}
     {{--                            <div class="form-group">--}}
     {{--                                <label for="review-email">Your Email</label>--}}
@@ -285,7 +286,7 @@
     {{--            </div>--}}
     {{--        </div>--}}
     {{--    </div>--}}
-    {{--</section>--}}
-
+    {{--</section> 
+   
 @endsection
 

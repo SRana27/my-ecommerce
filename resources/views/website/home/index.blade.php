@@ -76,7 +76,53 @@ Online Super Store
     </div>
 </section>
 
-
+<section class="trending-product section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title">
+                    <h2>Trending Product</h2>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                        suffered alteration in some form.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+                  @foreach($products as $product)
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-product">
+                    <div class="product-image">
+                        <img src="{{asset($product->image)}}" alt="" height="250" width="180" >
+                        <div class="button">
+                            <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <span class="category">{{$product->category->name}}</span>
+                        <h4 class="title">
+                            <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
+                        </h4>
+                        <ul class="review">
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star-filled"></i></li>
+                            <li><i class="lni lni-star"></i></li>
+                            <li><span>4.0 Review(s)</span></li>
+                        </ul>
+                        <div class="price">
+                            <span>BDT. {{$product->selling_price}}</span>
+                        </div>
+                        <div class="pt-2" >
+                            <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn btn-info col-md-12 hover">Buy now </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 <section class="featured-categories section">
     <div class="container">
         <div class="row">
@@ -214,56 +260,6 @@ Online Super Store
         </div>
     </div>
 </section>
-
-
-<section class="trending-product section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title">
-                    <h2>Trending Product</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered alteration in some form.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-                  @foreach($products as $product)
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="single-product">
-                    <div class="product-image">
-                        <img src="{{asset($product->image)}}" alt="" height="250" width="180" >
-                        <div class="button">
-                            <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="category">{{$product->category->name}}</span>
-                        <h4 class="title">
-                            <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
-                        </h4>
-                        <ul class="review">
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star-filled"></i></li>
-                            <li><i class="lni lni-star"></i></li>
-                            <li><span>4.0 Review(s)</span></li>
-                        </ul>
-                        <div class="price">
-                            <span>BDT. {{$product->selling_price}}</span>
-                        </div>
-                        <div class="pt-2" >
-                            <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn btn-info col-md-12 hover">Buy now </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
 
 <section class="banner section">
     <div class="container">

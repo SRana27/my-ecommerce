@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Guzzlehttp;
+use App\Models\SubCategory;
 
 
 
@@ -36,6 +37,7 @@ class MyCommerceController extends Controller
             'categories' => Category::all(),
             'brands'=>Brand::all(),
             'products' => Product::where('category_id', $category_id)->orderBy('id', 'desc')->paginate(3),
+            'category'=>Category::find( $category_id),
         ]);
 
     }
@@ -47,7 +49,8 @@ class MyCommerceController extends Controller
         return view('website.subcategory.index', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),
-            'products' => Product::where('subcategory_id', $subcategory_id)->orderBy('id', 'desc')->paginate(1),
+            'subcategory'=>SubCategory::find($subcategory_id),
+            'products' => Product::where('subcategory_id', $subcategory_id)->orderBy('id', 'desc')->paginate(3),
         ]);
     }
     public function brand($brand_id)
@@ -56,7 +59,8 @@ class MyCommerceController extends Controller
         return view('website.brand.index', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),
-            'products' => Product::where('brand_id',$brand_id)->orderBy('id', 'desc')->paginate(1)
+            'brand'=>Brand::find($brand_id),
+            'products' => Product::where('brand_id',$brand_id)->orderBy('id', 'desc')->paginate(3)
         ]);
     }
 

@@ -15,8 +15,9 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
-                        <li><a href="">Shop</a></li>
-                        <li>Shop Grid</li>
+                        <li><a href="">{{$subcategory->category->name}}</a></li> 
+                        <li><a href="{{route('product-subcategory',['subcategory_id'=>$subcategory->id])}}">{{$subcategory->name}}</li>
+                     
                     </ul>
                 </div>
             </div>
