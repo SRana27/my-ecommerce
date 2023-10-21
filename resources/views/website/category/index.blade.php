@@ -45,12 +45,15 @@
 
 
                             @foreach($categories as $category)
-                               <ul class="list">
+                            @php
+                             $catProductCount=\App\Models\Product::catProductCount($category->id)
+                            @endphp
+                                <ul class="list">
 
-                                   <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}}</a>
+                                    <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}} <small>({{$catProductCount}})</small></a>
 
-                                   </li>
-                               </ul>
+                                    </li>
+                                </ul>
 
                             @endforeach
                         </div>
@@ -98,12 +101,15 @@
                         <div class="single-widget condition">
                             <h3>Filter by Brand</h3>
                             @foreach($brands as $brand)
+                            @php
+                             $brandProductCount=\App\Models\Product::brandProductCount($brand->id)
+                            @endphp
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
                                 <label class="form-check-label" for="flexCheckDefault11">
                                     <ul class="list">
 
-                                        <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a>
+                                        <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}<small> ({{$brandProductCount}})</small></a>
 
                                         </li>
                                     </ul>
@@ -186,10 +192,12 @@
                                         </div>
                                     @endforeach
                                 </div>
-                            
-                                {{$products->links()}}
-                                    
-                               
+                               <div class="row ">
+                                 <div class="col-md-4"></div>
+                                 <div class="col-md-4">   {{$products->links()}}</div>
+                                 <div class="col-md-4"></div>
+                               </div>
+  
                             </div>
                             <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
                                 <div class="row">
@@ -235,7 +243,11 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                {{$products->links()}}
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">   {{$products->links()}}</div>
+                                    <div class="col-md-4"></div>
+                                  </div>
                                
                             </div>
                         </div>

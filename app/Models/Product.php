@@ -5,13 +5,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 class Product extends Model
 {
     use HasFactory;
 
 
-    private static $product, $image, $imageName, $imageUrl, $directory, $status;
+    private static $product, $image, $imageName, $imageUrl, $directory, $status,$productCount;
 
     public static function storeProduct($request)
     {
@@ -103,5 +102,14 @@ class Product extends Model
         return $this->hasMany(OtherImage::class);
     }
 
-
+    public static function catProductCount($category_id)
+    {
+      self::$productCount=Product::where('category_id',$category_id)->count();
+      return self::$productCount;
+    }
+    public static function brandProductCount($brand_id)
+    {
+      self::$productCount=Product::where('brand_id',$brand_id)->count();
+      return self::$productCount;
+    }
 }

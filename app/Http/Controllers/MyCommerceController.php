@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use Guzzlehttp;
 
 
 
@@ -13,7 +14,7 @@ class MyCommerceController extends Controller
 
     public function index()
     {
-        $client = new GuzzleHttp\Client();
+        $client = new \GuzzleHttp\Client();
         $url ='https://fakestoreapi.com/products?limit=6';
         $products_request = $client->get($url);
         $product_response=json_decode( $products_request->getBody(),true);
@@ -70,5 +71,6 @@ class MyCommerceController extends Controller
     {
         return view('website.contact.contact_us');
     }
+
 
 }
