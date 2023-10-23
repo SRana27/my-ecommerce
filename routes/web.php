@@ -34,6 +34,9 @@ Route::get('/product-category/{category_id}',[MyCommerceController::class,'categ
 Route::get('/product-subcategory/{subcategory_id}',[MyCommerceController::class,'sub_category'])->name('product-subcategory');
 Route::get('/product-brand/{brand_id}',[MyCommerceController::class,'brand'])->name('product-brand');
 Route::get('/product-detail/{product_id}',[MyCommerceController::class,'detail'])->name('product-detail');
+Route::get('/search',[MyCommerceController::class,'search'])->name('search');
+Route::get('/searchProduct',[MyCommerceController::class,'searchProduct'])->name('search2');
+
 Route::get('/show-cart',[CartController::class,'show'])->name('show-cart');
 Route::post('/add-to-cart/{product_id}',[CartController::class,'index'])->name('add-to-cart');
 Route::post('/update-cart-qty/{rowId}',[CartController::class,'update'])->name('update-cart-qty');

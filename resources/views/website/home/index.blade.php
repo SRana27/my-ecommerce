@@ -137,24 +137,6 @@ Online Super Store
             </div>
         </div>
         <div class="row">
-            {{--            @foreach($categories as $category)--}}
-            {{--            <div class="col-lg-4 col-md-6 col-12 "  >--}}
-
-            {{--                <div class="single-category">--}}
-            {{--                    <h3 class="heading">{{$category->name}}</h3>--}}
-            {{--                    <ul>--}}
-            {{--                        @foreach($category->subcategories as $subcategory)--}}
-            {{--                        <li><a href="">{{$subcategory->name}}</a></li>--}}
-            {{--                        @endforeach--}}
-            {{--                    </ul>--}}
-            {{--                    <div class="images">--}}
-            {{--                        <img src="{{asset($category->image)}}" alt="" height="100" width="100">--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-
-            {{--            </div>--}}
-            {{--            @endforeach--}}
-
             @foreach($api_products as $api_product)
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="pt-3 mx-2">
@@ -175,90 +157,6 @@ Online Super Store
                     </div>
                 </div>
             @endforeach
-            {{--            <div class="col-lg-4 col-md-6 col-12">--}}
-
-            {{--                <div class="single-category">--}}
-            {{--                    <h3 class="heading">Desktop & Laptop</h3>--}}
-            {{--                    <ul>--}}
-            {{--                        <li><a href="">Smart Television</a></li>--}}
-            {{--                        <li><a href="">QLED TV</a></li>--}}
-            {{--                        <li><a href="">Audios</a></li>--}}
-            {{--                        <li><a href="">Headphones</a></li>--}}
-            {{--                        <li><a href="">View All</a></li>--}}
-            {{--                    </ul>--}}
-            {{--                    <div class="images">--}}
-            {{--                        <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-2.png" alt="#">--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-
-            {{--            </div>--}}
-            {{--            <div class="col-lg-4 col-md-6 col-12">--}}
-
-            {{--                <div class="single-category">--}}
-            {{--                    <h3 class="heading">Cctv Camera</h3>--}}
-            {{--                    <ul>--}}
-            {{--                        <li><a href="">Smart Television</a></li>--}}
-            {{--                        <li><a href="">QLED TV</a></li>--}}
-            {{--                        <li><a href="">Audios</a></li>--}}
-            {{--                        <li><a href="">Headphones</a></li>--}}
-            {{--                        <li><a href="">View All</a></li>--}}
-            {{--                    </ul>--}}
-            {{--                    <div class="images">--}}
-            {{--                        <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-3.png" alt="#">--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-
-            {{--            </div>--}}
-            {{--            <div class="col-lg-4 col-md-6 col-12">--}}
-
-            {{--                <div class="single-category">--}}
-            {{--                    <h3 class="heading">Dslr Camera</h3>--}}
-            {{--                    <ul>--}}
-            {{--                        <li><a href="">Smart Television</a></li>--}}
-            {{--                        <li><a href="">QLED TV</a></li>--}}
-            {{--                        <li><a href="">Audios</a></li>--}}
-            {{--                        <li><a href="">Headphones</a></li>--}}
-            {{--                        <li><a href="">View All</a></li>--}}
-            {{--                    </ul>--}}
-            {{--                    <div class="images">--}}
-            {{--                        <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-4.png" alt="#">--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-
-            {{--            </div>--}}
-            {{--            <div class="col-lg-4 col-md-6 col-12">--}}
-
-            {{--                <div class="single-category">--}}
-            {{--                    <h3 class="heading">Smart Phones</h3>--}}
-            {{--                    <ul>--}}
-            {{--                        <li><a href="">Smart Television</a></li>--}}
-            {{--                        <li><a href="">QLED TV</a></li>--}}
-            {{--                        <li><a href="">Audios</a></li>--}}
-            {{--                        <li><a href="">Headphones</a></li>--}}
-            {{--                        <li><a href="">View All</a></li>--}}
-            {{--                    </ul>--}}
-            {{--                    <div class="images">--}}
-            {{--                        <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-5.png" alt="#">--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-
-            {{--            </div>--}}
-            {{--            <div class="col-lg-4 col-md-6 col-12">--}}
-
-            {{--                <div class="single-category">--}}
-            {{--                    <h3 class="heading">Game Console</h3>--}}
-            {{--                    <ul>--}}
-            {{--                        <li><a href="">Smart Television</a></li>--}}
-            {{--                        <li><a href="">QLED TV</a></li>--}}
-            {{--                        <li><a href="">Audios</a></li>--}}
-            {{--                        <li><a href="">Headphones</a></li>--}}
-            {{--                        <li><a href="">View All</a></li>--}}
-            {{--                    </ul>--}}
-            {{--                    <div class="images">--}}
-            {{--                        <img src="{{asset('/')}}website/assets/images/featured-categories/fetured-item-6.png" alt="#">--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-
         </div>
     </div>
 </section>

@@ -106,26 +106,29 @@
 
                     <div class="main-menu-search">
 
-                        <div class="navbar-search search-style-5">
-                            <div class="search-select">
-                                <div class="select-position">
-                                    <select id="select1">
-                                        <option selected>All</option>
-                                        <option value="1">option 01</option>
-                                        <option value="2">option 02</option>
-                                        <option value="3">option 03</option>
-                                        <option value="4">option 04</option>
-                                        <option value="5">option 05</option>
-                                    </select>
+                      <form action="{{route('search')}}" method="get">
+                 
+                            <div class="navbar-search search-style-5">
+
+                                <div class="search-select">
+                                    <div class="select-position">
+                                        <select id="select1" name="subcategory">
+                                            <option value="ALL" {{request('category')== "ALL" ? 'selected' : '' }}>All SubCategory</option>
+                                            @foreach($subcategories as $subcategory)
+                                                <option value="{{$subcategory->id}}"{{request('subcategory') == $subcategory->id ? 'selected': '' }}>{{$subcategory->name}}</option>
+                                            @endforeach
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="search-input">
+                                    <input type="text" placeholder="product name" name="product" value="{{request('product')}}">
+                                </div>
+                                <div class="search-btn">
+                                    <button><i class="lni lni-search-alt"></i></button>
                                 </div>
                             </div>
-                            <div class="search-input">
-                                <input type="text" placeholder="Search">
-                            </div>
-                            <div class="search-btn">
-                                <button><i class="lni lni-search-alt"></i></button>
-                            </div>
-                        </div>
+                        </form>
 
                     </div>
 

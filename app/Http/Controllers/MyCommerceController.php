@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Guzzlehttp;
 use App\Models\SubCategory;
+use Illuminate\Http\Request;
 
 
 
@@ -76,6 +77,37 @@ class MyCommerceController extends Controller
     {
         return view('website.contact.contact_us');
     }
+    
+    public function search(Request $request)
 
+    {  
+          
+        if($request->subcategory != "ALL"){
+            $products=Product::where('subcategory_id',$request->subcategory)->where('name','LIKE','%'.$request->product.'%');
+            $products=$products->orderBy('id','desc')->paginate(1)->withQueryString();
+
+        } else{
+           
+                $products =Product::where('name','LIKE','%'.$request->product.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
+              }
+            
+        return view('website.search.search', [
+            'categories' => Category::all(),
+            'brands'=>Brand::all(),
+            'products'=> $products,
+        ]);
+    }
+
+    public function searchProduct(Request $request)
+
+    {
+            return view('website.search.search', [
+                'categories' => Category::all(),
+                'brands' => Brand::all(),
+                'products' => Product::orderBy('id', 'desc')->where('name', 'LIKE', '%'.$request->searchproduct.'%')->paginate(1)->withQueryString(),
+            ]);
+
+
+    }
 
 }

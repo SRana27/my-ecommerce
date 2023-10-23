@@ -9,19 +9,20 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="breadcrumbs-content">
-                        <h1 class="page-title">Product</h1>
+                        <h1 class="page-title">Search Product Result</h1>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
-                        <li><a href="javascript:void(0)">Brand</a></li>
-                        <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}</a></li>
+
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
+
     <section class="product-grids section">
         <div class="container">
             <div class="row">
@@ -32,18 +33,17 @@
                         <div class="single-widget search">
                             <h3>Search Product</h3>
                             <form action="{{route('search2')}}" method="get">
-                                <input type="text"  name="searchproduct" placeholder="Search Here..." required>
+                                <input type="text"  name="searchproduct" placeholder="Search Here..."  required value="{{request()->input('searchproduct')}}">
                                 <button type="submit"><i class="lni lni-search-alt"></i></button>
                             </form>
                         </div>
-
                         <div class="single-widget">
-                            <h3>All Categories</h3>
+                            <h3 class="text-center">All Categories</h3>
 
                             @foreach($categories as $category)
-                            @php
-                             $catProductCount=\App\Models\Product::catProductCount($category->id)
-                            @endphp
+                                @php
+                                    $catProductCount=\App\Models\Product::catProductCount($category->id)
+                                @endphp
                                 <ul class="list">
 
                                     <li><a href="{{route('product-category',['category_id'=>$category->id])}}">{{$category->name}} <small>({{$catProductCount}})</small></a>
@@ -97,20 +97,20 @@
                         <div class="single-widget condition">
                             <h3>Filter by Brand</h3>
                             @foreach($brands as $brand)
-                               @php
-                               $brandProductCount=\App\Models\Product::brandProductCount($brand->id)
-                             @endphp
-                           <div class="form-check">
-                               <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
-                               <label class="form-check-label" for="flexCheckDefault11">
-                                   <ul class="list">
+                                @php
+                                    $brandProductCount=\App\Models\Product::brandProductCount($brand->id)
+                                @endphp
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault11">
+                                    <label class="form-check-label" for="flexCheckDefault11">
+                                        <ul class="list">
 
-                                       <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}<small> ({{$brandProductCount}})</small></a>
+                                            <li><a href="{{route('product-brand',['brand_id'=>$brand->id])}}">{{$brand->name}}<small> ({{$brandProductCount}})</small></a>
 
-                                       </li>
-                                   </ul>
-                               </label>
-                           </div>
+                                            </li>
+                                        </ul>
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                                             <option>A - Z Order</option>
                                             <option>Z - A Order</option>
                                         </select>
-                                        <h3 class="total-show-product">Showing: <span>{{count($products)}}</span></h3>
+                                        <h3 class="total-show-product">Showing: <span>{{count($products)}} items</span></h3>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-md-4 col-12">
@@ -153,78 +153,25 @@
                             <div class="tab-pane fade show active" id="nav-grid" role="tabpanel"
                                  aria-labelledby="nav-grid-tab">
                                 <div class="row">
-                                @if(count($products)>0)
-                                    @foreach($products as $product)
-                                        <div class="col-lg-4 col-md-6 col-12">
-
-                                        <div class="single-product">
-                                                <div class="product-image">
-                                                    <img src="{{asset($product->image)}}" alt="" height="180"
-                                                         width="150">
-                                                    <div class="button">
-                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
-                                                    </div>
-                                                </div>
-                                                <div class="product-info">
-                                                    <span class="category">{{$product->brand->name}}</span>
-                                                    <div class="title" style="height: 70px;">
-                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
-                                                    </div>
-                                                    <div class="" style="height: 20px;">
-                                                       <ul class="review">
-                                                          <li><i class="lni lni-star-filled"></i></li>
-                                                          <li><i class="lni lni-star-filled"></i></li>
-                                                          <li><i class="lni lni-star-filled"></i></li>
-                                                          <li><i class="lni lni-star-filled"></i></li>
-                                                         <li><i class="lni lni-star"></i></li>
-                                                         <li><span>4.0 Review(s)</span></li>
-                                                       </ul>
-                                                   </div>
-                                                    <div class="price">
-                                                        <span>BDT. {{$product->selling_price}}</span>
-                                                    </div>
-                                                    <div class="pt-2" >
-                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn btn-info col-md-12 hover">Buy now </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                    @else
-                                        <p> Sorry! no product here</p>
-                                    @endif
-                                </div>
-                                <div class="row ">
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">   {{$products->links()}}</div>
-                                    <div class="col-md-4"></div>
-                                </div>
-                               
-                            </div>
-                            <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-12">
                                     @if(count($products)>0)
                                         @foreach($products as $product)
-                                            <div class="single-product">
-                                                <div class="row align-items-center">
-                                                    <div class="col-lg-4 col-md-4 col-12">
-                                                        <div class="product-image">
-                                                            <img src="{{asset($product->image)}}" alt="" height="180"
-                                                                 width="150">
-                                                            <div class="button">
-                                                                <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn"><i
-                                                                        class="lni lni-cart"></i> Add to
-                                                                    Cart</a>
-                                                            </div>
+                                            <div class="col-lg-4 col-md-6 col-12">
+
+                                                <div class="single-product">
+                                                    <div class="product-image">
+                                                        <img src="{{asset($product->image)}}" alt="" height="180"
+                                                             width="150">
+                                                        <div class="button">
+                                                            <a href="{{route('product-detail',['product_id'=>$product->id])}}"
+                                                               class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-8 col-md-8 col-12">
-                                                        <div class="product-info">
-                                                            <span class="category"> Brand :{{$product->brand->name}}</span>
-                                                            <h4 class="title">
-                                                                <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
-                                                            </h4>
+                                                    <div class="product-info">
+                                                        <span class="category">{{$product->category->name}}</span>
+                                                        <div class="title" style="height: 70px;">
+                                                            <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
+                                                        </div>
+                                                        <div class="" style="height: 20px;">
                                                             <ul class="review">
                                                                 <li><i class="lni lni-star-filled"></i></li>
                                                                 <li><i class="lni lni-star-filled"></i></li>
@@ -233,27 +180,85 @@
                                                                 <li><i class="lni lni-star"></i></li>
                                                                 <li><span>4.0 Review(s)</span></li>
                                                             </ul>
-                                                            <div class="price">
-                                                                <span>BDT. {{$product->selling_price}}</span>
-                                                            </div>
-                                                            <div class="pt-2" >
-                                                                <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn btn-info col-md-12 hover">Buy now </a>
-                                                            </div>
+                                                        </div>
+                                                        <div class="price">
+                                                            <span>BDT. {{$product->selling_price}}</span>
+                                                        </div>
+                                                        <div class="pt-2">
+                                                            <a href="{{route('product-detail',['product_id'=>$product->id])}}"
+                                                               class="btn btn-info col-md-12 hover">Buy now </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
-                                        @else
-                                        <p> Sorry! no product here</p>
+                                    @else
+                                        <p class="mt-5 text-center">Sorry ! product not found </p>
                                     @endif
-                                    </div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">   {{$products->links()}}</div>
                                     <div class="col-md-4"></div>
-                                 </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-12">
+                                        @if(count($products)>0)
+                                            @foreach($products as $product)
+                                                <div class="single-product">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-lg-4 col-md-4 col-12">
+                                                            <div class="product-image">
+                                                                <img src="{{asset($product->image)}}" alt=""
+                                                                     height="180"
+                                                                     width="150">
+                                                                <div class="button">
+                                                                    <a href="{{route('product-detail',['product_id'=>$product->id])}}"
+                                                                       class="btn"><i
+                                                                            class="lni lni-cart"></i> Add to
+                                                                        Cart</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-8 col-md-8 col-12">
+                                                            <div class="product-info">
+                                                                <span
+                                                                    class="category">{{$product->category->name}}</span>
+                                                                <h4 class="title">
+                                                                    <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
+                                                                </h4>
+                                                                <ul class="review">
+                                                                    <li><i class="lni lni-star-filled"></i></li>
+                                                                    <li><i class="lni lni-star-filled"></i></li>
+                                                                    <li><i class="lni lni-star-filled"></i></li>
+                                                                    <li><i class="lni lni-star-filled"></i></li>
+                                                                    <li><i class="lni lni-star"></i></li>
+                                                                    <li><span>4.0 Review(s)</span></li>
+                                                                </ul>
+                                                                <div class="price">
+                                                                    <span>BDT. {{$product->selling_price}}</span>
+                                                                </div>
+                                                                <div class="pt-2">
+                                                                    <a href="{{route('product-detail',['product_id'=>$product->id])}}"
+                                                                       class="btn btn-info col-md-12 hover">Buy now </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <p class="mt-5 text-center">Sorry ! product not found</p>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">   {{$products->links()}}</div>
+                                    <div class="col-md-4"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -261,4 +266,5 @@
             </div>
         </div>
     </section>
+
 @endsection

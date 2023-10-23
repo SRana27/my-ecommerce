@@ -34,8 +34,8 @@
 
                         <div class="single-widget search">
                             <h3>Search Product</h3>
-                            <form action="#">
-                                <input type="text" placeholder="Search Here...">
+                            <form action="{{route('search2')}}" method="get">
+                                <input type="text"  name="searchproduct" placeholder="Search Here..." required>
                                 <button type="submit"><i class="lni lni-search-alt"></i></button>
                             </form>
                         </div>
@@ -135,7 +135,7 @@
                                             <option>A - Z Order</option>
                                             <option>Z - A Order</option>
                                         </select>
-                                        <h3 class="total-show-product">Showing: <span>1 - 12 items</span></h3>
+                                        <h3 class="total-show-product">Showing: <span>{{count($products)}}items</span></h3>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-md-4 col-12">
@@ -158,6 +158,7 @@
                             <div class="tab-pane fade show active" id="nav-grid" role="tabpanel"
                                  aria-labelledby="nav-grid-tab">
                                 <div class="row">
+                                @if(count($products)>0)
                                     @foreach($products as $product)
                                         <div class="col-lg-4 col-md-6 col-12">
 
@@ -194,6 +195,9 @@
                                             </div>
                                         </div>
                                     @endforeach
+                                    @else
+                                        <p> Sorry! no product here</p>
+                                    @endif
                                 </div>
                                <div class="row ">
                                  <div class="col-md-4"></div>
@@ -205,6 +209,7 @@
                             <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-12">
+                                    @if(count($products)>0)
                                         @foreach($products as $product)
                                             <div class="single-product">
                                                 <div class="row align-items-center">
@@ -244,6 +249,9 @@
                                                 </div>
                                             </div>
                                         @endforeach
+                                        @else
+                                        <p> Sorry! no product here</p>
+                                    @endif
                                     </div>
                                 </div>
                                 <div class="row">
