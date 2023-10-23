@@ -517,7 +517,6 @@ Online Super Store
     </div>
 </div>
 
-
 <section class="blog-section section">
     <div class="container">
         <div class="row">
@@ -625,7 +624,6 @@ Online Super Store
                     <span>Live Chat Or Call.</span>
                 </div>
             </li>
-
             <li>
                 <div class="media-icon">
                     <i class="lni lni-credit-cards"></i>
