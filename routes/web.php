@@ -35,7 +35,6 @@ Route::get('/product-subcategory/{subcategory_id}',[MyCommerceController::class,
 Route::get('/product-brand/{brand_id}',[MyCommerceController::class,'brand'])->name('product-brand');
 Route::get('/product-detail/{product_id}',[MyCommerceController::class,'detail'])->name('product-detail');
 Route::get('/search',[MyCommerceController::class,'search'])->name('search');
-Route::get('/searchProduct',[MyCommerceController::class,'searchProduct'])->name('search2');
 
 Route::get('/show-cart',[CartController::class,'show'])->name('show-cart');
 Route::post('/add-to-cart/{product_id}',[CartController::class,'index'])->name('add-to-cart');
@@ -63,19 +62,17 @@ Route::post('/customer-register',[CustomerAuthController::class,'register'])->na
   });
 
 
-
 // SSLCOMMERZ Start
+
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
-
 Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
 Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
-
 Route::post('/success', [SslCommerzPaymentController::class, 'success']);
 Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
 Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
-
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+
 //SSLCOMMERZ END
 
 

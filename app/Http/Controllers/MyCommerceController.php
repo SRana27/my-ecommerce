@@ -78,36 +78,34 @@ class MyCommerceController extends Controller
         return view('website.contact.contact_us');
     }
     
+
+
     public function search(Request $request)
 
     {  
-          
-        if($request->subcategory != "ALL"){
+        if($request->searchproduct)
+        {  
+          $products =Product::where('name','LIKE','%'.$request->searchproduct.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
+  
+       }else
+          {
+           if($request->subcategory != "ALL"){
             $products=Product::where('subcategory_id',$request->subcategory)->where('name','LIKE','%'.$request->product.'%');
             $products=$products->orderBy('id','desc')->paginate(1)->withQueryString();
 
-        } else{
+            } else{
            
                 $products =Product::where('name','LIKE','%'.$request->product.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
-              }
+               }
+
+            }
             
         return view('website.search.search', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),
             'products'=> $products,
         ]);
-    }
-
-    public function searchProduct(Request $request)
-
-    {
-            return view('website.search.search', [
-                'categories' => Category::all(),
-                'brands' => Brand::all(),
-                'products' => Product::orderBy('id', 'desc')->where('name', 'LIKE', '%'.$request->searchproduct.'%')->paginate(1)->withQueryString(),
-            ]);
-
-
+        
     }
 
 }
