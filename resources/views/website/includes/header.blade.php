@@ -145,7 +145,7 @@
                             <div class="wishlist">
                                 <a href="javascript:void(0)">
                                     <i class="lni lni-heart"></i>
-                                    <span class="total-items">0</span>
+                                    {{-- <span class="total-items">0</span> --}}
                                 </a>
                             </div>
 
@@ -153,41 +153,52 @@
 
                                 <a href="javascript:void(0)" class="main-btn">
                                     <i class="lni lni-cart"></i>
+                                    @if(count(ShoppingCart::all())>0)
                                     <span class="total-items">{{count(ShoppingCart::all())}}</span>
-                                </a>
+                                   @endif
 
-                                <div class="shopping-item">
-                                    <div class="dropdown-cart-header">
-                                        <span>{{count(ShoppingCart::all())}} Items</span>
-                                        <a href="{{route('show-cart')}}">View Cart</a>
+                                </a>
+                               
+
+
+                              @if(count(ShoppingCart::all())>0)
+                              <div class="shopping-item">
+                                <div class="dropdown-cart-header">
+                                    <span>{{count(ShoppingCart::all())}} Items</span>
+                                    <a href="{{route('show-cart')}}">View Cart</a>
+                                </div>
+                                <ul class="shopping-list">
+                                    @php($result=0)
+                                    @foreach(ShoppingCart::all() as $item)
+                                    <li>
+                                        <a href="{{route('remove-to-cart-header',['rowId'=>$item->__raw_id])}}" class="remove" title="Remove this item"><i class="lni lni-close"></i></a>
+                                        <div class="cart-img-head">
+                                            <a class="cart-img" href=""><img src="{{asset($item->image)}}" alt=""></a>
+                                        </div>
+                                        <div class="content">
+                                            <h4> <a href="{{route('product-detail',['product_id'=>$item->id])}}">
+                                                    {{$item->name}}</a></h4>
+                                            <p class="quantity">{{$item->qty}} x <span class="amount">{{$item->price}}</span></p>
+                                        </div>
+                                    </li>
+                                        @php($result=$result+($item->qty*$item->price))
+                                    @endforeach
+                                </ul>
+                                <div class="bottom">
+                                    <div class="total">
+                                        <span>Total:</span>
+                                        <span class="total-amount" style="font-size: 15px; font-family:bold">&#2547 {{$result}}</span>
                                     </div>
-                                    <ul class="shopping-list">
-                                        @php($result=0)
-                                        @foreach(ShoppingCart::all() as $item)
-                                        <li>
-                                            <a href="{{route('remove-to-cart-header',['rowId'=>$item->__raw_id])}}" class="remove" title="Remove this item"><i class="lni lni-close"></i></a>
-                                            <div class="cart-img-head">
-                                                <a class="cart-img" href=""><img src="{{asset($item->image)}}" alt=""></a>
-                                            </div>
-                                            <div class="content">
-                                                <h4> <a href="{{route('product-detail',['product_id'=>$item->id])}}">
-                                                        {{$item->name}}</a></h4>
-                                                <p class="quantity">{{$item->qty}} x <span class="amount">{{$item->price}}</span></p>
-                                            </div>
-                                        </li>
-                                            @php($result=$result+($item->qty*$item->price))
-                                        @endforeach
-                                    </ul>
-                                    <div class="bottom">
-                                        <div class="total">
-                                            <span>Total:</span>
-                                            <span class="total-amount">{{$result}} tk.</span>
-                                        </div>
-                                        <div class="button">
-                                            <a href="{{'checkout'}}" class="btn animate">Checkout</a>
-                                        </div>
+                                    <div class="button">
+                                        <a href="{{'checkout'}}" class="btn animate">Checkout</a>
                                     </div>
                                 </div>
+                            </div>
+                              @else
+                              <div class="shopping-item button" style="width:25ch">
+                                <a href="{{'/'}}" class="btn"> Please add items</a>
+                              </div>
+                               @endif
                             </div>
                         </div>
                     </div>

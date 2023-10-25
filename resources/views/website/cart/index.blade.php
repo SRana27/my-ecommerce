@@ -80,8 +80,8 @@ cart
                                 </p>
                             </div>
                             <div class="col-lg-2 col-md-2 col-12">
-                                <div class="text-center">
-                                    {{$cart_product->price}} tk.
+                                <div class="text-center"><span style="font-size: 15px; font-family:bold"> &#2547;</span>
+                                    {{$cart_product->price}}
                                 </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-12">
@@ -97,10 +97,10 @@ cart
                                 </form>
                             </div>
                             <div class="col-lg-2 col-md-2 col-12">
-                                <p class="text-center">{{$cart_product->price * $cart_product->qty}} tk.</p>
+                                <p class="text-center"><span style="font-size: 15px; font-family:bold"> &#2547;</span> {{$cart_product->price * $cart_product->qty}} </p>
                             </div>
                             <div class="col-lg-1 col-md-2 col-12">
-                                <p class="text-center">{{($cart_product->price*5* $cart_product->qty)/100}} tk.</p>
+                                <p class="text-center"><span style="font-size: 15px; font-family:bold"> &#2547;</span> {{($cart_product->price*5* $cart_product->qty)/100}}</p>
                             </div>
                             <div class="col-lg-1 col-md-2 col-12 ">
                                 <a class="remove-item" onclick=" return confirm('are you sure remove this product')"
@@ -133,21 +133,21 @@ cart
                             <div class="col-lg-4 col-md-6 col-12">
                                 <div class="right">
                                     <ul>
-                                        <li>Cart Subtotal :<span>{{$sum}} tk.</span></li>
-                                        <li>Tax(5%) :<span>{{$tax=round(($sum*5)/100)}} tk.</span></li>
-                                        <li>Shipping Fee :<span>
+                                        <li>Cart Subtotal :<span style="font-size: 15px; font-family:bold"> &#2547 {{$sum}} </span> </li>
+                                        <li>Tax(5%) : <span style="font-size: 15px; font-family:bold"> &#2547 {{$tax=round(($sum*5)/100)}}</span></li>
+                                        <li>Shipping Fee : <span style="font-size: 15px; font-family:bold"> &#2547
                                                 @if(count($cart_products)>0)
-                                                   {{$shiping=100}} tk.
+                                                   {{$shipping=100}} 
 
                                                   @else
-                                                    {{$shiping=0}} tk.
+                                                    {{$shipping=0}} 
 
                                                   </span>
                                               @endif
                                         </li>
 
                                         <hr>
-                                        <li class="last">Total Payable<span>{{$total=$sum+$tax+$shiping}} tk.</span></li>
+                                        <li class="last">Total Payable <span style="font-size: 15px; font-family:bold"> &#2547 {{$total=$sum+$tax+$shipping}}</span></li>
                                     </ul>
                                     <div class="button">
                                         <a href="{{route('checkout')}}" class="btn ">Checkout</a>

@@ -27,7 +27,7 @@ class CartController extends Controller
     public function remove_from_header($rowId){
 
         ShoppingCart::remove($rowId);
-        return redirect('/')->with('message','Cart product remove successfully ');
+        return back()->with('message','Cart product remove successfully ');
     }
 
 

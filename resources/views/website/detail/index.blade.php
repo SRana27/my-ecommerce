@@ -61,7 +61,8 @@
                             <p class="category"><i class="lni lni-tag"></i> Brand:<a href="">
                                     {{$product->brand->name}}
                                 </a></p>
-                            <h3 class="price">{{$product->selling_price}}<span>{{$product->regular_price}}</span></h3>
+                            <h3 ><span style="color:#f85606; font-size: 30px; font-family:bold" >&#2547; {{$product->selling_price}}</span>&nbsp;
+                                <del style="color:#808080; font-size: 25px; font-family:bold" >&#2547; {{$product->regular_price}}</del></span></h3>
                             <p class="info-text">{{$product->short_description}}</p>
 
                             <form action="{{route('add-to-cart',['product_id'=>$product->id])}}" method="post">

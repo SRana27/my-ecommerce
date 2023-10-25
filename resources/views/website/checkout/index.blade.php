@@ -256,9 +256,9 @@
                                 @php($subtotal=0)
                                 @foreach(ShoppingCart::all() as $item)
                                     <div class="total-price">
-                                        <p>{{$item->name}}
-                                            ({{$item->price}} tk. X {{$item->qty}})</p>
-                                        <p class="price">{{$item->price*$item->qty}} tk.</p>
+                                        <p>{{$item->name}} ->
+                                            (<span style="font-size: 20px"> &#2547;</span> {{$item->price}} X {{$item->qty}})</p>
+                                        <p class="price"><span style="font-size: 15px; font-family:bold"> &#2547;</span> {{$item->price*$item->qty}}</p>
                                     </div>
                                     @php($subtotal= $subtotal+($item->price*$item->qty))
 
@@ -268,21 +268,21 @@
                             <div class="total-payable">
                                 <div class="payable-price">
                                     <p class="value">Subotal Price:</p>
-                                    <p class="price">{{$subtotal}} tk.</p>
+                                    <p class="price"><span style="font-size: 15px; font-family:bold"> &#2547</span> {{$subtotal}}</p>
                                 </div>
                                 <div class="payable-price">
                                     <p class="value">Tax(5%):</p>
-                                    <p class="price">{{$tax}} tk.</p>
+                                    <p class="price"><span style="font-size: 15px; font-family:bold"> &#2547</span> {{$tax}}</p>
                                 </div>
                                 @php($shipping=0)
                                 <div class="payable-price">
                                     <p class="value">Shipping Fee:</p>
-                                    <p class="price"><span>
+                                    <p class="price"><span style="font-size: 15px; font-family:bold"> &#2547
                                         @if(count(ShoppingCart::all())>0)
-                                                {{$shiping=100}} tk.
+                                                {{$shipping=100}}
 
                                             @else
-                                                {{$shiping=0}} tk.
+                                                {{$shipping=0}} 
 
                                             </span>
                                         @endif
@@ -293,15 +293,15 @@
                                 @php($total=($subtotal+$shipping+$tax))
                                 <div class="payable-price">
                                     <p class="value">Total payable:</p>
-                                    <p class="price">{{$total}} tk.</p>
+                                    <p class="price"><span style="font-size: 15px; font-family:bold">&#2547</span> {{$total}}</p>
                                 </div>
                                 <?php Session::put('order_total', $total);
                                 Session::put('tax_total', $tax);
-                                Session::put('shipping_total', $shiping);
+                                Session::put('shipping_total', $shipping);
                                 ?>
                             </div>
-                            <div class="price-table-btn button">
-                                <a href="javascript:void(0)" class="btn btn-alt">Checkout</a>
+                            <div class="price-table-btn button text-center">
+                                <a href="{{route('show-cart')}}" class="btn btn-alt">View Cart</a>
                             </div>
                         </div>
                         <div class="checkout-sidebar-banner mt-30">

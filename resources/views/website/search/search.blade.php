@@ -139,11 +139,11 @@
                                             <button class="nav-link active" id="nav-grid-tab" data-bs-toggle="tab"
                                                     data-bs-target="#nav-grid" type="button" role="tab"
                                                     aria-controls="nav-grid" aria-selected="true"><i
-                                                    class="lni lni-grid-alt"></i></button>
+                                                    class="lni lni-grid-alt"  title="view card"></i></button>
                                             <button class="nav-link" id="nav-list-tab" data-bs-toggle="tab"
                                                     data-bs-target="#nav-list" type="button" role="tab"
                                                     aria-controls="nav-list" aria-selected="false"><i
-                                                    class="lni lni-list"></i></button>
+                                                    class="lni lni-list"  title="view list"></i></button>
                                         </div>
                                     </nav>
                                 </div>
@@ -167,11 +167,16 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-info">
-                                                        <span class="category">{{$product->category->name}}</span>
+                                                        <span class="category">{{$product->subcategory->name}}</span>
                                                         <div class="title" style="height: 70px;">
                                                             <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                         </div>
-                                                        <div class="" style="height: 20px;">
+                                                      
+                                                        <div class="price">
+                                                            <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
+                                                            <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                        </div>
+                                                        <div class="mb-2" style="height: 20px;">
                                                             <ul class="review">
                                                                 <li><i class="lni lni-star-filled"></i></li>
                                                                 <li><i class="lni lni-star-filled"></i></li>
@@ -181,9 +186,7 @@
                                                                 <li><span>4.0 Review(s)</span></li>
                                                             </ul>
                                                         </div>
-                                                        <div class="price">
-                                                            <span>BDT. {{$product->selling_price}}</span>
-                                                        </div>
+
                                                         <div class="pt-2">
                                                             <a href="{{route('product-detail',['product_id'=>$product->id])}}"
                                                                class="btn btn-info col-md-12 hover">Buy now </a>
@@ -196,11 +199,59 @@
                                         <p class="mt-5 text-center">Sorry ! product not found </p>
                                     @endif
                                 </div>
-                                <div class="row ">
+                                <div class="row  mb-2">
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">   {{$products->links()}}</div>
                                     <div class="col-md-4"></div>
                                 </div>
+                                <div class="row">
+                                    @if(count($related_Products)!=0)
+                                   <h3 class="text-center mt-3"> Related Products  </h3>
+                                     @foreach($related_Products as $product)
+                                        <div class="col-lg-4 col-md-6 col-12">
+                                            <div class="single-product">
+                                                <div class="product-image">
+                                                    <img src="{{asset($product->image)}}" alt="" height="180"
+                                                         width="150">
+                                                    <div class="button">
+                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}"
+                                                           class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <span class="category">{{$product->subcategory->name}}</span>
+                                                    <div class="title" style="height: 70px;">
+                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
+                                                    </div>
+                                                    
+                                                    <div class="price">
+                                                        <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
+                                                        <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                    </div>
+                                                    <div class="" style="height: 20px;">
+                                                        <ul class="review">
+                                                            <li><i class="lni lni-star-filled"></i></li>
+                                                            <li><i class="lni lni-star-filled"></i></li>
+                                                            <li><i class="lni lni-star-filled"></i></li>
+                                                            <li><i class="lni lni-star-filled"></i></li>
+                                                            <li><i class="lni lni-star"></i></li>
+                                                            <li><span>4.0 Review(s)</span></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="pt-2">
+                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}"
+                                                           class="btn btn-info col-md-12 hover">Buy now </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                    @endif
+
+                                   
+                                </div>
+                           
+
                             </div>
                             <div class="tab-pane fade" id="nav-list" role="tabpanel" aria-labelledby="nav-list-tab">
                                 <div class="row">
@@ -229,6 +280,11 @@
                                                                 <h4 class="title">
                                                                     <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                                 </h4>
+                                                                
+                                                                <div class="price">
+                                                                    <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
+                                                                    <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                                </div>
                                                                 <ul class="review">
                                                                     <li><i class="lni lni-star-filled"></i></li>
                                                                     <li><i class="lni lni-star-filled"></i></li>
@@ -237,9 +293,6 @@
                                                                     <li><i class="lni lni-star"></i></li>
                                                                     <li><span>4.0 Review(s)</span></li>
                                                                 </ul>
-                                                                <div class="price">
-                                                                    <span>BDT. {{$product->selling_price}}</span>
-                                                                </div>
                                                                 <div class="pt-2">
                                                                     <a href="{{route('product-detail',['product_id'=>$product->id])}}"
                                                                        class="btn btn-info col-md-12 hover">Buy now </a>

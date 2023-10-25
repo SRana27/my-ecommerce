@@ -85,26 +85,37 @@ class MyCommerceController extends Controller
     {  
         if($request->searchproduct)
         {  
+           
           $products =Product::where('name','LIKE','%'.$request->searchproduct.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
-  
+   
+        
        }else
           {
            if($request->subcategory != "ALL"){
             $products=Product::where('subcategory_id',$request->subcategory)->where('name','LIKE','%'.$request->product.'%');
             $products=$products->orderBy('id','desc')->paginate(1)->withQueryString();
 
-            } else{
+            }
+             else{
            
                 $products =Product::where('name','LIKE','%'.$request->product.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
-               }
+            }
 
+            }
+            
+            if($request->subcategory != "ALL" && $request->product){
+                $related_Products=Product::where('subcategory_id',$request->subcategory)->orderBy('id','asc')->take('3')->get();
+            }else{
+                $related_Products=0;
             }
             
         return view('website.search.search', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),
             'products'=> $products,
+            'related_Products'=> $related_Products,
         ]);
+        
         
     }
 

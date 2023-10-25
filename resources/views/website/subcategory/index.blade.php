@@ -144,11 +144,11 @@
                                             <button class="nav-link active" id="nav-grid-tab" data-bs-toggle="tab"
                                                     data-bs-target="#nav-grid" type="button" role="tab"
                                                     aria-controls="nav-grid" aria-selected="true"><i
-                                                    class="lni lni-grid-alt"></i></button>
+                                                    class="lni lni-grid-alt"  title="view card"></i></button>
                                             <button class="nav-link" id="nav-list-tab" data-bs-toggle="tab"
                                                     data-bs-target="#nav-list" type="button" role="tab"
                                                     aria-controls="nav-list" aria-selected="false"><i
-                                                    class="lni lni-list"></i></button>
+                                                    class="lni lni-list"  title="view list"></i></button>
                                         </div>
                                     </nav>
                                 </div>
@@ -173,10 +173,15 @@
                                                 </div>
                                                 <div class="product-info">
                                                     <span class="category">{{$product->subcategory->name}}</span>
-                                                    <div class="title" style="height: 70px;">
+                                                    <div class="title" style="height: 50px;">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                     </div>
-                                                    <div class="" style="height: 20px;">
+                                                    
+                                                    <div class="price">
+                                                        <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
+                                                        <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                    </div>
+                                                    <div class="mb-2" style="height: 20px;">
                                                         <ul class="review">
                                                             <li><i class="lni lni-star-filled"></i></li>
                                                             <li><i class="lni lni-star-filled"></i></li>
@@ -185,9 +190,6 @@
                                                             <li><i class="lni lni-star"></i></li>
                                                             <li><span>4.0 Review(s)</span></li>
                                                         </ul>
-                                                    </div>
-                                                    <div class="price">
-                                                        <span>BDT. {{$product->selling_price}}</span>
                                                     </div>
                                                     <div class="pt-2">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}"
@@ -198,7 +200,7 @@
                                         </div>
                                     @endforeach
                                     @else
-                                        <p> Sorry! no product here</p>
+                                        <p class="text-center pt-5"> Sorry! no product here</p>
                                     @endif
                                 </div>
                                 <div class="row ">
@@ -234,6 +236,11 @@
                                                             <h4 class="title">
                                                                 <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                             </h4>
+                                                           
+                                                            <div class="price">
+                                                                <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
+                                                                <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                            </div>
                                                             <ul class="review">
                                                                 <li><i class="lni lni-star-filled"></i></li>
                                                                 <li><i class="lni lni-star-filled"></i></li>
@@ -242,9 +249,6 @@
                                                                 <li><i class="lni lni-star"></i></li>
                                                                 <li><span>4.0 Review(s)</span></li>
                                                             </ul>
-                                                            <div class="price">
-                                                                <span>BDT. {{$product->selling_price}}</span>
-                                                            </div>
                                                             <div class="pt-2">
                                                                 <a href="{{route('product-detail',['product_id'=>$product->id])}}"
                                                                    class="btn btn-info col-md-12 hover">Buy now </a>
@@ -255,7 +259,7 @@
                                             </div>
                                         @endforeach
                                             @else
-                                                <p> Sorry! no product here</p>
+                                                <p class="text-center pt-5"> Sorry! no product here</p>
                                             @endif
                                     </div>
                                 </div>
