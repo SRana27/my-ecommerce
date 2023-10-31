@@ -129,7 +129,7 @@ cart
                                     </div>
                                 </div>
                             </div>
-                            @php($shiping=0)
+                            @php($shipping=0)
                             <div class="col-lg-4 col-md-6 col-12">
                                 <div class="right">
                                     <ul>
@@ -150,7 +150,13 @@ cart
                                         <li class="last">Total Payable <span style="font-size: 15px; font-family:bold"> &#2547 {{$total=$sum+$tax+$shipping}}</span></li>
                                     </ul>
                                     <div class="button">
+                                        @if($total>0)
+
                                         <a href="{{route('checkout')}}" class="btn ">Checkout</a>
+                                        @else
+
+                                        <a onclick=" return confirm('please add products first')" class="btn ">Checkout</a>
+                                        @endif
                                         <a href="{{route('home')}}" class="btn btn-alt">Continue shopping</a>
                                     </div>
                                 </div>

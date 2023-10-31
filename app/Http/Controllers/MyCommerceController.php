@@ -91,24 +91,26 @@ class MyCommerceController extends Controller
         
        }else
           {
-           if($request->subcategory != "ALL"){
+           if($request->subcategory != 0){
             $products=Product::where('subcategory_id',$request->subcategory)->where('name','LIKE','%'.$request->product.'%');
             $products=$products->orderBy('id','desc')->paginate(1)->withQueryString();
 
             }
              else{
            
-                $products =Product::where('name','LIKE','%'.$request->product.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
+                $products=Product::where('name','LIKE','%'.$request->product.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
             }
 
             }
             
-            if($request->subcategory != "ALL" && $request->product){
-                $related_Products=Product::where('subcategory_id',$request->subcategory)->orderBy('id','asc')->take('3')->get();
+            if($request->subcategory !=0 && $request->product){
+                $related_Products=Product::where('subcategory_id',$request->subcategory)->take('3')->get();
             }else{
-                $related_Products=0;
+                $related_Products=[];
             }
-            
+
+           
+            // return $related_Products;
         return view('website.search.search', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),
@@ -117,6 +119,41 @@ class MyCommerceController extends Controller
         ]);
         
         
+    }
+
+    public function productList()
+    {
+        $products= Product::select('name')->get();
+
+        $data=[];
+
+        foreach($products as $product){
+            $data[]=$product['name'];
+        }
+       
+     return $data;
+    }
+
+
+    public function subcategoryWiseProductList()
+    {
+              if($_GET['id']==0) {
+
+                  $products=Product::select('name')->where('status',1)->get() ;
+              } else{
+
+                  $products=Product::where('subcategory_id',$_GET['id'])->select('name')->where('status', 1)->get();
+              }
+
+        $data =[];
+        foreach ($products as $product)
+        {
+            $data[]=$product['name'];
+        }
+
+        return $data;
+
+
     }
 
 }

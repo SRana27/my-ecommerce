@@ -5,7 +5,11 @@
 <script src="{{asset('/')}}website/assets/js/xzoom.min.js"></script>
 <script src="{{asset('/')}}website/assets/js/main.js"></script>
 <script src="{{asset('/')}}website/assets/js/setup.js"></script>
-<script type="text/javascript">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="{{asset('/')}}website/assets/js/jquery-ui.js"></script>
+  
+
+ <script type="text/javascript">
     //========= Hero Slider
     tns({
         container: '.hero-slider',
@@ -44,9 +48,8 @@
             }
         }
     });
-
 </script>
-<script>
+ <script>
     const finaleDate = new Date("February 15, 2023 00:00:00").getTime();
 
     const timer = () => {
@@ -76,4 +79,80 @@
     }
     timer();
     setInterval(timer, 1000);
+</script> 
+<script>
+  
+    var availableTags = [];
+    $.ajax({
+        method:"GET",
+        url: "{{url('/product-list')}}",
+       
+        success: function (response){
+            //console.log(response);
+            StartAutoComplete(response);
+
+        }
+       
+    });
+
+    function StartAutoComplete(availableTags) 
+    {
+        $( "#search_product" ).autocomplete({
+      source: availableTags
+    },{
+        minLength: 2
+    });
+    }
+  </script>
+   <script>
+     $(function () {
+
+var sid =($('#select1').val());
+$.ajax({
+    type:"GET",
+    url:" {{url('/subcategory-wise-product-list')}}",
+    data: {id:sid},
+    success:function (response) {
+         console.log(response);
+        startAutoComplete1(response);
+    }
+});
+function startAutoComplete1(availableTags)
+{
+    $( "#s_product" ).autocomplete({
+        source: availableTags
+    },
+    {
+        minLength: 2
+    });
+
+}
+$(document).on('change','#select1',function () {
+    var subcategoryId = $(this).val();
+    // alert(subcategoryId);
+    $.ajax({
+        type:"get",
+        url:" {{url('/subcategory-wise-product-list')}}",
+        data: {id:subcategoryId},
+        // dataType:"JSON",
+        success:function (response) {
+            // console.log(response);
+            startAutoComplete(response);
+        }
+    });
+    function startAutoComplete(availableTags)
+    {
+        $( "#s_product" ).autocomplete({
+            source: availableTags
+        },
+        {
+        minLength: 2
+    });
+
+        
+    }
+});
+
+})
 </script>
+   

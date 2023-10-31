@@ -33,8 +33,14 @@
                         <div class="single-widget search">
                             <h3>Search Product</h3>
                             <form action="{{route('search')}}" method="get">
-                                <input type="text"  name="searchproduct" placeholder="Search Here..."  required value="{{request()->input('searchproduct')}}">
-                                <button type="submit"><i class="lni lni-search-alt"></i></button>
+                            <div class="search-input">
+                                    <input type="search" name="searchproduct" class="form-control" id="search_product" required placeholder="search here .." aria-label="Username" >
+
+                                </div>
+                                <div class="search-btn">
+                                <button type="submit" class="input-group-text"><i class="lni lni-search-alt"></i></button>
+</div>
+
                             </form>
                         </div>
                         <div class="single-widget">
@@ -205,28 +211,28 @@
                                     <div class="col-md-4"></div>
                                 </div>
                                 <div class="row">
-                                    @if(count($related_Products)!=0)
-                                   <h3 class="text-center mt-3"> Related Products  </h3>
-                                     @foreach($related_Products as $product)
+                                    @if(count($related_Products)>0)
+                                       <h3 class="text-center mt-3"> Related Products  </h3>
+                                     @foreach($related_Products as $related_product)
                                         <div class="col-lg-4 col-md-6 col-12">
                                             <div class="single-product">
                                                 <div class="product-image">
-                                                    <img src="{{asset($product->image)}}" alt="" height="180"
+                                                    <img src="{{asset($related_product->image)}}" alt="" height="180"
                                                          width="150">
                                                     <div class="button">
-                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}"
+                                                        <a href="{{route('product-detail',['product_id'=>$related_product->id])}}"
                                                            class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
-                                                    <span class="category">{{$product->subcategory->name}}</span>
+                                                    <span class="category">{{$related_product->subcategory->name}}</span>
                                                     <div class="title" style="height: 70px;">
-                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
+                                                        <a href="{{route('product-detail',['product_id'=>$related_product->id])}}">{{$related_product->name}}</a>
                                                     </div>
                                                     
                                                     <div class="price">
-                                                        <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
-                                                        <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                        <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$related_product->selling_price}}</span>&nbsp;
+                                                        <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$related_product->regular_price}}</del>
                                                     </div>
                                                     <div class="" style="height: 20px;">
                                                         <ul class="review">
@@ -239,7 +245,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class="pt-2">
-                                                        <a href="{{route('product-detail',['product_id'=>$product->id])}}"
+                                                        <a href="{{route('product-detail',['product_id'=>$related_product->id])}}"
                                                            class="btn btn-info col-md-12 hover">Buy now </a>
                                                     </div>
                                                 </div>
@@ -247,8 +253,7 @@
                                         </div>
                                     @endforeach
                                     @endif
-
-                                   
+   
                                 </div>
                            
 

@@ -32,7 +32,7 @@
                         <div class="single-widget search">
                             <h3>Search Product</h3>
                             <form action="{{route('search')}}" method="get">
-                                <input type="text"  name="searchproduct" placeholder="Search Here..." required>
+                                <input type="search" class="form-control"  name="searchproduct" id="search_product" placeholder="Search Here..." required>
                                 <button type="submit"><i class="lni lni-search-alt"></i></button>
                             </form>
                         </div>
