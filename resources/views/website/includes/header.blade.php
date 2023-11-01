@@ -113,7 +113,7 @@
                                 <div class="search-select">
                                     <div class="select-position">
                                         <select id="select1" name="subcategory">
-                                            <option value="ALL" {{request('category')== "ALL" ? 'selected' : '' }}>All SubCategory</option>
+                                            <option value={{0}} {{request('category')== 0 ? 'selected' : '' }}>All SubCategory</option>
                                             @foreach($subcategories as $subcategory)
                                                 <option value="{{$subcategory->id}}"{{request('subcategory') == $subcategory->id ? 'selected': '' }}>{{$subcategory->name}}</option>
                                             @endforeach
@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
                                 <div class="search-input">
-                                    <input type="text" placeholder="product name" name="product" value="{{request('product')}}">
+                                    <input type="search" placeholder="product name" id="s_product" name="product" value="{{request('product')}}">
                                 </div>
                                 <div class="search-btn">
                                     <button><i class="lni lni-search-alt"></i></button>

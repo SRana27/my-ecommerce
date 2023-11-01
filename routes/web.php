@@ -35,6 +35,8 @@ Route::get('/product-subcategory/{subcategory_id}',[MyCommerceController::class,
 Route::get('/product-brand/{brand_id}',[MyCommerceController::class,'brand'])->name('product-brand');
 Route::get('/product-detail/{product_id}',[MyCommerceController::class,'detail'])->name('product-detail');
 Route::get('/search',[MyCommerceController::class,'search'])->name('search');
+Route::get('/product-list',[MyCommerceController::class,'productList'])->name('p.list');
+Route::get('/subcategory-wise-product-list',[MyCommerceController::class,'subcategoryWiseProductList'])->name('subProduct.list');
 
 Route::get('/show-cart',[CartController::class,'show'])->name('show-cart');
 Route::post('/add-to-cart/{product_id}',[CartController::class,'index'])->name('add-to-cart');
