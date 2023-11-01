@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -9,11 +8,8 @@ use Guzzlehttp;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
-
-
 class MyCommerceController extends Controller
 {
-
     public function index()
     {
         $client = new \GuzzleHttp\Client();
@@ -23,14 +19,8 @@ class MyCommerceController extends Controller
         $api_products= $product_response;
         $categories = Category::all();
         $brands= Brand::all();
-        $products =Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price', 'image']);
+        $products =Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price','regular_price', 'image']);
         return view('website.home.index',compact('api_products','categories','products','brands'));
-//            ,[
-//            'categories' => Category::all(),
-//        'subcategories'=>SubCategory::orderBy('id','desc')->take('6')->get(['id','subcategory_id']),
-//            'products' => Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price', 'image'])
-//       ]);
-
     }
 
     public function category($category_id)
@@ -79,7 +69,6 @@ class MyCommerceController extends Controller
     }
     
 
-
     public function search(Request $request)
 
     {  
@@ -102,17 +91,14 @@ class MyCommerceController extends Controller
             }
 
             }
-            
+        
+            if($request->subcategory !=0 && $request->product!=''){
 
-            if($request->subcategory !=0 && $request->product){
-                $related_Products=Product::where('subcategory_id',$request->subcategory)->take('3')->get();
+                $related_Products=Product::where('subcategory_id',$request->subcategory)->orderBy('id','asc')->take('3')->get();
             }else{
                 $related_Products=[];
 
             }
-
-           
-            // return $related_Products;
         return view('website.search.search', [
             'categories' => Category::all(),
             'brands'=>Brand::all(),

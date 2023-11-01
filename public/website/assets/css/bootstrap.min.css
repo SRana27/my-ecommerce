@@ -175,9 +175,9 @@ address {
 }
 
 ol,
-ul {
+/* ul {
     padding-left: 2rem
-}
+} */
 
 dl,
 ol,
@@ -240,11 +240,12 @@ sup {
 
 a {
     color: #0d6efd;
-    text-decoration: underline
+    text-decoration: none
 }
 
 a:hover {
     color: #0a58ca
+   
 }
 
 a:not([href]):not([class]),

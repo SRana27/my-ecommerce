@@ -130,7 +130,7 @@
                                             <option>A - Z Order</option>
                                             <option>Z - A Order</option>
                                         </select>
-                                        <h3 class="total-show-product">Showing: <span>{{count($products)}}</span></h3>
+                                        <h3 class="total-show-product">Showing: <span>{{count($products)}} items</span></h3>
                                     </div>
                                 </div>
                                 <div class="col-lg-5 col-md-4 col-12">

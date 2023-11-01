@@ -92,7 +92,7 @@ Online Super Store
             <div class="col-lg-3 col-md-6 col-12 ">
                 <div class="single-product">
                     <div class="product-image">
-                        <img src="{{asset($product->image)}}" alt="" height="250" width="180" >
+                        <img src="{{asset($product->image)}}" alt="" height="200" width="150px" >
                         <div class="button">
                             <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
                         </div>
@@ -102,20 +102,22 @@ Online Super Store
                         <div class="title" style="height: 50px;">
                             <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                         </div>
-                        <div class="mt-4" >
-                          <ul class="review">
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><i class="lni lni-star-filled"></i></li>
-                              <li><i class="lni lni-star"></i></li>
-                              <li><span>4.0 Review(s)</span></li>
-                          </ul>
-                        </div>
+                       
                         <div class="price">
-                            <span>BDT. {{$product->selling_price}}</span>
+                            <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
+                            <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
                         </div>
-                        <div class="pt-2" >
+                        <div>
+                            <ul class="review">
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star-filled"></i></li>
+                                <li><i class="lni lni-star"></i></li>
+                                <li><span>4.0 Review(s)</span></li>
+                            </ul>
+                          </div>
+                        <div>
                             <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn btn-info col-md-12 hover">Buy now </a>
                         </div>
                     </div>

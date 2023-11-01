@@ -182,7 +182,7 @@
                                                             <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
                                                             <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
                                                         </div>
-                                                        <div class="mb-2" style="height: 20px;">
+                                                        <div class="mb-2 " style="height: 20px;">
                                                             <ul class="review">
                                                                 <li><i class="lni lni-star-filled"></i></li>
                                                                 <li><i class="lni lni-star-filled"></i></li>

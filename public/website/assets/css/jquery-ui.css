@@ -7,7 +7,12 @@
 /* Layout helpers
 ----------------------------------*/
 
-
+.ui-autocomplete.ui-widget {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 13px;
+    overflow-x: hidden;
+    width:295px;
+  }
 .ui-helper-hidden {
     display: none;
 }

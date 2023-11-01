@@ -211,19 +211,6 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <hr class="mb-4">--}}
-{{--                                    <div class="custom-control custom-checkbox">--}}
-{{--                                        <input type="checkbox" class="custom-control-input" id="same-address">--}}
-{{--                                        <input type="hidden" value="1200" name="amount" id="total_amount" required/>--}}
-{{--                                        <label class="custom-control-label" for="same-address">Shipping address is the--}}
-{{--                                            same as my billing--}}
-{{--                                            address</label>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="custom-control custom-checkbox">--}}
-{{--                                        <input type="checkbox" class="custom-control-input" id="save-info">--}}
-{{--                                        <label class="custom-control-label" for="save-info">Save this information for--}}
-{{--                                            next time</label>--}}
-{{--                                    </div>--}}
                                     <div class="col-md-12">
                                         <div class="single-form form-default">
                                             <label>Payment Type </label>
@@ -241,7 +228,7 @@
                                         </div>
                                     </div>
                                      <br>
-                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout
+                                    <button class="btn btn-primary btn-lg btn-block" type="submit">Order Confirm
                                     </button>
                                 </form>
                             </div>
@@ -280,10 +267,8 @@
                                     <p class="price"><span style="font-size: 15px; font-family:bold"> &#2547
                                         @if(count(ShoppingCart::all())>0)
                                                 {{$shipping=100}}
-
                                             @else
                                                 {{$shipping=0}} 
-
                                             </span>
                                         @endif
                                     </p>
