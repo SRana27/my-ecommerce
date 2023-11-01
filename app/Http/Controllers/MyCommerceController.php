@@ -103,10 +103,12 @@ class MyCommerceController extends Controller
 
             }
             
-            if($request->subcategory != "ALL" && $request->product){
+            if( $request->subcategory != "ALL" && $request->product ){
                 $related_Products=Product::where('subcategory_id',$request->subcategory)->orderBy('id','asc')->take('3')->get();
             }else{
-                $related_Products=0;
+                  
+                    $related_Products=[];                
+              
             }
             
         return view('website.search.search', [
