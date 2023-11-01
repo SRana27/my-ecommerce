@@ -30,7 +30,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12 col-12">
                         <div class="xzoom-container">
-                            <img class="xzoom" id="xzoom-default" src="{{asset($product->image)}}" xoriginal="{{asset($product->image)}}"/>
+                            <img class="xzoom" id="xzoom-default" src="{{asset($product->image)}}" width="400px" height="400px" xoriginal="{{asset($product->image)}}" />
                             <div class="xzoom-thumbs pt-2">
                                 @foreach($product->otherImage as $otherImage)
                                     <a href="{{asset($otherImage->image)}}"><img class="xzoom-gallery" width="80" src="{{asset($otherImage->image)}}" xpreview="{{asset($otherImage->image)}}" ></a>
@@ -38,20 +38,6 @@
                             </div>
                         </div>
                     </div>
-                    {{--                        <div class="product-images">--}}
-                    {{--                            <main id="gallery">--}}
-                    {{--                                <div class="main-img">--}}
-                    {{--                                    <img src="{{asset($product->image)}}" id="current" alt="" height="450" width="180">--}}
-                    {{--                                </div>--}}
-                    {{--                                <div class="images">--}}
-                    {{--                                    @foreach($product->otherImage as $otherImage)--}}
-                    {{--                                        <img src="{{asset($otherImage->image)}}" class="img" alt="" height="100"--}}
-                    {{--                                             width="100">--}}
-                    {{--                                    @endforeach--}}
-                    {{--                                </div>--}}
-                    {{--                            </main>--}}
-                    {{--                        </div>--}}
-
                     <div class="col-lg-6 col-md-12 col-12">
                         <div class="product-info">
                             <h2 class="title">{{$product->name}}</h2>
@@ -67,7 +53,6 @@
 
                             <form action="{{route('add-to-cart',['product_id'=>$product->id])}}" method="post">
                                 @csrf
-
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-group quantity">
