@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('model')->nullable();
             $table->integer('stock_amount')->default(0);
-            $table->integer('regular_price')->default(0);
+            $table->integer('regular_price')->nullable();
             $table->integer('selling_price')->default(0);
             $table->text('short_description')->nullable();
             $table->longText('long_description')->nullable();

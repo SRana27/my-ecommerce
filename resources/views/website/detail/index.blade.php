@@ -28,12 +28,12 @@
         <div class="container">
             <div class="top-area">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-12 col-12">
+                    <div class="col-lg-5 col-md-12 col-12">
                         <div class="xzoom-container">
-                            <img class="xzoom" id="xzoom-default" src="{{asset($product->image)}}" width="400px" height="400px" xoriginal="{{asset($product->image)}}" />
+                            <img class="xzoom" id="xzoom-default" src="{{asset($product->image)}}" xoriginal="{{asset($product->image)}}"/>
                             <div class="xzoom-thumbs pt-2">
                                 @foreach($product->otherImage as $otherImage)
-                                    <a href="{{asset($otherImage->image)}}"><img class="xzoom-gallery" width="80" src="{{asset($otherImage->image)}}" xpreview="{{asset($otherImage->image)}}" ></a>
+                                    <a href="{{asset($otherImage->image)}}"><img class="xzoom-gallery" width="80" height="70" src="{{asset($otherImage->image)}}" xpreview="{{asset($otherImage->image)}}"></a>
                                 @endforeach
                             </div>
                         </div>
@@ -47,8 +47,13 @@
                             <p class="category"><i class="lni lni-tag"></i> Brand:<a href="">
                                     {{$product->brand->name}}
                                 </a></p>
+                                <p class="category"> Model:
+                                    {{$product->model}}
+                                </p>
                             <h3 ><span style="color:#f85606; font-size: 30px; font-family:bold" >&#2547; {{$product->selling_price}}</span>&nbsp;
-                                <del style="color:#808080; font-size: 25px; font-family:bold" >&#2547; {{$product->regular_price}}</del></span></h3>
+                                @if($product->regular_price!=null)
+                                <del style="color:#808080; font-size: 25px; font-family:bold" >&#2547; {{$product->regular_price}}</del></h3>
+                                @endif
                             <p class="info-text">{{$product->short_description}}</p>
 
                             <form action="{{route('add-to-cart',['product_id'=>$product->id])}}" method="post">

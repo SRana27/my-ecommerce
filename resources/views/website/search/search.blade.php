@@ -15,13 +15,11 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <ul class="breadcrumb-nav">
                         <li><a href="{{route('home')}}"><i class="lni lni-home"></i> Home</a></li>
-
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-
 
     <section class="product-grids section">
         <div class="container">
@@ -173,14 +171,19 @@
                                                         </div>
                                                     </div>
                                                     <div class="product-info">
-                                                        <span class="category">{{$product->subcategory->name}}</span>
-                                                        <div class="title" style="height: 70px;">
-                                                            <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
+                                                       <span class="category">
+                                                         <a href="{{route('product-subcategory',['subcategory_id'=>$product->subcategory->id])}}" title="subcategory" > {{$product->subcategory->name}} </a> | 
+                                                         <a href="{{route('product-brand',['brand_id'=>$product->brand->id])}}" title="brand">  {{$product->brand->name}} </a> 
+                                                       </span>
+                                                        <div class="title" style=" display: -webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical; overflow: hidden; height:45px;">
+                                                            <a href="{{route('product-detail',['product_id'=>$product->id])}}" >{{$product->name}}</a>
                                                         </div>
                                                       
                                                         <div class="price">
                                                             <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
-                                                            <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                            @if($product->regular_price!=null)
+                                                                <del style="color:#808080; font-size: 18px; font-family:bold" >&#2547; {{$product->regular_price}}</del></span>
+                                                                @endif
                                                         </div>
                                                         <div class="mb-2 " style="height: 20px;">
                                                             <ul class="review">
@@ -217,22 +220,24 @@
                                         <div class="col-lg-4 col-md-6 col-12">
                                             <div class="single-product">
                                                 <div class="product-image">
-                                                    <img src="{{asset($related_product->image)}}" alt="" height="180"
+                                                    <img src="{{asset($related_product->image)}}" alt="" height="180px"
                                                          width="150">
                                                     <div class="button">
                                                         <a href="{{route('product-detail',['product_id'=>$related_product->id])}}"
                                                            class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
                                                     </div>
                                                 </div>
-                                                <div class="product-info">
-                                                    <span class="category">{{$related_product->subcategory->name}}</span>
-                                                    <div class="title" style="height: 70px;">
+                                                <div class="product-info"><span class="category"> {{$related_product->subcategory->name}} | {{$related_product->brand->name}}</span>
+                                                    
+                                                    <div class="title" style=" display: -webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical; overflow: hidden; height:45px;">
                                                         <a href="{{route('product-detail',['product_id'=>$related_product->id])}}">{{$related_product->name}}</a>
                                                     </div>
                                                     
                                                     <div class="price">
                                                         <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$related_product->selling_price}}</span>&nbsp;
-                                                        <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$related_product->regular_price}}</del>
+                                                            @if($related_product->regular_price!=null)
+                                                              <del style="color:#808080; font-size: 18px; font-family:bold" >&#2547; {{$related_product->regular_price}}</del></span>
+                                                         @endif
                                                     </div>
                                                     <div class="" style="height: 20px;">
                                                         <ul class="review">
@@ -273,22 +278,25 @@
                                                                 <div class="button">
                                                                     <a href="{{route('product-detail',['product_id'=>$product->id])}}"
                                                                        class="btn"><i
-                                                                            class="lni lni-cart"></i> Add to
-                                                                        Cart</a>
+                                                                            class="lni lni-cart"></i> Add to Cart</a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-8 col-md-8 col-12">
                                                             <div class="product-info">
-                                                                <span
-                                                                    class="category">{{$product->category->name}}</span>
-                                                                <h4 class="title">
+                                                                <span class="category">
+                                                                    <a href="{{route('product-subcategory',['subcategory_id'=>$product->subcategory->id])}}" title="subcategory" > {{$product->subcategory->name}} </a> | 
+                                                                    <a href="{{route('product-brand',['brand_id'=>$product->brand->id])}}" title="brand">  {{$product->brand->name}} </a> 
+                                                                  </span>
+                                                                <h4 class="title"  style=" display: -webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical; overflow: hidden; height:45px;">
                                                                     <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                                 </h4>
                                                                 
                                                                 <div class="price">
                                                                     <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
-                                                                    <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                                    @if($product->regular_price!=null)
+                                                                    <del style="color:#808080; font-size: 18px; font-family:bold" >&#2547; {{$product->regular_price}}</del></span>
+                                                                    @endif
                                                                 </div>
                                                                 <ul class="review">
                                                                     <li><i class="lni lni-star-filled"></i></li>

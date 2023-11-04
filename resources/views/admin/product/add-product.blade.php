@@ -94,7 +94,7 @@
                             <label for="" class="col-sm-3 control-label">Product Price <span class="text-danger">*</span></label>
                             <div class="col-sm-9">
                               <div class="input-group">
-                                  <input type="number" class="form-control"  name="regular_price" required placeholder=" product regular price">
+                                  <input type="number" class="form-control"  name="regular_price" placeholder=" product regular price">
                                   <input type="number" class="form-control"  name="selling_price" required placeholder=" product selling price">
                               </div>
                             </div>

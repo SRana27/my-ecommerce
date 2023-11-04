@@ -243,7 +243,7 @@
                                 @php($subtotal=0)
                                 @foreach(ShoppingCart::all() as $item)
                                     <div class="total-price">
-                                        <p>{{$item->name}} ->
+                                        <p>{{$item->name}} -><br>
                                             (<span style="font-size: 20px"> &#2547;</span> {{$item->price}} X {{$item->qty}})</p>
                                         <p class="price"><span style="font-size: 15px; font-family:bold"> &#2547;</span> {{$item->price*$item->qty}}</p>
                                     </div>

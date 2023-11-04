@@ -13,12 +13,12 @@ Online Super Store
 
                         <div class="single-slider" style="background-image: url({{asset('/')}}website/assets/images/hero/slider-bg1.jpg);">
                             <div class="content">
-                                <h2><span>No restocking fee ($35 savings)</span>
+                                <h2><span>No restocking fee (3500 savings)</span>
                                     M75 Sport Watch
                                 </h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut
                                     labore dolore magna aliqua.</p>
-                                <h3><span>Now Only</span> $320.99</h3>
+                                <h3><span>Now Only</span><span style="color:rgb(8, 8, 8); font-size: 20px; font-family:bold" >&#2547; 32000</span></h3>
                                 <div class="button">
                                     <a href="" class="btn">Shop Now</a>
                                 </div>
@@ -33,7 +33,7 @@ Online Super Store
                                 </h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut
                                     labore dolore magna aliqua.</p>
-                                <h3><span>Combo Only:</span> $590.00</h3>
+                                <h3><span>Combo Only:</span> <span style="color:rgb(8, 8, 8); font-size: 20px; font-family:bold" >&#2547; 60000</span> </h3>
                                 <div class="button">
                                     <a href="" class="btn">Shop Now</a>
                                 </div>
@@ -50,9 +50,9 @@ Online Super Store
                             <div class="content">
                                 <h2>
                                     <span>New line required</span>
-                                    iPhone 12 Pro Max
+                                    iPhone 15 Pro Max
                                 </h2>
-                                <h3>$259.99</h3>
+                                <h3><span style="color:rgb(8, 8, 8); font-size: 20px; font-family:bold" >&#2547; 165000</span></h3>
                             </div>
                         </div>
 
@@ -99,13 +99,14 @@ Online Super Store
                     </div>
                     <div class="product-info">
                         <span class="category">{{$product->category->name}}</span>
-                        <div class="title" style="height: 50px;">
+                        <div class="title" style=" display: -webkit-box;-webkit-line-clamp:3;-webkit-box-orient: vertical; overflow: hidden; height: 50px;">
                             <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                         </div>
-                       
                         <div class="price">
                             <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
-                            <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                            @if($product->regular_price!=null)
+                              <del style="color:#808080; font-size: 20px; font-family:bold" >&#2547; {{$product->regular_price}}</del>
+                             @endif
                         </div>
                         <div>
                             <ul class="review">

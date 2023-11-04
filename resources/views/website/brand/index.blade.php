@@ -159,21 +159,23 @@
 
                                         <div class="single-product">
                                                 <div class="product-image">
-                                                    <img src="{{asset($product->image)}}" alt="" height="180"
-                                                         width="150">
+                                                    <img src="{{asset($product->image)}}" alt="" height="160px" width="80px">
+                                                        
                                                     <div class="button">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}" class="btn"><i class="lni lni-cart"></i> Add to Cart</a>
                                                     </div>
                                                 </div>
                                                 <div class="product-info">
                                                     <span class="category"><strong>Brand : </strong>{{$product->brand->name}}</span>
-                                                    <div class="title" style="height: 50px;">
+                                                    <div class="title" style=" display: -webkit-box;-webkit-line-clamp:2;-webkit-box-orient: vertical; overflow: hidden; height:45px;">
                                                         <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                     </div>
                                                     
                                                     <div class="price">
                                                         <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
-                                                        <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                        @if($product->regular_price!=null)
+                                                        <del style="color:#808080; font-size: 18px; font-family:bold" >&#2547; {{$product->regular_price}}</del>
+                                                        @endif
                                                       
                                                     </div>
                                                     <div class="mb-2" style="height: 20px;">
@@ -225,14 +227,16 @@
                                                     </div>
                                                     <div class="col-lg-8 col-md-8 col-12">
                                                         <div class="product-info">
-                                                            <span class="category"> Brand :{{$product->brand->name}}</span>
+                                                            <span class="category">Brand :&nbsp;{{$product->brand->name}}</span>
                                                             <h4 class="title">
                                                                 <a href="{{route('product-detail',['product_id'=>$product->id])}}">{{$product->name}}</a>
                                                             </h4>
                                                             
                                                             <div class="price">
                                                                 <span style="color:#f85606; font-size: 20px; font-family:bold" >&#2547 {{$product->selling_price}}</span>&nbsp;
-                                                                <del style="color:#808080; font-size: 18px;font-family:bold" >&#2547 {{$product->regular_price}}</del>
+                                                                @if($product->regular_price!=null)
+                                                                <del style="color:#808080; font-size: 18px; font-family:bold" >&#2547; {{$product->regular_price}}</del>
+                                                                @endif
                                                             </div>
                                                             <ul class="review">
                                                                 <li><i class="lni lni-star-filled"></i></li>
