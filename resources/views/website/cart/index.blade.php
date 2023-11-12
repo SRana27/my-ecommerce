@@ -92,7 +92,7 @@ cart
                                         <input class="input-group form-control" type="number" min="1"
                                                value="{{$cart_product->qty}}" name="qty" required
                                                placeholder="quantity">
-                                        <input class="btn btn-success" type="submit" value="update">
+                                        <input class="btn btn-success" type="submit" value="update" id="update">
                                     </div>
                                 </form>
                             </div>
@@ -154,8 +154,8 @@ cart
 
                                         <a href="{{route('checkout')}}" class="btn ">Checkout</a>
                                         @else
-
-                                        <a onclick=" return confirm('please add products first')" class="btn ">Checkout</a>
+                                        <a id="addFirst" class="btn ">Checkout</a>
+                                        <!-- <a onclick=" return confirm('please add products first')" class="btn ">Checkout</a> -->
                                         @endif
                                         <a href="{{route('home')}}" class="btn btn-alt">Continue shopping</a>
                                     </div>

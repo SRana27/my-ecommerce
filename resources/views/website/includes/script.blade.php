@@ -6,6 +6,11 @@
 <script src="{{asset('/')}}website/assets/js/setup.js"></script>
 <script src="{{asset('/')}}website/assets/js/xzoom.min.js"></script>
 <script src="{{asset('/')}}website/assets/js/jquery-ui.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+
 
 
  <script type="text/javascript">
@@ -186,5 +191,25 @@ $(document).on('change','#select1',function () {
                });
 
            });
+           $('#addTo').click(function () {
+      
+      swal("sorry this product not available now!");
+          
+         });
+      
+         $('#update').click(function () {
+          swal('quantity update successfully');
+                     
+   
+           } );
+           $('#addFirst').click(function () {
+          swal('please add products first');
+                     
+   
+           } ); 
+           
     })
 </script>
+<script>
+  
+    </script>

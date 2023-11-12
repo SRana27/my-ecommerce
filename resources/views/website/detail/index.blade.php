@@ -50,6 +50,15 @@
                                 <p class="category"> Model:
                                     {{$product->model}}
                                 </p>
+                                <p style="font-size:16px;">
+                                     
+                                @if($product->stock_amount>0)
+                                 
+                                    <label class="badge bg-success">In a stock</label>
+                                 @else     
+                                 <label class="badge bg-danger">Out of stock</label> 
+                                 @endif                             
+                                </p>
                             <h3 ><span style="color:#f85606; font-size: 30px; font-family:bold" >&#2547; {{$product->selling_price}}</span>&nbsp;
                                 @if($product->regular_price!=null)
                                 <del style="color:#808080; font-size: 25px; font-family:bold" >&#2547; {{$product->regular_price}}</del></h3>
@@ -74,10 +83,18 @@
                                     <div class="row align-items-end">
                                         <div class="col-lg-4 col-md-4 col-12">
                                             <div class="wish-button">
+                                                @if($product->stock_amount>0)
                                                 <button
                                                     class="btn"  id="addToCart" style="width: 100%;" ><i class="lni lni-cart" ></i> Add to
                                                     Cart
                                                 </button>
+                                                @else
+                                                <button
+                                                    class="btn"  id="addTo" style="width: 100%;" ><i class="lni lni-cart" ></i> Add to
+                                                    Cart
+                                                </button>
+                                                @endif
+                                               
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-12">

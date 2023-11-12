@@ -26,7 +26,7 @@ class CustomerAuthController extends Controller
                 Session::put('customer_id', $this->customer->id);
                 Session::put('customer_name', $this->customer->name);
          
-                return redirect('/');
+                return redirect('/checkout');
 
             } else {
                 return back()->with('message', 'invalid password');

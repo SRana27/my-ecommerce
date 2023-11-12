@@ -171,7 +171,7 @@
                                     @php($result=0)
                                     @foreach(ShoppingCart::all() as $item)
                                     <li>
-                                        <a href="{{route('remove-to-cart-header',['rowId'=>$item->__raw_id])}}" class="remove" title="Remove this item"><i class="lni lni-close"></i></a>
+                                        <a href="{{route('remove-to-cart',['rowId'=>$item->__raw_id])}}" class="remove" title="Remove this item"><i class="lni lni-close"></i></a>
                                         <div class="cart-img-head">
                                             <a class="cart-img" href=""><img src="{{asset($item->image)}}" alt=""></a>
                                         </div>
