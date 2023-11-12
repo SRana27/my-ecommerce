@@ -107,7 +107,7 @@
                     <div class="main-menu-search">
 
                       <form action="{{route('search')}}" method="get">
-                 
+
                             <div class="navbar-search search-style-5">
 
                                 <div class="search-select">
@@ -145,7 +145,7 @@
                             <div class="wishlist">
                                 <a href="javascript:void(0)">
                                     <i class="lni lni-heart"></i>
-                                    {{-- <span class="total-items">0</span> --}}
+
                                 </a>
                             </div>
 
@@ -158,7 +158,7 @@
                                    @endif
 
                                 </a>
-                               
+
 
 
                               @if(count(ShoppingCart::all())>0)

@@ -37,30 +37,41 @@ Route::get('/product-detail/{product_id}',[MyCommerceController::class,'detail']
 Route::get('/search',[MyCommerceController::class,'search'])->name('search');
 Route::get('/product-list',[MyCommerceController::class,'productList'])->name('p.list');
 Route::get('/subcategory-wise-product-list',[MyCommerceController::class,'subcategoryWiseProductList'])->name('subProduct.list');
+//
+//Route::get('/show-cart',[CartController::class,'show'])->name('show-cart');
+//Route::post('/add-to-cart/{product_id}',[CartController::class,'index'])->name('add-to-cart');
+//Route::post('/update-cart-qty/{rowId}',[CartController::class,'update'])->name('update-cart-qty');
+//Route::get('/remove-to-cart/{rowId}',[CartController::class,'remove'])->name('remove-to-cart');
+//Route::get('/remove-to-cart-header/{rowId}',[CartController::class,'remove_from_header'])->name('remove-to-cart-header');
+//Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
+//Route::post('/new-cash-order',[CheckoutController::class,'newCashOrder'])->name('new-cash-order');
+//Route::get('/complete-order',[CheckoutController::class,'completeOrder'])->name('complete-order');
 
-Route::get('/show-cart',[CartController::class,'show'])->name('show-cart');
-Route::post('/add-to-cart/{product_id}',[CartController::class,'index'])->name('add-to-cart');
-Route::post('/update-cart-qty/{rowId}',[CartController::class,'update'])->name('update-cart-qty');
-Route::get('/remove-to-cart/{rowId}',[CartController::class,'remove'])->name('remove-to-cart');
-Route::get('/remove-to-cart-header/{rowId}',[CartController::class,'remove_from_header'])->name('remove-to-cart-header');
-Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
-Route::post('/new-cash-order',[CheckoutController::class,'newCashOrder'])->name('new-cash-order');
-Route::get('/complete-order',[CheckoutController::class,'completeOrder'])->name('complete-order');
 
 Route::get('/customer-login',[CustomerAuthController::class,'index'])->name('customer.login');
 Route::post('/customer-login',[CustomerAuthController::class,'login'])->name('customer.login');
 Route::post('/customer-register',[CustomerAuthController::class,'register'])->name('customer.register');
 
 
-
+ 
   Route::middleware(['customer'])->group(function ()
   {
-    Route::get('/customer-dashboard',[CustomerAuthController::class,'dashboard'])->name('customer.dashboard');
-    Route::get('/customer-profile',[CustomerAuthController::class,'profile'])->name('customer.profile');
-    Route::get('/customer-logout',[CustomerAuthController::class,'logout'])->name('customer.logout');
-    Route::get('/customer-all-order',[CustomerOrderController::class,'allOrder'])->name('customer.all-order');
-    Route::get('/customer-all-order-detail/{order_id}',[CustomerOrderController::class,'allOrderDetail'])->name('customer.all-order-detail');
-      Route::get('/customer-product-info/{product_id}',[CustomerAuthController::class,'productInfo'])->name('product.info');
+       Route::post('/add-to-cart',[CartController::class,'index'])->name('add-to-cart');
+       Route::get('/show-cart',[CartController::class,'show'])->name('show-cart');
+       Route::post('/update-cart-qty/{rowId}',[CartController::class,'update'])->name('update-cart-qty');
+       Route::get('/remove-to-cart/{rowId}',[CartController::class,'remove'])->name('remove-to-cart');
+       Route::get('/remove-to-cart-header/{rowId}',[CartController::class,'remove_from_header'])->name('remove-to-cart-header');
+       Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
+       Route::post('/new-cash-order',[CheckoutController::class,'newCashOrder'])->name('new-cash-order');
+       Route::get('/complete-order',[CheckoutController::class,'completeOrder'])->name('complete-order');
+
+       Route::get('/customer-home',[CustomerAuthController::class,'success']);
+       Route::get('/customer-dashboard',[CustomerAuthController::class,'dashboard'])->name('customer.dashboard');
+       Route::get('/customer-profile',[CustomerAuthController::class,'profile'])->name('customer.profile');
+       Route::get('/customer-logout',[CustomerAuthController::class,'logout'])->name('customer.logout');
+       Route::get('/customer-all-order',[CustomerOrderController::class,'allOrder'])->name('customer.all-order');
+       Route::get('/customer-all-order-detail/{order_id}',[CustomerOrderController::class,'allOrderDetail'])->name('customer.all-order-detail');
+       Route::get('/customer-product-info/{product_id}',[CustomerAuthController::class,'productInfo'])->name('product.info');
   });
 
 

@@ -12,15 +12,15 @@ class MyCommerceController extends Controller
 {
     public function index()
     {
-        $client = new \GuzzleHttp\Client();
-        $url ='https://fakestoreapi.com/products?limit=6';
-        $products_request = $client->get($url);
-        $product_response=json_decode( $products_request->getBody(),true);
-        $api_products= $product_response;
+//        $client = new \GuzzleHttp\Client();
+//        $url ='https://fakestoreapi.com/products?limit=6';
+//        $products_request = $client->get($url);
+//        $product_response=json_decode( $products_request->getBody(),true);
+//        $api_products= $product_response;
         $categories = Category::all();
         $brands= Brand::all();
         $products =Product::orderBy('id', 'desc')->take('8')->get(['id', 'category_id', 'subcategory_id', 'name', 'selling_price','regular_price', 'image']);
-        return view('website.home.index',compact('api_products','categories','products','brands'));
+        return view('website.home.index',compact('categories','products','brands'));//'api_products'
     }
 
     public function category($category_id)
@@ -67,17 +67,17 @@ class MyCommerceController extends Controller
     {
         return view('website.contact.contact_us');
     }
-    
+
 
     public function search(Request $request)
 
-    {  
+    {
         if($request->searchproduct)
-        {  
-           
+        {
+
           $products =Product::where('name','LIKE','%'.$request->searchproduct.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
-   
-        
+
+
        }else
           {
            if($request->subcategory != 0){
@@ -86,12 +86,12 @@ class MyCommerceController extends Controller
 
             }
              else{
-           
+
                 $products=Product::where('name','LIKE','%'.$request->product.'%')->orderBy('id','desc')->paginate(3)->withQueryString();
             }
 
             }
-        
+
             if($request->subcategory !=0 && $request->product!=''){
 
                 $related_Products=Product::where('subcategory_id',$request->subcategory)->orderBy('id','asc')->take('3')->get();
@@ -105,8 +105,8 @@ class MyCommerceController extends Controller
             'products'=> $products,
             'related_Products'=> $related_Products,
         ]);
-        
-        
+
+
     }
 
     public function productList()
@@ -118,7 +118,7 @@ class MyCommerceController extends Controller
         foreach($products as $product){
             $data[]=$product['name'];
         }
-       
+
      return $data;
     }
 

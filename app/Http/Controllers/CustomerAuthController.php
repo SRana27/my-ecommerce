@@ -25,8 +25,8 @@ class CustomerAuthController extends Controller
             {
                 Session::put('customer_id', $this->customer->id);
                 Session::put('customer_name', $this->customer->name);
-
-                return redirect('/customer-dashboard');
+         
+                return redirect('/');
 
             } else {
                 return back()->with('message', 'invalid password');
@@ -49,7 +49,10 @@ class CustomerAuthController extends Controller
 
     }
 
-
+    public function success()
+    {
+      return redirect('/');
+    }
     public function dashboard()
     {
       return view('customer.dashboard');

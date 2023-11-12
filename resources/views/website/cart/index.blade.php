@@ -22,17 +22,17 @@ cart
         </div>
     </div>
 
+    {{-- <div class="col-6 mx-auto">
+        @if($message=Session::get('message'))
 
+            <div class="alert alert-success alert-dismissible fade show text-center">
+                {{$message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-lebel="close"></button>
+            </div>
+        @endif
+    </div> --}}
     <div class="shopping-cart section">
-       <div class="col-6 mx-auto">
-           @if($message=Session::get('message'))
-
-               <div class="alert alert-success alert-dismissible fade show text-center">
-                   {{$message}}
-                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-lebel="close"></button>
-               </div>
-           @endif
-       </div>
+       
         <div class="container">
 
             <div class="cart-list-head">

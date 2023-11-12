@@ -139,28 +139,28 @@ Online Super Store
                 </div>
             </div>
         </div>
-        <div class="row">
-            @foreach($api_products as $api_product)
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="pt-3 mx-2">
-                        <div class="text-center mb-3 hover">
-                            <img src="{{$api_product['image']}}" alt="#" height="250px" width="200px">
-                        </div>
-                        <div style="height:50px;" >
-                            <strong>Title: </strong>{{$api_product['title']}}
-                        </div>
+{{--        <div class="row">--}}
+{{--            @foreach($api_products as $api_product)--}}
+{{--                <div class="col-lg-4 col-md-6 col-12">--}}
+{{--                    <div class="pt-3 mx-2">--}}
+{{--                        <div class="text-center mb-3 hover">--}}
+{{--                            <img src="{{$api_product['image']}}" alt="#" height="250px" width="200px">--}}
+{{--                        </div>--}}
+{{--                        <div style="height:50px;" >--}}
+{{--                            <strong>Title: </strong>{{$api_product['title']}}--}}
+{{--                        </div>--}}
 
-                        <p><b>Price : </b> {{$api_product['price']}}</p>
-                        <p style=" display: -webkit-box;-webkit-line-clamp:3;-webkit-box-orient: vertical; overflow: hidden;"><b>Description: </b>{{$api_product['description']}}</p>
-                        <div class="text-center pt-2 ">
-                            <p class=""><a href="" class="btn btn-success ">see more</a></p>
-                        </div>
+{{--                        <p><b>Price : </b> {{$api_product['price']}}</p>--}}
+{{--                        <p style=" display: -webkit-box;-webkit-line-clamp:3;-webkit-box-orient: vertical; overflow: hidden;"><b>Description: </b>{{$api_product['description']}}</p>--}}
+{{--                        <div class="text-center pt-2 ">--}}
+{{--                            <p class=""><a href="" class="btn btn-success ">see more</a></p>--}}
+{{--                        </div>--}}
 
 
-                    </div>
-                </div>
-            @endforeach
-        </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endforeach--}}
+{{--        </div>--}}
     </div>
 </section>
 

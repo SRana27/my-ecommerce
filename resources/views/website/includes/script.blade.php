@@ -6,7 +6,7 @@
 <script src="{{asset('/')}}website/assets/js/setup.js"></script>
 <script src="{{asset('/')}}website/assets/js/xzoom.min.js"></script>
 <script src="{{asset('/')}}website/assets/js/jquery-ui.js"></script>
-  
+
 
  <script type="text/javascript">
     //========= Hero Slider
@@ -78,23 +78,22 @@
     }
     timer();
     setInterval(timer, 1000);
-</script> 
+</script>
 <script>
-  
     var availableTags = [];
     $.ajax({
         method:"GET",
         url: "{{url('/product-list')}}",
-       
+
         success: function (response){
             //console.log(response);
             StartAutoComplete(response);
 
         }
-       
+
     });
 
-    function StartAutoComplete(availableTags) 
+    function StartAutoComplete(availableTags)
     {
         $( "#search_product" ).autocomplete({
       source: availableTags
@@ -103,8 +102,9 @@
     });
     }
   </script>
+
    <script>
-     $(function () {
+       $(function () {
 
 var sid =($('#select1').val());
 $.ajax({
@@ -112,7 +112,7 @@ $.ajax({
     url:" {{url('/subcategory-wise-product-list')}}",
     data: {id:sid},
     success:function (response) {
-         console.log(response);
+         // console.log(response);
         startAutoComplete1(response);
     }
 });
@@ -148,10 +148,43 @@ $(document).on('change','#select1',function () {
         minLength: 2
     });
 
-        
+
     }
 });
 
 })
 </script>
-   
+<script>
+    $(document).ready(function () {
+
+
+           $('#addToCart').click(function (e) {
+               e.preventDefault()
+               var product_id = $(this).closest('#detail_info').find('#pId').val();
+               var product_qty = $(this).closest('#detail_info').find('#inputQty').val();
+
+               // alert(product_id);
+               // alert(product_qty);
+
+               $.ajaxSetup({
+                   headers: {
+                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                   }
+               });
+               $.ajax({
+                   method: "post",
+                   url: "{{route('add-to-cart')}}",
+                   data: {
+                       'product_id': product_id,
+                       'qty': product_qty,
+                   },
+                   success: function (response) {
+                 
+                       window.location.href="{{route('show-cart')}}"
+
+                   }
+               });
+
+           });
+    })
+</script>
