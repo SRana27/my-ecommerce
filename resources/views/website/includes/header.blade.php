@@ -196,7 +196,7 @@
                             </div>
                               @else
                               <div class="shopping-item button" style="width:25ch">
-                                <a href="{{'/'}}" class="btn"> Please add items</a>
+                                <a href="{{route('home')}}" class="btn"> Please add items</a>
                               </div>
                                @endif
                             </div>

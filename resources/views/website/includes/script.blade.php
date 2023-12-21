@@ -210,6 +210,3 @@ $(document).on('change','#select1',function () {
            
     })
 </script>
-<script>
-  
-    </script>

@@ -46,19 +46,9 @@
             <li class="nav-item dropdown u-pro">
                 <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('/')}}admin/assets/images/users/admin.jpg" alt="user" class=""> <span class="hidden-md-down">Sohel Rana &nbsp;<i class="ti-angle-down"></i></span> </a>
                 <div class="dropdown-menu dropdown-menu-end animated flipInY">
-                    <!-- text-->
-                    <a href="javascript:void(0)" class="dropdown-item"><i class="ti-user"></i> My Profile</a>
-                    <!-- text-->
-                    <a href="javascript:void(0)" class="dropdown-item"><i class="ti-wallet"></i> My Balance</a>
-                    <!-- text-->
-                    <a href="javascript:void(0)" class="dropdown-item"><i class="ti-email"></i> Inbox</a>
-                    <!-- text-->
-                    <div class="dropdown-divider"></div>
-                    <!-- text-->
-                    <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
-                    <!-- text-->
-                    <div class="dropdown-divider"></div>
-                    <!-- text-->
+            
+                    <a href="{{route('profile.show')}}" class="dropdown-item"><i class="ti-settings"></i> Account Setting</a>
+                
                     <a href="" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logoutForm').submit()"><i class="ti-power-off"></i> Logout</a>
                     <form action="{{route('logout')}}" id="logoutForm" method="post">
                         @csrf
