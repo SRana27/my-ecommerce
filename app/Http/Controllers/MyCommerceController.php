@@ -59,7 +59,7 @@ class MyCommerceController extends Controller
     public function detail($product_id)
     {
         return view('website.detail.index', [
-            'product' => Product::find($product_id)
+            'product' => Product::find($product_id),
         ]);
     }
 

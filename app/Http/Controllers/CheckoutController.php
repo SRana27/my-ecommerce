@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use ShoppingCart;
 use Session;
@@ -46,7 +47,7 @@ class CheckoutController extends Controller
         }
 
         $this->order=Order::newOrder($request,$this->customer->id );
-          OrderDetail::newOrderDetail( $this->order->id);
+        OrderDetail::newOrderDetail( $this->order->id);
         return redirect('/complete-order')->with('message','Congratulation ........ your order placed');
 
     }

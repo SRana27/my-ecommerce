@@ -90,7 +90,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="text-center"> Customer Information</h4>
+                    <h4 class="text-center"> Product Information</h4>
                     <hr >
                     <div class="table-responsive">
                         <table class="table table-striped border">

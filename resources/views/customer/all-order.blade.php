@@ -48,6 +48,7 @@
                               <th>Order Total</th>
                               <th>Order Status</th>
                               <th>Deliver Address</th>
+                              <th> Payment status</th>
                               <th>Action</th>
                           </tr>
                           @foreach($orders as $order)
@@ -59,6 +60,7 @@
                                     <td>{{$order->order_total}} tk.</td>
                                     <td>{{$order->order_status}}</td>
                                     <td>{{$order->delivery_address}}</td>
+                                     <td>{{$order->payment_status}}</td>
                                     <td><a href="{{route('customer.all-order-detail',['order_id'=>$order->id])}}" class="btn btn-success">
                                           detail
                                       </a>

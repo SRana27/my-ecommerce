@@ -51,13 +51,13 @@
                                     {{$product->model}}
                                 </p>
                                 <p style="font-size:16px;">
-                                     
+
                                 @if($product->stock_amount>0)
-                                 
+
                                     <label class="badge bg-success">In a stock</label>
-                                 @else     
-                                 <label class="badge bg-danger">Out of stock</label> 
-                                 @endif                             
+                                 @else
+                                 <label class="badge bg-danger">Out of stock</label>
+                                 @endif
                                 </p>
                             <h3 ><span style="color:#f85606; font-size: 30px; font-family:bold" >&#2547; {{$product->selling_price}}</span>&nbsp;
                                 @if($product->regular_price!=null)
@@ -68,7 +68,7 @@
                             {{-- <form action="{{route('add-to-cart',['product_id'=>$product->id])}}" method="post">
                                 @csrf --}}
                                 <input type="hidden" id="pId" value="{{$product->id}}">
-                        
+
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="form-group quantity">
@@ -94,7 +94,7 @@
                                                     Cart
                                                 </button>
                                                 @endif
-                                               
+
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-12">

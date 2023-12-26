@@ -32,7 +32,7 @@ cart
         @endif
     </div> --}}
     <div class="shopping-cart section">
-       
+
         <div class="container">
 
             <div class="cart-list-head">
@@ -137,10 +137,10 @@ cart
                                         <li>Tax(5%) : <span style="font-size: 15px; font-family:bold"> &#2547 {{$tax=round(($sum*5)/100)}}</span></li>
                                         <li>Shipping Fee : <span style="font-size: 15px; font-family:bold"> &#2547
                                                 @if(count($cart_products)>0)
-                                                   {{$shipping=100}} 
+                                                   {{$shipping=100}}
 
                                                   @else
-                                                    {{$shipping=0}} 
+                                                    {{$shipping=0}}
 
                                                   </span>
                                               @endif

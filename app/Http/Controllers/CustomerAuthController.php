@@ -6,6 +6,7 @@ use App\Models\Customer;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Session;
+use ShoppingCart;
 use function Illuminate\Validation\passes;
 
 class CustomerAuthController extends Controller
@@ -25,8 +26,12 @@ class CustomerAuthController extends Controller
             {
                 Session::put('customer_id', $this->customer->id);
                 Session::put('customer_name', $this->customer->name);
-         
-                return redirect('/checkout');
+                 if(count(ShoppingCart::all())>0){
+                     return redirect('/checkout');
+                 }
+                 else{
+                     return redirect('/customer-dashboard');
+                 }
 
             } else {
                 return back()->with('message', 'invalid password');

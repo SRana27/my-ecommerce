@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use ShoppingCart;
-
+use App\Models\Product;
 class OrderDetail extends Model
 {
     use HasFactory;
-    private static $orderDetail,$orderDetails;
+    private static $orderDetail,$orderDetails,$product;
 
     public static function newOrderDetail($orderId )
     {
@@ -23,8 +23,15 @@ class OrderDetail extends Model
             self::$orderDetail->product_price       =$item->price;
             self::$orderDetail->product_qty         =$item->qty;
             self::$orderDetail->save();
-
             ShoppingCart::remove($item->__raw_id);
+
+            self::$product = Product::find($item->id);
+            if(self::$product->stock_amount>=$item->qty){
+                self::$product->stock_amount   =self::$product->stock_amount-$item->qty;
+                self::$product->sales_count   = self::$product->sales_count+$item->qty;
+                self::$product->hit_count   = self::$product->hit_count +1;
+                self::$product->save();
+            }
 
         }
 

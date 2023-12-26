@@ -299,7 +299,7 @@
                 <th>product name</th>
                 <th>product price</th>
                 <th>product quantity</th>
-                <th class="text-end">total amount(BDT)</th>
+                <th class="text-end"> amount(BDT)</th>
                 </thead>
 
                 @foreach($order->orderDetails as $orderDetail)
@@ -313,25 +313,44 @@
                     </tbody>
                 @endforeach
                 <tr>
-                    <td class="text-end" Colspan="4">Tax (5%)</td>
+                    <td class="text-end" Colspan="4">Tax (5%) :</td>
                     <td class="text-end">{{$order->tax_total}} .Tk</td>
                 </tr>
                 <tr>
-                    <td class="text-end" Colspan="4">Shipping Cost</td>
+                    <td class="text-end" Colspan="4">Shipping Cost :</td>
                     <td class="text-end">{{$order->shipping_total}} .Tk</td>
                 </tr>
                 <tr>
-                    <td class="text-end" Colspan="4"><b>Total Cost</b></td>
+                    <td class="text-end" Colspan="4"><b>Total Cost :</b></td>
                     <td class="text-end ">{{$order->order_total}} .Tk</td>
                 </tr>
+                <tr>
+                    @if($order->payment_type==2)
+                    <td class="text-end" Colspan="4"><b>payment</b> :</td>
+                    <td class="text-end ">{{$order->order_total}} .Tk</td>
+
+                       @else
+                        <td class="text-end" Colspan="4"><b>Payable amount :</b></td>
+                        <td class="text-end ">{{$order->order_total}} .Tk</td>
+                    @endif
+                </tr>
+                <tr>
+                    @if($order->payment_type==2)
+                    <td class="text-end" Colspan="4"><b>status :</b></td>
+                    <td class="text-end ">paid</td>
+                    @else
+                        <td class="text-end" Colspan="4"><b>status :</b></td>
+                        <td class="text-end ">due</td>
+                </tr>
+                @endif
 
             </table>
-            <div class="row pt-3">
-                <div class="col-md-3">
-                    <p><u>Prepared By</u></p>
+            <div class="row pt-5 ">
+                <div class="col-md-6">
+                    <p class="text-start"><u>Prepared By</u></p>
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <p class="text-end"><u>Received by</u></p>
                 </div>
             </div>

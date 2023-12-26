@@ -213,10 +213,11 @@ class SslCommerzPaymentController extends Controller
                 */
                 $update_product = DB::table('orders')
                     ->where('transaction_id', $tran_id)
-                    ->update(['order_status' => 'Processing']);
+                    ->update(['order_status' => 'Processing'
+                    ,'payment_status'=>'paid']);
 
                 echo "Transaction is successfully Completed";
-                return redirect('/complete-order')->with('message', 'Congratulation ........ your order placed');
+                return redirect('/complete-order')->with('message', 'Congratulation payment successfully & your order placed');
             }
         } else if ($order_details->order_status == 'Processing' || $order_details->order_status == 'Complete') {
             /*
