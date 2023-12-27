@@ -24,7 +24,14 @@ class CartController extends Controller
      public function remove($rowId){
 
     ShoppingCart::remove($rowId);
-    return back()->with('message','Cart product remove successfully');
+    if(count(ShoppingCart::all())!=0){
+        return back()->with('message','Cart product remove successfully');
+    }
+    else{
+
+        return redirect('/');
+    }
+
     }
 
 
