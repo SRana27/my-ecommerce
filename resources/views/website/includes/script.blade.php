@@ -10,9 +10,6 @@
 
 
 
-
-
-
  <script type="text/javascript">
     //========= Hero Slider
     tns({
@@ -53,6 +50,7 @@
         }
     });
 </script>
+
  <script>
     const finaleDate = new Date("February 15, 2023 00:00:00").getTime();
 
@@ -84,6 +82,7 @@
     timer();
     setInterval(timer, 1000);
 </script>
+
 <script>
     var availableTags = [];
     $.ajax({
@@ -106,107 +105,130 @@
         minLength: 2
     });
     }
-  </script>
+</script>
 
-   <script>
-       $(function () {
+<script>
+    $(function () {
 
-var sid =($('#select1').val());
-$.ajax({
-    type:"GET",
-    url:" {{url('/subcategory-wise-product-list')}}",
-    data: {id:sid},
-    success:function (response) {
-         // console.log(response);
-        startAutoComplete1(response);
-    }
-});
-function startAutoComplete1(availableTags)
-{
-    $( "#s_product" ).autocomplete({
-        source: availableTags
-    },
-    {
-        minLength: 2
-    });
-
-}
-$(document).on('change','#select1',function () {
-    var subcategoryId = $(this).val();
-    // alert(subcategoryId);
-    $.ajax({
-        type:"get",
-        url:" {{url('/subcategory-wise-product-list')}}",
-        data: {id:subcategoryId},
-        // dataType:"JSON",
-        success:function (response) {
-            // console.log(response);
-            startAutoComplete(response);
-        }
-    });
-    function startAutoComplete(availableTags)
-    {
-        $( "#s_product" ).autocomplete({
-            source: availableTags
-        },
+        var sid =($('#select1').val());
+        $.ajax({
+            type:"GET",
+            url:" {{url('/subcategory-wise-product-list')}}",
+            data: {id:sid},
+            success:function (response) {
+                // console.log(response);
+                startAutoComplete1(response);
+            }
+        });
+        function startAutoComplete1(availableTags)
         {
-        minLength: 2
-    });
+            $( "#s_product" ).autocomplete({
+                source: availableTags
+            },
+            {
+                minLength: 2
+            });
+
+        }
+        
+        $(document).on('change','#select1',function () {
+            var subcategoryId = $(this).val();
+            // alert(subcategoryId);
+            $.ajax({
+                type:"get",
+                url:" {{url('/subcategory-wise-product-list')}}",
+                data: {id:subcategoryId},
+                // dataType:"JSON",
+                success:function (response) {
+                    // console.log(response);
+                    startAutoComplete(response);
+                }
+            });
+            function startAutoComplete(availableTags)
+            {
+                $( "#s_product" ).autocomplete({
+                    source: availableTags
+                },
+                {
+                minLength: 2
+            });
 
 
-    }
-});
+            }
+        });
 
-})
+    })
 </script>
 <script>
     $(document).ready(function () {
 
 
-           $('#addToCart').click(function (e) {
-               e.preventDefault()
-               var product_id = $(this).closest('#detail_info').find('#pId').val();
-               var product_qty = $(this).closest('#detail_info').find('#inputQty').val();
+        $('#addToCart').click(function (e) {
+            e.preventDefault()
+            var product_id = $(this).closest('#detail_info').find('#pId').val();
+            var product_qty = $(this).closest('#detail_info').find('#inputQty').val();
 
-               // alert(product_id);
-               // alert(product_qty);
+            // alert(product_id);
+            // alert(product_qty);
 
-               $.ajaxSetup({
-                   headers: {
-                       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                   }
-               });
-               $.ajax({
-                   method: "post",
-                   url: "{{route('add-to-cart')}}",
-                   data: {
-                       'product_id': product_id,
-                       'qty': product_qty,
-                   },
-                   success: function (response) {
-                 
-                       window.location.href="{{route('show-cart')}}"
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                method: "post",
+                url: "{{route('add-to-cart')}}",
+                data: {
+                    'product_id': product_id,
+                    'qty': product_qty,
+                },
+                success: function (response) {
+                
+                    window.location.href="{{route('show-cart')}}"
 
-                   }
-               });
+                }
+            });
+        });
 
-           });
-           $('#addTo').click(function () {
+        $('#addTo').click(function () {
       
-      swal("sorry this product not available now!");
+            swal("sorry this product not available now!");
           
-         });
+        });
       
-         $('#update').click(function () {
+        $('#update').click(function () {
           swal('quantity update successfully');
                      
    
-           } );
-           $('#addFirst').click(function () {
+        } );
+
+        $('#addFirst').click(function () {
           swal('please add products first');
                      
    
-           } ); 
+        }); 
            
-    })
+    });
+
+    // function confirmDelete(){
+    //     swal('are you sure remove this product');
+    // }
+
+        function confirmDelete(){
+        swal({
+            // title: "Are you sure?",
+            text: "Are you sure ?to remove this product!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                // Perform your delete operation here, if needed
+                swal("product removed!", {
+                    icon: "success",
+                });
+            } 
+        });
+    }
 </script>

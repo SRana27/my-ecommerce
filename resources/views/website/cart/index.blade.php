@@ -103,9 +103,12 @@ cart
                                 <p class="text-center"><span style="font-size: 15px; font-family:bold"> &#2547;</span> {{($cart_product->price*5* $cart_product->qty)/100}}</p>
                             </div>
                             <div class="col-lg-1 col-md-2 col-12 ">
-                                <a class="remove-item" onclick=" return confirm('are you sure remove this product')"
-                                   href="{{route('remove-to-cart',['rowId'=>$cart_product->__raw_id])}}"><i
-                                        class="lni lni-close"></i></a>
+                                {{-- <a class="remove-item" onclick=" return confirm('are you sure remove this product')"
+                                   href="{{route('remove-to-cart',['rowId'=>$cart_product->__raw_id])}}"><i class="lni lni-close"></i>
+                                </a> --}}
+                                <a class="remove-item" onclick="confirmDelete()"
+                                href="{{route('remove-to-cart',['rowId'=>$cart_product->__raw_id])}}"><i class="lni lni-close"></i>
+                             </a>
                             </div>
                         </div>
                     </div>
